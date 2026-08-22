@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="FaithForward Strategic Planning Survey. Share your feedback to help shape the future of our church community.">
+    <title>Ecwa Umuahia DCC - Church Feedback Hub</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Top Decorative Line -->
+    <div class="top-accent-bar"></div>
+
+    <!-- Navigation Header -->
+    <header class="app-header">
+        <div class="header-container">
+            <a href="#" id="brand-logo" class="brand-logo" aria-label="Go to Home Page">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L4 7V17L12 22L20 17V7L12 2Z" stroke="currentColor" stroke-width="2"
+                        stroke-linejoin="round" />
+                    <path d="M12 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <path d="M9 10H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <div class="brand-text">
+                    <span class="brand-title">ECWA Umuahia DCC</span>
+                    <span class="brand-subtitle">Strategic Planning Hub</span>
+                </div>
+            </a>
+            <div class="header-actions">
+                <button id="nav-backend-btn" class="btn btn-outline" aria-label="Backend Collector Setup">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                        <path d="M3 5c0 1.66 4 3 9 3s9-1.34 9-3" />
+                        <path d="M21 5v14c0 1.66-4 3-9 3s-9-1.34-9-3V5" />
+                    </svg>
+                    Data Collector Setup
+                </button>
+                <button id="nav-directory-btn" class="btn btn-primary" aria-label="View Directory">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="9" rx="1" />
+                        <rect x="14" y="3" width="7" height="5" rx="1" />
+                        <rect x="14" y="12" width="7" height="9" rx="1" />
+                        <rect x="3" y="16" width="7" height="5" rx="1" />
+                    </svg>
+                    Church Directory
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+        <!-- ================= PAGE 1: WELCOMING HOME PAGE ================= -->
+        <section id="home-view" class="view active">
+            <!-- Hero Banner & Welcome Section -->
+            <div class="hero-card">
+                <div class="hero-content">
+                    <span class="hero-badge">ECWA Umuahia DCC Strategic Planning</span>
+                    <h1 class="hero-title">Shaping the Future of Our Community, Together</h1>
+                    <p class="hero-lead">
+                        Welcome to the FaithForward planning portal for ECWA Umuahia District Church Council. Share your feedback to guide leadership decision-making across all local churches.
+                    </p>
+                    <div class="hero-divider"></div>
+                    <p class="hero-text">
+                        Please select your local church congregation from the directory of 61 local churches below to begin the feedback survey.
+                    </p>
+                    <a href="#directory-section" class="btn btn-primary btn-large">
+                        Find My Local Church
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <polyline points="19 12 12 19 5 12" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="assets/church_hero_banner.png" alt="Grace Community Church - A warm and welcoming setting"
+                        class="hero-image">
+                </div>
+            </div>
+
+            <!-- Directory Section -->
+            <div id="directory-section" class="directory-section">
+                <div class="section-header">
+                    <div class="title-area">
+                        <h2>Select Your Local Church Congregation</h2>
+                        <p><span id="church-count-badge" class="count-badge">61 Churches</span> Select your church from ECWA Umuahia District Church Council below.</p>
+                    </div>
+                    <div class="search-box">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" id="church-search"
+                            placeholder="Search by church name (e.g. Afara, Arochukwu, World Bank) or number..."
+                            aria-label="Search congregations">
+                        <button id="search-clear-btn" class="search-clear" style="display: none;"
+                            aria-label="Clear search">&times;</button>
+                    </div>
+                </div>
+
+                <!-- Directory Grid (50 buttons generated dynamically) -->
+                <div id="directory-grid" class="directory-grid" aria-label="Church list">
+                    <!-- JavaScript will inject 50 buttons here -->
+                </div>
+
+                <!-- No Results State -->
+                <div id="no-results-state" class="no-results-card" style="display: none;">
+                    <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor"
+                        stroke-dasharray="4" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="8" y1="12" x2="16" y2="12" />
+                    </svg>
+                    <h3>No congregations match your search</h3>
+                    <p>Double check the spelling or try searching for a different number.</p>
+                    <button id="search-reset-btn" class="btn btn-outline">Reset Search</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 2: THE GOOGLE-FORM-STYLE SURVEY ================= -->
+        <section id="survey-view" class="view">
+            <!-- Survey Card -->
+            <div class="survey-container">
+
+                <!-- Survey Header -->
+                <div class="survey-header">
+                    <div class="survey-title-block">
+                        <span id="selected-church-badge" class="church-badge">Church ID: --</span>
+                        <h2 id="survey-main-title">Local Church Information & Survey</h2>
+                        <p class="survey-desc">Please complete the official church survey sections below. Data collected directly guides ECWA Strategic Planning.</p>
+                    </div>
+                    <button type="button" id="exit-survey-btn" class="btn btn-text text-danger">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                        Cancel Survey
+                    </button>
+                </div>
+
+                <!-- Progress Tracker -->
+                <div class="stepper-progress-container">
+                    <div class="progress-bar-track">
+                        <div id="survey-progress-fill" class="progress-bar-fill" style="width: 0%;"></div>
+                    </div>
+                    <div class="stepper-steps">
+                        <div class="step-indicator active" data-step="1">
+                            <span class="step-num">1</span>
+                            <span class="step-label">General Info</span>
+                        </div>
+                        <div class="step-indicator" data-step="2">
+                            <span class="step-num">2</span>
+                            <span class="step-label">History</span>
+                        </div>
+                        <div class="step-indicator" data-step="3">
+                            <span class="step-num">3</span>
+                            <span class="step-label">Pastors</span>
+                        </div>
+                        <div class="step-indicator" data-step="4">
+                            <span class="step-num">4</span>
+                            <span class="step-label">Membership</span>
+                        </div>
+                        <div class="step-indicator" data-step="5">
+                            <span class="step-num">5</span>
+                            <span class="step-label">Leadership</span>
+                        </div>
+                        <div class="step-indicator" data-step="6">
+                            <span class="step-num">6</span>
+                            <span class="step-label">Ministries</span>
+                        </div>
+                        <div class="step-indicator" data-step="7">
+                            <span class="step-num">7</span>
+                            <span class="step-label">Evangelism</span>
+                        </div>
+                        <div class="step-indicator" data-step="8">
+                            <span class="step-num">8</span>
+                            <span class="step-label">Properties</span>
+                        </div>
+                        <div class="step-indicator" data-step="9">
+                            <span class="step-num">9</span>
+                            <span class="step-label">Finance</span>
+                        </div>
+                        <div class="step-indicator" data-step="10">
+                            <span class="step-num">10</span>
+                            <span class="step-label">Community</span>
+                        </div>
+                        <div class="step-indicator" data-step="11">
+                            <span class="step-num">11</span>
+                            <span class="step-label">SWOT / Vision</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Wizard -->
+                <form id="survey-form" novalidate>
+                    <!-- Invisible field to hold selected church identifier -->
+                    <input type="hidden" id="form-church-id" name="church_id">
+
+                    <!-- ================= STEP 1: SECTION A - GENERAL INFORMATION ================= -->
+                    <div class="form-step active" data-step="1">
+                        <div class="step-header-card">
+                            <h3>SECTION A: General Information</h3>
+                            <p>Provide baseline registration and location details for this local church or prayer house.</p>
+                        </div>
+
+                        <!-- Q1 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-founded-year">1. What year was the local church/prayer house founded?</label>
+                            <input type="text" id="q-founded-year" name="q_founded_year" class="form-input" placeholder="e.g. 1985" required>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-constituted-year">2. In what year was the LC recognized/constituted as a local church?</label>
+                            <input type="text" id="q-constituted-year" name="q_constituted_year" class="form-input" placeholder="e.g. 1992" required>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-dcc-council">3. Local church council does it belong to?</label>
+                            <input type="text" id="q-dcc-council" name="q_dcc_council" class="form-input" value="ECWA Umuahia District Church Council" required>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-mother-church">4. Name of the mother church of the LC?</label>
+                            <input type="text" id="q-mother-church" name="q_mother_church" class="form-input" placeholder="Enter mother church name" required>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q5 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-full-address">5. Church's full address?</label>
+                            <textarea id="q-full-address" name="q_full_address" placeholder="Enter street, landmark, and area details..." rows="3" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q6 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-community-lga">6. In what community and local government is the local church situated?</label>
+                            <input type="text" id="q-community-lga" name="q_community_lga" class="form-input" placeholder="e.g. Umuahia North LGA, Afara Community" required>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q7 -->
+                        <div class="form-group required">
+                            <label class="form-label">7. In what state is the LC/PH situated?</label>
+                            <div class="radio-group-vertical">
+                                <label class="radio-container">
+                                    <input type="radio" name="q_state" value="Abia" required>
+                                    <span class="radio-checkmark"></span>
+                                    <span class="radio-label">A. Abia State</span>
+                                </label>
+                                <label class="radio-container">
+                                    <input type="radio" name="q_state" value="Imo">
+                                    <span class="radio-checkmark"></span>
+                                    <span class="radio-label">B. Imo State</span>
+                                </label>
+                            </div>
+                            <span class="error-message">Please select a state.</span>
+                        </div>
+
+                        <!-- Q8 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-current-pastor-a">8. Who is the current resident pastor of the LC?</label>
+                            <input type="text" id="q-current-pastor-a" name="q_current_pastor" class="form-input" placeholder="Enter Pastor's Full Name" required>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q9 -->
+                        <div class="form-group required">
+                            <label class="form-label">9. What are the official contact details?</label>
+                            <div class="form-row">
+                                <div>
+                                    <label class="question-hint" for="q-contact-phone">a. Phone number</label>
+                                    <input type="tel" id="q-contact-phone" name="q_contact_phone" class="form-input" placeholder="+234..." required>
+                                </div>
+                                <div>
+                                    <label class="question-hint" for="q-contact-email">b. Email address</label>
+                                    <input type="email" id="q-contact-email" name="q_contact_email" class="form-input" placeholder="church@ecwa.org">
+                                </div>
+                                <div>
+                                    <label class="question-hint" for="q-contact-social">c. Social media handle(s)</label>
+                                    <input type="text" id="q-contact-social" name="q_contact_social" class="form-input" placeholder="@ECWALocalChurch">
+                                </div>
+                            </div>
+                            <span class="error-message">Please fill in contact details.</span>
+                        </div>
+                    </div>
+
+                    <!-- ================= STEP 2: SECTION B - CHURCH HISTORY ================= -->
+                    <div class="form-step" data-step="2">
+                        <div class="step-header-card">
+                            <h3>SECTION B: Church History</h3>
+                            <p>Document the origin, pioneer leaders, historical journey, and key milestones of the church.</p>
+                        </div>
+
+                        <!-- Q1 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-pioneer-members">1. Who is/are the founding/pioneer member(s) of the LC?</label>
+                            <textarea id="q-pioneer-members" name="q_pioneer_members" placeholder="List founding members..." rows="3" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-pioneer-pastor">2. Who served as the pioneer pastor?</label>
+                            <input type="text" id="q-pioneer-pastor" name="q_pioneer_pastor" class="form-input" placeholder="Name of pioneer pastor" required>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-pioneer-board">3. Who served as the pioneer board of the LC?</label>
+                            <textarea id="q-pioneer-board" name="q_pioneer_board" placeholder="List pioneer board members..." rows="3" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-church-history">4. Briefly describe the history of the church?</label>
+                            <textarea id="q-church-history" name="q_church_history" placeholder="Write a detailed account of the church history..." rows="7" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="history-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q5 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-major-milestones">5. What major milestone has the church reached/attain?</label>
+                            <textarea id="q-major-milestones" name="q_major_milestones" placeholder="e.g. Building dedication, outreach expansion, branch planting..." rows="4" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q6 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-history-lessons">6. What lessons from its history should guide future ministry?</label>
+                            <textarea id="q-history-lessons" name="q_history_lessons" placeholder="Key spiritual and administrative lessons..." rows="4" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+                    </div>
+
+                    <!-- ================= STEP 3: SECTION C - PASTORAL HISTORY ================= -->
+                    <div class="form-step" data-step="3">
+                        <div class="step-header-card">
+                            <h3>SECTION C: Pastoral History</h3>
+                            <p>Record the record of past resident pastors and key ministry developments during their tenure.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Pastoral History Data Table</label>
+                            <p class="question-hint">Enter pastors who have served at this local church, their service years, and major contributions.</p>
+
+                            <div class="form-table-wrapper">
+                                <table class="data-table" id="pastoral-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Pastor Name</th>
+                                            <th>Years Served (e.g. 2015-2020)</th>
+                                            <th>Major Contributions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" name="q_pastor1_name" class="data-table-input" placeholder="Pastor Name 1"></td>
+                                            <td><input type="text" name="q_pastor1_years" class="data-table-input" placeholder="Years"></td>
+                                            <td><input type="text" name="q_pastor1_contrib" class="data-table-input" placeholder="Key contributions"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="q_pastor2_name" class="data-table-input" placeholder="Pastor Name 2"></td>
+                                            <td><input type="text" name="q_pastor2_years" class="data-table-input" placeholder="Years"></td>
+                                            <td><input type="text" name="q_pastor2_contrib" class="data-table-input" placeholder="Key contributions"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="q_pastor3_name" class="data-table-input" placeholder="Pastor Name 3"></td>
+                                            <td><input type="text" name="q_pastor3_years" class="data-table-input" placeholder="Years"></td>
+                                            <td><input type="text" name="q_pastor3_contrib" class="data-table-input" placeholder="Key contributions"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="q_pastor4_name" class="data-table-input" placeholder="Pastor Name 4"></td>
+                                            <td><input type="text" name="q_pastor4_years" class="data-table-input" placeholder="Years"></td>
+                                            <td><input type="text" name="q_pastor4_contrib" class="data-table-input" placeholder="Key contributions"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Q1 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-notable-developments">1. Are there notable ministry developments during specific service years?</label>
+                            <textarea id="q-notable-developments" name="q_notable_developments" placeholder="Describe specific projects or developments during past pastorates..." rows="4" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-resident-pastor-c">2. Who is the current resident pastor of the church?</label>
+                            <input type="text" id="q-resident-pastor-c" name="q_resident_pastor_c" class="form-input" placeholder="Enter Pastor's Full Name" required>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+                    </div>
+
+                    <!-- ================= STEP 4: SECTION D - MEMBERSHIP PROFILE ================= -->
+                    <div class="form-step" data-step="4">
+                        <div class="step-header-card">
+                            <h3>SECTION D: Membership Profile</h3>
+                            <p>Provide demographic membership figures and attendance trends.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Membership Breakdown Table</label>
+                            <p class="question-hint">Enter numerical count figures across membership categories.</p>
+
+                            <div class="form-table-wrapper">
+                                <table class="data-table" id="membership-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Category</th>
+                                            <th>Baptized</th>
+                                            <th>Unbaptized</th>
+                                            <th>Workers</th>
+                                            <th>Retirees</th>
+                                            <th>Businessmen</th>
+                                            <th>Farmers</th>
+                                            <th>Unemployed</th>
+                                            <th>Students</th>
+                                            <th>Widows/Widowers</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Men</strong></td>
+                                            <td><input type="number" name="q_mem_men_baptized" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_men_unbaptized" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_men_workers" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_men_retirees" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_men_business" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_men_farmers" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_men_unemployed" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_men_students" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_men_widowers" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_men_total" class="data-table-input" min="0"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Women</strong></td>
+                                            <td><input type="number" name="q_mem_women_baptized" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_women_unbaptized" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_women_workers" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_women_retirees" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_women_business" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_women_farmers" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_women_unemployed" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_women_students" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_women_widows" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_women_total" class="data-table-input" min="0"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Youths</strong></td>
+                                            <td><input type="number" name="q_mem_youth_baptized" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_youth_unbaptized" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_youth_workers" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_youth_retirees" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_youth_business" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_youth_farmers" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_youth_unemployed" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_youth_students" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_youth_widows" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_youth_total" class="data-table-input" min="0"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Children</strong></td>
+                                            <td><input type="number" name="q_mem_children_baptized" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_children_unbaptized" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_children_workers" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_children_retirees" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_children_business" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_children_farmers" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_children_unemployed" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_children_students" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_children_widows" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_children_total" class="data-table-input" min="0"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Total</strong></td>
+                                            <td><input type="number" name="q_mem_grand_baptized" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_grand_unbaptized" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_grand_workers" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_grand_retirees" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_grand_business" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_grand_farmers" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_grand_unemployed" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_grand_students" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_grand_widows" class="data-table-input" min="0"></td>
+                                            <td><input type="number" name="q_mem_grand_total" class="data-table-input" min="0"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Q1 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-total-mem-abroad">1. What is the total membership including abroad members?</label>
+                            <input type="text" id="q-total-mem-abroad" name="q_total_mem_abroad" class="form-input" placeholder="e.g. 450" required>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-current-mem-ex-abroad">2. What is the current membership by category excluding abroad members?</label>
+                            <textarea id="q-current-mem-ex-abroad" name="q_current_mem_ex_abroad" placeholder="Details of active resident membership..." rows="3" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-baptized-last-year">3. How many members were baptized last year?</label>
+                            <input type="number" id="q-baptized-last-year" name="q_baptized_last_year" class="form-input" min="0" placeholder="Number of baptized members" required>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-new-converts">4. How many new converts were received?</label>
+                            <input type="number" id="q-new-converts" name="q_new_converts" class="form-input" min="0" placeholder="Number of new converts" required>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q5 -->
+                        <div class="form-group required">
+                            <label class="form-label">5. What are the attendance trends over the past three years?</label>
+                            <div class="radio-group-vertical">
+                                <label class="radio-container">
+                                    <input type="radio" name="q_attendance_trends" value="Increasing" required>
+                                    <span class="radio-checkmark"></span>
+                                    <span class="radio-label">A. Increasing</span>
+                                </label>
+                                <label class="radio-container">
+                                    <input type="radio" name="q_attendance_trends" value="Dwindling">
+                                    <span class="radio-checkmark"></span>
+                                    <span class="radio-label">B. Dwindling</span>
+                                </label>
+                            </div>
+                            <span class="error-message">Please select an attendance trend.</span>
+                        </div>
+                    </div>
+
+                    <!-- ================= STEP 5: SECTION E - CHURCH LEADERSHIP ================= -->
+                    <div class="form-step" data-step="5">
+                        <div class="step-header-card">
+                            <h3>SECTION E: Church Leadership</h3>
+                            <p>Document local church board members, fellowship leaders, vacant positions, and training needs.</p>
+                        </div>
+
+                        <!-- Q1 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-board-members">1. The names of the board members of the church?</label>
+                            <textarea id="q-board-members" name="q_board_members" placeholder="List names of church board members..." rows="4" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="form-group required">
+                            <label class="form-label">2. The names of the fellowship group leaders?</label>
+                            <div class="form-row">
+                                <div>
+                                    <label class="question-hint" for="q-men-leader">a. Men's fellowship leader</label>
+                                    <input type="text" id="q-men-leader" name="q_men_leader" class="form-input" placeholder="Full Name" required>
+                                </div>
+                                <div>
+                                    <label class="question-hint" for="q-women-leader">b. Women's fellowship leader</label>
+                                    <input type="text" id="q-women-leader" name="q_women_leader" class="form-input" placeholder="Full Name" required>
+                                </div>
+                                <div>
+                                    <label class="question-hint" for="q-youth-leader">c. Youth fellowship leader</label>
+                                    <input type="text" id="q-youth-leader" name="q_youth_leader" class="form-input" placeholder="Full Name" required>
+                                </div>
+                            </div>
+                            <span class="error-message">Please provide leaders' names.</span>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="form-group required">
+                            <label class="form-label">3. Does the church have all featured leadership positions filled?</label>
+                            <div class="radio-group-vertical">
+                                <label class="radio-container">
+                                    <input type="radio" name="q_positions_filled" value="Yes" required>
+                                    <span class="radio-checkmark"></span>
+                                    <span class="radio-label">A. Yes</span>
+                                </label>
+                                <label class="radio-container">
+                                    <input type="radio" name="q_positions_filled" value="No">
+                                    <span class="radio-checkmark"></span>
+                                    <span class="radio-label">B. No</span>
+                                </label>
+                            </div>
+                            <span class="error-message">Please select an option.</span>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="form-group">
+                            <label class="form-label" for="q-vacant-positions">4. Which positions are vacant?</label>
+                            <textarea id="q-vacant-positions" name="q_vacant_positions" placeholder="List any vacant leadership roles or enter N/A..." rows="3"></textarea>
+                        </div>
+
+                        <!-- Q5 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-leadership-training">5. What leadership training is needed?</label>
+                            <textarea id="q-leadership-training" name="q_leadership_training" placeholder="Describe key leadership training, seminars, or capacity building required..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="training-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+                    </div>
+
+                    <!-- ================= STEP 6: SECTION F - MINISTRIES ================= -->
+                    <div class="form-step" data-step="6">
+                        <div class="step-header-card">
+                            <h3>SECTION F: Ministries</h3>
+                            <p>Indicate which ministries are currently active, which require revitalization, and highlight achievements.</p>
+                        </div>
+
+                        <!-- Q1 & Q2 Matrix Table -->
+                        <div class="form-group required">
+                            <label class="form-label">1 & 2. Status of Church Ministries</label>
+                            <span class="question-hint">Please indicate for each ministry whether it is active and/or requires revitalization.</span>
+                            <div class="form-table-wrapper">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Ministry</th>
+                                            <th style="text-align: center; width: 180px;">Is Active?</th>
+                                            <th style="text-align: center; width: 180px;">Needs Revitalization?</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Men Fellowship -->
+                                        <tr>
+                                            <td><strong>Men Fellowship</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_active_men" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_active_men" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_revitalize_men" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_revitalize_men" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Women Fellowship -->
+                                        <tr>
+                                            <td><strong>Women Fellowship</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_active_women" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_active_women" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_revitalize_women" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_revitalize_women" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Youth Fellowship -->
+                                        <tr>
+                                            <td><strong>Youth Fellowship</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_active_youth" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_active_youth" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_revitalize_youth" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_revitalize_youth" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Children's ministry -->
+                                        <tr>
+                                            <td><strong>Children's Ministry</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_active_children" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_active_children" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_revitalize_children" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_revitalize_children" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Sunday school -->
+                                        <tr>
+                                            <td><strong>Sunday School</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_active_sundayschool" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_active_sundayschool" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_revitalize_sundayschool" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_revitalize_sundayschool" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Evangelism -->
+                                        <tr>
+                                            <td><strong>Evangelism</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_active_evangelism" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_active_evangelism" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_revitalize_evangelism" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_revitalize_evangelism" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Missions and outreach team -->
+                                        <tr>
+                                            <td><strong>Missions and Outreach Team</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_active_missions" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_active_missions" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_revitalize_missions" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_revitalize_missions" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Discipleship ministry -->
+                                        <tr>
+                                            <td><strong>Discipleship Ministry</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_active_discipleship" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_active_discipleship" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_revitalize_discipleship" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_revitalize_discipleship" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Media ministry -->
+                                        <tr>
+                                            <td><strong>Media Ministry</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_active_media" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_active_media" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_revitalize_media" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_revitalize_media" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Welfare team -->
+                                        <tr>
+                                            <td><strong>Welfare Team</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_active_welfare" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_active_welfare" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_revitalize_welfare" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_revitalize_welfare" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Christian education leader -->
+                                        <tr>
+                                            <td><strong>Christian Education Leader</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_active_education" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_active_education" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_revitalize_education" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_revitalize_education" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Prayer band -->
+                                        <tr>
+                                            <td><strong>Prayer Band</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_active_prayer" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_active_prayer" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_revitalize_prayer" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_revitalize_prayer" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <span class="error-message">Please select status for all ministries.</span>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-ministry-impact">3. Which ministries has shown the greatest impact?</label>
+                            <textarea id="q-ministry-impact" name="q_ministry_impact" placeholder="Explain which ministries are thriving and why..." rows="4" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+                    </div>
+
+                    <!-- ================= STEP 7: SECTION G - EVANGELISM AND MISSIONS ================= -->
+                    <div class="form-step" data-step="7">
+                        <div class="step-header-card">
+                            <h3>SECTION G: Evangelism and Missions</h3>
+                            <p>Document outreach efforts, follow-up processes, and church planting plans.</p>
+                        </div>
+
+                        <!-- Q1 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-outreaches-count">1. How many evangelistic outreaches has been carried out this year?</label>
+                            <input type="text" id="q-outreaches-count" name="q_outreaches_count" class="form-input" placeholder="e.g. 5 outreaches, or Describe details..." required>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-followup-process">2. What follow-up process exists?</label>
+                            <textarea id="q-followup-process" name="q_followup_process" placeholder="Describe in detail how new converts are followed up and integrated..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="followup-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-church-planting-communities">3. Are there communities identified for future church planting?</label>
+                            <textarea id="q-church-planting-communities" name="q_church_planting_communities" placeholder="List any communities targeted for future church plants and current efforts..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="planting-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+                    </div>
+
+                    <!-- ================= STEP 8: SECTION H - PROPERTY AND ASSETS ================= -->
+                    <div class="form-step" data-step="8">
+                        <div class="step-header-card">
+                            <h3>SECTION H: Property and Assets</h3>
+                            <p>Inventory the church's physical property, asset documentation status, registration requirements, and disputes.</p>
+                        </div>
+
+                        <!-- Q1, Q2, Q3 Property Matrix Table -->
+                        <div class="form-group required">
+                            <label class="form-label">1, 2 & 3. Properties and Assets Inventory</label>
+                            <span class="question-hint">Specify whether the church possesses these items, if they are documented, and if they require registration.</span>
+                            <div class="form-table-wrapper">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Property / Asset</th>
+                                            <th style="text-align: center; width: 140px;">Has Asset?</th>
+                                            <th style="text-align: center; width: 160px;">Fully Documented?</th>
+                                            <th style="text-align: center; width: 180px;">Requires Registration?</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Land -->
+                                        <tr>
+                                            <td><strong>Land</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_has_land" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_has_land" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_doc_land" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_doc_land" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_reg_land" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_reg_land" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Church building(s) -->
+                                        <tr>
+                                            <td><strong>Church building(s)</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_has_buildings" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_has_buildings" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_doc_buildings" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_doc_buildings" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_reg_buildings" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_reg_buildings" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Pastorism -->
+                                        <tr>
+                                            <td><strong>Pastorium / Pastor's Residence</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_has_pastorism" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_has_pastorism" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_doc_pastorism" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_doc_pastorism" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_reg_pastorism" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_reg_pastorism" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Vehicles -->
+                                        <tr>
+                                            <td><strong>Vehicles</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_has_vehicles" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_has_vehicles" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_doc_vehicles" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_doc_vehicles" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_reg_vehicles" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_reg_vehicles" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Equipments -->
+                                        <tr>
+                                            <td><strong>Equipments</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_has_equipments" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_has_equipments" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_doc_equipments" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_doc_equipments" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_reg_equipments" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_reg_equipments" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Furniture(s)/fittings -->
+                                        <tr>
+                                            <td><strong>Furniture(s) & Fittings</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_has_furniture" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_has_furniture" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_doc_furniture" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_doc_furniture" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_reg_furniture" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_reg_furniture" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- ICT equipment -->
+                                        <tr>
+                                            <td><strong>ICT Equipment</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_has_ict" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_has_ict" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_doc_ict" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_doc_ict" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_reg_ict" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_reg_ict" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Generator -->
+                                        <tr>
+                                            <td><strong>Generator</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_has_generator" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_has_generator" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_doc_generator" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_doc_generator" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_reg_generator" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_reg_generator" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Others/specify -->
+                                        <tr>
+                                            <td>
+                                                <strong>Others / Specify</strong>
+                                                <input type="text" name="q_asset_others_name" class="data-table-input" placeholder="Specify other assets..." style="margin-top: 4px; font-size: 0.8rem;">
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_has_others" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_has_others" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_doc_others" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_doc_others" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 12px; justify-content: center;">
+                                                    <label><input type="radio" name="q_asset_reg_others" value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_asset_reg_others" value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <span class="error-message">Please select status for all assets.</span>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-property-disputes">4. Are there any ongoing disputes?</label>
+                            <textarea id="q-property-disputes" name="q_property_disputes" placeholder="Describe any legal, boundary, or community disputes regarding church properties..." rows="4" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q5 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-infrastructure-projects">5. What infrastructural Projects are planned?</label>
+                            <textarea id="q-infrastructure-projects" name="q_infrastructure_projects" placeholder="Outline future construction, renovations, or expansions planned..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="projects-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q6 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-properties-needed">6. What properties and assets are needed?</label>
+                            <textarea id="q-properties-needed" name="q_properties_needed" placeholder="List land, structures, vehicles, or equipment needed..." rows="4" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q7 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-acquired-property-use">7. Location, size and use of the acquired property?</label>
+                            <textarea id="q-acquired-property-use" name="q_acquired_property_use" placeholder="Describe location, size, and current/intended use of acquired properties..." rows="4" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q8 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-acquired-property-docs">8. Available documents for the acquired property?</label>
+                            <textarea id="q-acquired-property-docs" name="q_acquired_property_docs" placeholder="List land survey, deed of gift, C of O, purchase agreement, etc..." rows="4" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q9 -->
+                        <div class="form-group required">
+                            <label class="form-label">9. Does the DCC secretariat have copies of the above documents?</label>
+                            <div class="radio-group-vertical">
+                                <label class="radio-container">
+                                    <input type="radio" name="q_dcc_has_copies" value="Yes" required>
+                                    <span class="radio-checkmark"></span>
+                                    <span class="radio-label">A. Yes</span>
+                                </label>
+                                <label class="radio-container">
+                                    <input type="radio" name="q_dcc_has_copies" value="No">
+                                    <span class="radio-checkmark"></span>
+                                    <span class="radio-label">B. No</span>
+                                </label>
+                            </div>
+                            <span class="error-message">Please select an option.</span>
+                        </div>
+
+                        <!-- Q10 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-property-in-use">10. Is the property currently in use or not in use?</label>
+                            <textarea id="q-property-in-use" name="q_property_in_use" placeholder="Describe if and how the property is being utilized, or reasons for non-use..." rows="4" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+                    </div>
+
+                    <!-- ================= STEP 9: SECTION I - FINANCIAL PROFILE ================= -->
+                    <div class="form-step" data-step="9">
+                        <div class="step-header-card">
+                            <h3>SECTION I: Financial Profile</h3>
+                            <p>Provide insights on church income sources, financial struggles, and revenue boost opportunities.</p>
+                        </div>
+
+                        <!-- Q1 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-financial-sources">1. What are the church's known sources of financial income?</label>
+                            <textarea id="q-financial-sources" name="q_financial_sources" placeholder="List main sources (tithes, offerings, investments, donations, agricultural projects, etc.)..." rows="4" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-financial-challenges">2. What financial challenges does the church face?</label>
+                            <textarea id="q-financial-challenges" name="q_financial_challenges" placeholder="Detail any financial obstacles, debt, low income, community poverty, etc..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="challenges-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-boost-income">3. What can the church do to boost its financial inflow?</label>
+                            <textarea id="q-boost-income" name="q_boost_income" placeholder="Detail recommendations, investment opportunities, skill empowerment, fundraising, etc..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="boost-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+                    </div>
+
+                    <!-- ================= STEP 10: SECTION J - COMMUNITY PROFILE ================= -->
+                    <div class="form-step" data-step="10">
+                        <div class="step-header-card">
+                            <h3>SECTION J: Community Profile</h3>
+                            <p>Describe the demographics, dominant occupations, and key needs of the community.</p>
+                        </div>
+
+                        <!-- Q1 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-community-needs-desc">1. What are the greatest needs of the community where the church is situated?</label>
+                            <textarea id="q-community-needs-desc" name="q_community_needs_desc" placeholder="Detail clean water, security, electricity, healthcare, roads, education, etc..." rows="4" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-community-response">2. How is the church responding to these needs?</label>
+                            <textarea id="q-community-response" name="q_community_response" placeholder="Describe social action, charity, welfare programs, or community projects the church conducts..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="response-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-community-outreach-opps">3. What opportunity exists for evangelism and community development?</label>
+                            <textarea id="q-community-outreach-opps" name="q_community_outreach_opps" placeholder="Explain untapped opportunities to serve the community and share the Gospel..." rows="4" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-community-demographics">4. What is the dominant ethnic group and major religious group in that community?</label>
+                            <textarea id="q-community-demographics" name="q_community_demographics" placeholder="e.g. Igbo / Christian dominant, or specify other groupings..." rows="4" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q5 -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-community-occupation">5. What is the predominant occupation?</label>
+                            <textarea id="q-community-occupation" name="q_community_occupation" placeholder="e.g. farming, trading, civil service, artisans..." rows="4" required></textarea>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Q6: Community Needs Checklist -->
+                        <div class="form-group required">
+                            <label class="form-label">6. Community Needs Checklist</label>
+                            <span class="question-hint">Select all needs relevant to the local community.</span>
+                            <div class="checkbox-group-vertical">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="q_community_need_youth" value="Yes">
+                                    <span class="checkbox-checkmark"></span>
+                                    <span class="checkbox-label">a. Youth development</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="q_community_need_skills" value="Yes">
+                                    <span class="checkbox-checkmark"></span>
+                                    <span class="checkbox-label">b. Skill acquisition</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="q_community_need_healthcare" value="Yes">
+                                    <span class="checkbox-checkmark"></span>
+                                    <span class="checkbox-label">c. Healthcare outreach</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="q_community_need_education" value="Yes">
+                                    <span class="checkbox-checkmark"></span>
+                                    <span class="checkbox-label">d. Educational support</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="q_community_need_water" value="Yes">
+                                    <span class="checkbox-checkmark"></span>
+                                    <span class="checkbox-label">e. Water and sanitation</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="q_community_need_peace" value="Yes">
+                                    <span class="checkbox-checkmark"></span>
+                                    <span class="checkbox-label">f. Peace building</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="q_community_need_evangelism" value="Yes">
+                                    <span class="checkbox-checkmark"></span>
+                                    <span class="checkbox-label">g. Evangelism</span>
+                                </label>
+                            </div>
+                            <span class="error-message">Please select at least one community need.</span>
+                        </div>
+
+                        <!-- Q6 Others -->
+                        <div class="form-group">
+                            <label class="form-label" for="q-community-needs-others">Others community needs (specify):</label>
+                            <textarea id="q-community-needs-others" name="q_community_needs_others" placeholder="Describe any other community needs..." rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- ================= STEP 11: SECTION K - STRATEGIC ASSESSMENT OF THE LC ================= -->
+                    <div class="form-step" data-step="11">
+                        <div class="step-header-card">
+                            <h3>SECTION K: Strategic Assessment of The LC</h3>
+                            <p>Perform SWOT Analysis, identify Priority Needs terms, and capture your five-year vision and prayer requests.</p>
+                        </div>
+
+                        <h4 style="color: var(--primary); margin: 24px 0 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">SWOT Analysis</h4>
+
+                        <!-- Strengths -->
+                        <div class="form-group required">
+                            <label class="form-label" for="q-swot-strength-well">Strengths - a. What is the LC doing well?</label>
+                            <textarea id="q-swot-strength-well" name="q_swot_strength_well" placeholder="Identify the core internal competencies, successful actions, etc..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="swot-well-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <div class="form-group required">
+                            <label class="form-label" for="q-swot-strength-thriving">Strengths - b. What ministries are thriving?</label>
+                            <textarea id="q-swot-strength-thriving" name="q_swot_strength_thriving" placeholder="Describe which fellowships, outreach teams, or programs are performing exceptionally..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="swot-thriving-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <div class="form-group required">
+                            <label class="form-label" for="q-swot-strength-resources">Strengths - c. What resources do we have?</label>
+                            <textarea id="q-swot-strength-resources" name="q_swot_strength_resources" placeholder="List tangible/intangible assets, human capacity, finances, materials, etc..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="swot-resources-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Weaknesses -->
+                        <h4 style="color: var(--primary); margin: 24px 0 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">Weaknesses</h4>
+
+                        <div class="form-group required">
+                            <label class="form-label" for="q-swot-weakness-improvements">Weaknesses - a. What areas need improvements?</label>
+                            <textarea id="q-swot-weakness-improvements" name="q_swot_weakness_improvements" placeholder="Identify internal limitations, inefficiencies, or struggles..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="swot-improvements-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <div class="form-group required">
+                            <label class="form-label" for="q-swot-weakness-lacking">Weaknesses - b. Where else are we lacking?</label>
+                            <textarea id="q-swot-weakness-lacking" name="q_swot_weakness_lacking" placeholder="Describe gaps in leadership, logistics, tools, skills, or engagement..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="swot-lacking-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Opportunities -->
+                        <h4 style="color: var(--primary); margin: 24px 0 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">Opportunities</h4>
+
+                        <div class="form-group required">
+                            <label class="form-label" for="q-swot-opportunities">Opportunities - a. What opportunities exist for growth?</label>
+                            <textarea id="q-swot-opportunities" name="q_swot_opportunities" placeholder="Identify external trends, partnerships, or local potentials the church can leverage..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="swot-opportunities-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Threats -->
+                        <h4 style="color: var(--primary); margin: 24px 0 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">Threats</h4>
+
+                        <div class="form-group required">
+                            <label class="form-label" for="q-swot-threats">Threats - a. What external challenges affect us e.g. insecurity...?</label>
+                            <textarea id="q-swot-threats" name="q_swot_threats" placeholder="Describe environmental issues, insecurity, economic inflation, secular shifts, etc..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="swot-threats-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <!-- Priority Needs Checklist -->
+                        <h4 style="color: var(--primary); margin: 24px 0 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">Priority Needs Timeline</h4>
+                        
+                        <div class="form-group required">
+                            <label class="form-label">When are the priority needs required?</label>
+                            <span class="question-hint">Select the timelines applicable for the church's strategic priority needs.</span>
+                            <div class="checkbox-group-vertical">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="q_priority_need_immediate" value="Yes">
+                                    <span class="checkbox-checkmark"></span>
+                                    <span class="checkbox-label">Immediate</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="q_priority_need_medium" value="Yes">
+                                    <span class="checkbox-checkmark"></span>
+                                    <span class="checkbox-label">Medium-term</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="q_priority_need_long" value="Yes">
+                                    <span class="checkbox-checkmark"></span>
+                                    <span class="checkbox-label">Long-term</span>
+                                </label>
+                            </div>
+                            <span class="error-message">Please select at least one priority needs timeline.</span>
+                        </div>
+
+                        <!-- Vision & Prayer -->
+                        <h4 style="color: var(--primary); margin: 24px 0 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">Future Vision & Prayers</h4>
+
+                        <div class="form-group required">
+                            <label class="form-label" for="q-five-year-vision">1. What is your five-year vision for the church?</label>
+                            <textarea id="q-five-year-vision" name="q_five_year_vision" placeholder="Detail spiritual, structural, numeric, and social goals for the next 5 years..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="vision-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <div class="form-group required">
+                            <label class="form-label" for="q-prayer-requests">2. Prayer requests?</label>
+                            <textarea id="q-prayer-requests" name="q_prayer_requests" placeholder="Detail District or Council level prayer requests..." rows="6" required></textarea>
+                            <div class="textarea-footer">
+                                <span class="character-count"><span id="prayer-char-count">0</span> / 3000 characters</span>
+                            </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+                    </div>
+
+                    <!-- Form Navigation Controls -->
+                    <div class="form-nav-controls">
+                        <button type="button" id="prev-step-btn" class="btn btn-outline" style="visibility: hidden;">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="19" y1="12" x2="5" y2="12" />
+                                <polyline points="12 19 5 12 12 5" />
+                            </svg>
+                            Back
+                        </button>
+                        <button type="button" id="next-step-btn" class="btn btn-primary">
+                            Next Step
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 3: SUBMISSION SUCCESS PAGE ================= -->
+        <section id="success-view" class="view">
+            <div class="success-card">
+                <div class="success-icon-wrapper">
+                    <svg class="success-checkmark" viewBox="0 0 52 52">
+                        <circle class="success-checkmark-circle" cx="26" cy="26" r="25" fill="none" />
+                        <path class="success-checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                    </svg>
+                </div>
+                <h2>Thank You for Your Feedback!</h2>
+                <p class="success-lead">Your survey response for <strong id="success-church-display">Church X</strong>
+                    has been securely submitted.</p>
+                <div class="success-summary">
+                    <p>The Strategic Planning Team is compiling this response along with others from your local
+                        congregation. Your input will directly influence our 2026-2030 initiatives, mission priorities,
+                        and facility updates.</p>
+                    <div class="submission-meta">
+                        <span><strong>Status:</strong> Submitted Securely</span>
+                        <span><strong>Timestamp:</strong> <span id="success-timestamp">--</span></span>
+                    </div>
+                </div>
+                <div class="success-actions">
+                    <button id="success-home-btn" class="btn btn-primary">Return to Directory</button>
+                    <button id="view-payload-btn" class="btn btn-outline">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        Show Submission Payload (JSON)
+                    </button>
+                </div>
+
+                <!-- Custom payload drawer for developers/administrators to verify data mapping -->
+                <div id="payload-drawer" class="payload-drawer" style="display: none;">
+                    <h4>Submitted Payload Data</h4>
+                    <p>The following structured JSON was bundled and prepared for the backend API:</p>
+                    <pre><code id="payload-code">{}</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 ECWA Umuahia DCC Strategic Planning Team. All rights reserved.</p>
+            <p class="footer-note">All survey data collected is completely anonymous and subject to church data
+                protection policies.</p>
+        </div>
+    </footer>
+
+    <!-- Backend Collector Configuration Modal -->
+    <div id="backend-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                        <path d="M3 5c0 1.66 4 3 9 3s9-1.34 9-3" />
+                        <path d="M21 5v14c0 1.66-4 3-9 3s-9-1.34-9-3V5" />
+                    </svg>
+                    <h3>Backend Data Collector Setup</h3>
+                </div>
+                <button id="close-backend-modal-btn" class="modal-close-btn" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-lead">Connect this survey hub to receive responses directly into your Google Sheet, Formspree, or custom webhook API in real-time.</p>
+
+                <div class="backend-status-card" id="backend-status-banner">
+                    <span class="status-indicator-dot" id="status-dot"></span>
+                    <span id="backend-status-text">Status: <strong>Local Sandbox Mode</strong> (Responses saved locally in browser)</span>
+                </div>
+
+                <div class="form-group" style="margin-top: 16px;">
+                    <label class="form-label" for="backend-endpoint-input">Receiver Webhook URL (Google Apps Script / Formspree / Custom API)</label>
+                    <input type="url" id="backend-endpoint-input" placeholder="https://script.google.com/macros/s/AKfycb.../exec" class="modal-input">
+                    <p class="question-hint">Paste your Google Apps Script Webhook URL or Formspree endpoint URL here.</p>
+                </div>
+
+                <div class="modal-actions">
+                    <button id="save-backend-btn" class="btn btn-primary">Save Endpoint</button>
+                    <button id="test-backend-btn" class="btn btn-outline">Send Test Response</button>
+                    <button id="clear-backend-btn" class="btn btn-text text-danger">Reset to Sandbox</button>
+                </div>
+
+                <div class="options-accordion">
+                    <h4>Top Recommended Backend Option for Google Forms-Style Collection:</h4>
+                    <div class="option-box active-opt">
+                        <h5>Google Sheets via Free Webhook Script (Best Choice)</h5>
+                        <p>Collect answers directly into a live Google Sheet organized by timestamp, church name, ratings, and open responses.</p>
+                        <button type="button" id="copy-apps-script-btn" class="btn btn-outline btn-sm" style="margin-top: 10px;">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                            </svg>
+                            Copy Google Apps Script Code
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
