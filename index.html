@@ -60,10 +60,39 @@
 
         <!-- ================= PAGE 1: WELCOMING HOME PAGE ================= -->
         <section id="home-view" class="view active">
+            <!-- Unfinished Draft Resume Banner Card (hidden by default) -->
+            <div id="hero-resume-card" class="hero-resume-card" style="display: none;">
+                <div class="resume-card-content">
+                    <div class="resume-card-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v14a2 2 0 0 1-2 2z" />
+                            <polyline points="17 21 17 13 7 13 7 21" />
+                            <polyline points="7 3 7 8 15 8" />
+                        </svg>
+                    </div>
+                    <div class="resume-card-text">
+                        <h4>Unfinished Questionnaire Progress Found</h4>
+                        <p>You have saved progress for <strong id="resume-church-name">--</strong> (Step <span id="resume-step-num">1</span>) saved at <span id="resume-timestamp">--</span>.</p>
+                    </div>
+                </div>
+                <div class="resume-card-actions">
+                    <button type="button" id="hero-resume-btn" class="btn btn-primary">
+                        Resume Questionnaire
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                    </button>
+                    <button type="button" id="hero-discard-draft-btn" class="btn btn-text text-danger">
+                        Discard Draft
+                    </button>
+                </div>
+            </div>
+
             <!-- Hero Banner & Welcome Section -->
             <div class="hero-card">
                 <div class="hero-content">
-                    <span class="hero-badge">ECWA Umuahia DCC Strategic Planning & Research Hub</span>
+                    <span class="hero-badge">ECWA Umuahia DCC Strategic Planning & Research Portal</span>
                     <h1 class="hero-title">Shaping the Future of Our Community, Together</h1>
                     <p class="hero-lead">
                         Welcome to the strategic planning and research portal for ECWA Umuahia District Church Council.
@@ -139,7 +168,8 @@
                     <div class="survey-title-block">
                         <span id="selected-church-badge" class="church-badge">Church ID: --</span>
                         <h2 id="survey-main-title">Local Church Information & Questionnaire</h2>
-                        <p class="survey-desc">Please complete the official church questionnaire sections below. Data collected
+                        <p class="survey-desc">Please complete the official church questionnaire sections below. Data
+                            collected
                             directly guides ECWA Strategic Planning.</p>
                     </div>
                     <button type="button" id="exit-survey-btn" class="btn btn-text text-danger">
@@ -149,6 +179,20 @@
                             <line x1="6" y1="6" x2="18" y2="18" />
                         </svg>
                         Cancel Questionnaire
+                    </button>
+                </div>
+
+                <!-- Saved Draft Restored Banner (hidden by default) -->
+                <div id="survey-draft-banner" class="survey-draft-banner" style="display: none;">
+                    <div class="draft-banner-info">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        <span><strong>Draft Restored:</strong> Continuing from your saved progress (<span id="survey-draft-time">--</span>).</span>
+                    </div>
+                    <button type="button" id="survey-clear-draft-btn" class="btn btn-text text-danger btn-sm">
+                        Clear Draft &amp; Start Over
                     </button>
                 </div>
 
@@ -605,28 +649,32 @@
                         </div>
 
                         <div class="form-group required">
-                            <label class="form-label" for="q-current-mem-home">1. What is the current church membership (Home)</label>
+                            <label class="form-label" for="q-current-mem-home">1. What is the current church membership
+                                (Home)</label>
                             <input type="text" id="q-current-mem-home" name="q_current_mem_home" class="form-input"
                                 placeholder="e.g. 350" required>
                             <span class="error-message">This field is required.</span>
                         </div>
 
                         <div class="form-group required">
-                            <label class="form-label" for="q-total-mem-abroad">2. What is the current church membership (abroad)</label>
+                            <label class="form-label" for="q-total-mem-abroad">2. What is the current church membership
+                                (abroad)</label>
                             <input type="text" id="q-total-mem-abroad" name="q_total_mem_abroad" class="form-input"
                                 placeholder="e.g. 100" required>
                             <span class="error-message">This field is required.</span>
                         </div>
 
                         <div class="form-group required">
-                            <label class="form-label" for="q-baptized-last-year">3. How many are baptised members of the Church?</label>
-                            <input type="text" id="q-baptized-last-year" name="q_baptized_last_year"
-                                class="form-input" placeholder="e.g. 250" required>
+                            <label class="form-label" for="q-baptized-last-year">3. How many are baptised members of the
+                                Church?</label>
+                            <input type="text" id="q-baptized-last-year" name="q_baptized_last_year" class="form-input"
+                                placeholder="e.g. 250" required>
                             <span class="error-message">This field is required.</span>
                         </div>
 
                         <div class="form-group required">
-                            <label class="form-label" for="q-new-converts">4. How many new converts were recieved last year?</label>
+                            <label class="form-label" for="q-new-converts">4. How many new converts were recieved last
+                                year?</label>
                             <input type="text" id="q-new-converts" name="q_new_converts" class="form-input"
                                 placeholder="e.g. 30" required>
                             <span class="error-message">This field is required.</span>
@@ -660,7 +708,8 @@
                         </div>
 
                         <div class="form-group required">
-                            <label class="form-label" for="q-board-members">1. What are the names of the current local Church board members?</label>
+                            <label class="form-label" for="q-board-members">1. What are the names of the current local
+                                Church board members?</label>
                             <textarea id="q-board-members" name="q_board_members"
                                 placeholder="List names of church board members..." rows="4" required></textarea>
                             <span class="error-message">This field is required.</span>
@@ -1473,10 +1522,10 @@
                         </div>
 
                         <div class="form-group required">
-                            <label class="form-label" for="q-other-income-sources">4. What are the other sources of income?</label>
+                            <label class="form-label" for="q-other-income-sources">4. What are the other sources of
+                                income?</label>
                             <textarea id="q-other-income-sources" name="q_other_income_sources"
-                                placeholder="Detail any other sources of income..." rows="4"
-                                required></textarea>
+                                placeholder="Detail any other sources of income..." rows="4" required></textarea>
                             <span class="error-message">This field is required.</span>
                         </div>
                     </div>
@@ -1800,7 +1849,8 @@
                     </svg>
                 </div>
                 <h2>Thank You for Your Feedback!</h2>
-                <p class="success-lead">Your questionnaire response for <strong id="success-church-display">Church X</strong>
+                <p class="success-lead">Your questionnaire response for <strong id="success-church-display">Church
+                        X</strong>
                     has been securely submitted.</p>
                 <div class="success-summary">
                     <p>The Strategic Planning Team is compiling this response along with others from your local
@@ -1857,7 +1907,8 @@
                 <button id="close-backend-modal-btn" class="modal-close-btn" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
-                <p class="modal-lead">Connect this questionnaire hub to receive responses directly into your Google Sheet,
+                <p class="modal-lead">Connect this questionnaire hub to receive responses directly into your Google
+                    Sheet,
                     Formspree, or custom webhook API in real-time.</p>
 
                 <div class="backend-status-card" id="backend-status-banner">

@@ -438,10 +438,12 @@ function doPost(e) {
             history.pushState(null, '', window.location.pathname);
         }
         switchActiveView(homeView);
-        resetSurveyState();
+        resetSurveyState(true);
+        updateHeroResumeCard();
+        renderDirectoryDraftPills();
     }
     
-    function showSurveyPage(church) {
+    function showSurveyPage(church, forceFresh = false) {
         selectedChurch = church;
         formChurchIdInput.value = church.id;
         
@@ -455,7 +457,14 @@ function doPost(e) {
         }
         
         switchActiveView(surveyView);
-        setStep(1);
+        resetSurveyState(false);
+
+        if (!forceFresh && loadFormDraft(church.id)) {
+            // Draft loaded & restored automatically
+        } else {
+            hideDraftBanner();
+            setStep(1);
+        }
     }
     
     function showSuccessPage(church, submittedPayload) {
@@ -524,6 +533,8 @@ function doPost(e) {
             
             directoryGrid.appendChild(btn);
         });
+        
+        renderDirectoryDraftPills();
     }
 
     function filterDirectory() {
@@ -631,6 +642,7 @@ function doPost(e) {
             nextStepBtn.classList.remove('btn-accent-color');
         }
         
+        triggerAutoSave();
         surveyView.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     
@@ -805,7 +817,7 @@ function doPost(e) {
     // SURVEY RESET & FORM SUBMIT
     // ==========================================
 
-    function resetSurveyState() {
+    function resetSurveyState(clearChurch = true) {
         surveyForm.reset();
         
         document.querySelectorAll('.radio-container, .checkbox-container').forEach(c => {
@@ -834,9 +846,12 @@ function doPost(e) {
         
         payloadDrawer.style.display = 'none';
         
-        selectedChurch = null;
+        if (clearChurch) {
+            selectedChurch = null;
+        }
         currentStep = 1;
         window._highestVisitedStep = 1;
+        hideDraftBanner();
     }
 
     function submitForm() {
@@ -1084,6 +1099,10 @@ function doPost(e) {
             }).catch(err => console.error('Endpoint post error:', err));
         }
 
+        if (selectedChurch) {
+            clearChurchDraft(selectedChurch.id);
+        }
+
         setTimeout(() => {
             nextStepBtn.disabled = false;
             showSuccessPage(selectedChurch, payload);
@@ -1139,8 +1158,266 @@ function doPost(e) {
     });
 
     // ==========================================
+    // AUTO-SAVE & DRAFT PERSISTENCE LOGIC
+    // ==========================================
+    let autoSaveTimeout = null;
+
+    function triggerAutoSave() {
+        if (!selectedChurch) return;
+        clearTimeout(autoSaveTimeout);
+        autoSaveTimeout = setTimeout(() => {
+            saveFormDraft();
+        }, 300);
+    }
+
+    function saveFormDraft() {
+        if (!selectedChurch) return;
+        
+        const formDataObj = {};
+        const elements = surveyForm.querySelectorAll('input, textarea, select');
+        
+        elements.forEach(el => {
+            if (!el.name) return;
+            
+            if (el.type === 'radio') {
+                if (el.checked) {
+                    formDataObj[el.name] = el.value;
+                }
+            } else if (el.type === 'checkbox') {
+                if (!formDataObj[el.name]) {
+                    formDataObj[el.name] = [];
+                }
+                if (el.checked) {
+                    formDataObj[el.name].push(el.value);
+                }
+            } else {
+                formDataObj[el.name] = el.value;
+            }
+        });
+
+        const draft = {
+            churchId: selectedChurch.id,
+            churchName: selectedChurch.displayName,
+            currentStep: currentStep,
+            highestVisitedStep: window._highestVisitedStep || currentStep,
+            savedAt: new Date().toISOString(),
+            formData: formDataObj
+        };
+
+        try {
+            localStorage.setItem(`church_survey_draft_${selectedChurch.id}`, JSON.stringify(draft));
+            renderDirectoryDraftPills();
+            updateHeroResumeCard();
+        } catch (e) {
+            console.warn('Could not save draft to LocalStorage:', e);
+        }
+    }
+
+    function loadFormDraft(churchId) {
+        if (!churchId) return false;
+        const rawData = localStorage.getItem(`church_survey_draft_${churchId}`);
+        if (!rawData) return false;
+        
+        try {
+            const draft = JSON.parse(rawData);
+            if (!draft || !draft.formData) return false;
+            
+            const formDataObj = draft.formData;
+            const elements = surveyForm.querySelectorAll('input, textarea, select');
+            
+            elements.forEach(el => {
+                if (!el.name) return;
+                const savedVal = formDataObj[el.name];
+                if (savedVal === undefined || savedVal === null) return;
+                
+                if (el.type === 'radio') {
+                    if (el.value === savedVal) {
+                        el.checked = true;
+                        const container = el.closest('.radio-container');
+                        if (container) container.classList.add('selected-option');
+                    } else {
+                        el.checked = false;
+                        const container = el.closest('.radio-container');
+                        if (container) container.classList.remove('selected-option');
+                    }
+                } else if (el.type === 'checkbox') {
+                    const isChecked = Array.isArray(savedVal) ? savedVal.includes(el.value) : savedVal === el.value;
+                    el.checked = isChecked;
+                    const container = el.closest('.checkbox-container');
+                    if (container) {
+                        if (isChecked) container.classList.add('selected-option');
+                        else container.classList.remove('selected-option');
+                    }
+                } else {
+                    el.value = savedVal;
+                }
+            });
+
+            // Trigger input events to update character counters
+            surveyForm.querySelectorAll('textarea').forEach(ta => {
+                ta.dispatchEvent(new Event('input', { bubbles: true }));
+            });
+
+            // Restore highest visited step
+            if (draft.highestVisitedStep) {
+                window._highestVisitedStep = draft.highestVisitedStep;
+            }
+
+            // Show banner
+            showDraftBanner(draft.savedAt);
+
+            // Jump to saved step
+            const savedStep = draft.currentStep || 1;
+            setStep(savedStep);
+
+            return true;
+        } catch (e) {
+            console.error('Error loading draft:', e);
+            return false;
+        }
+    }
+
+    function clearChurchDraft(churchId) {
+        if (!churchId) return;
+        localStorage.removeItem(`church_survey_draft_${churchId}`);
+        renderDirectoryDraftPills();
+        updateHeroResumeCard();
+    }
+
+    function showDraftBanner(savedAtIso) {
+        const surveyDraftBanner = document.getElementById('survey-draft-banner');
+        const surveyDraftTime = document.getElementById('survey-draft-time');
+        if (!surveyDraftBanner) return;
+        
+        if (savedAtIso) {
+            const dateObj = new Date(savedAtIso);
+            surveyDraftTime.textContent = dateObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' on ' + dateObj.toLocaleDateString();
+        } else {
+            surveyDraftTime.textContent = 'recently';
+        }
+        surveyDraftBanner.style.display = 'flex';
+    }
+
+    function hideDraftBanner() {
+        const surveyDraftBanner = document.getElementById('survey-draft-banner');
+        if (surveyDraftBanner) {
+            surveyDraftBanner.style.display = 'none';
+        }
+    }
+
+    function getMostRecentDraft() {
+        let mostRecent = null;
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key && key.startsWith('church_survey_draft_')) {
+                try {
+                    const draft = JSON.parse(localStorage.getItem(key));
+                    if (draft && draft.savedAt) {
+                        if (!mostRecent || new Date(draft.savedAt) > new Date(mostRecent.savedAt)) {
+                            mostRecent = draft;
+                        }
+                    }
+                } catch (e) {}
+            }
+        }
+        return mostRecent;
+    }
+
+    function updateHeroResumeCard() {
+        const heroResumeCard = document.getElementById('hero-resume-card');
+        if (!heroResumeCard) return;
+        
+        const draft = getMostRecentDraft();
+        if (!draft) {
+            heroResumeCard.style.display = 'none';
+            return;
+        }
+        
+        const churchNameEl = document.getElementById('resume-church-name');
+        const stepNumEl = document.getElementById('resume-step-num');
+        const timestampEl = document.getElementById('resume-timestamp');
+        
+        if (churchNameEl) churchNameEl.textContent = draft.churchName || 'Local Church';
+        if (stepNumEl) stepNumEl.textContent = draft.currentStep || 1;
+        if (timestampEl) {
+            const dateObj = new Date(draft.savedAt);
+            timestampEl.textContent = dateObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' on ' + dateObj.toLocaleDateString();
+        }
+        
+        heroResumeCard.style.display = 'flex';
+    }
+
+    function renderDirectoryDraftPills() {
+        congregationsList.forEach(church => {
+            const btn = document.getElementById(`church-btn-${church.id}`);
+            if (!btn) return;
+            
+            let pill = btn.querySelector('.church-draft-pill');
+            const hasDraft = !!localStorage.getItem(`church_survey_draft_${church.id}`);
+            
+            if (hasDraft) {
+                if (!pill) {
+                    pill = document.createElement('span');
+                    pill.className = 'church-draft-pill';
+                    pill.innerHTML = `
+                        <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="3">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        Draft Saved
+                    `;
+                    btn.appendChild(pill);
+                }
+            } else {
+                if (pill) pill.remove();
+            }
+        });
+    }
+
+    // Auto-save event listeners
+    surveyForm.addEventListener('input', triggerAutoSave);
+    surveyForm.addEventListener('change', triggerAutoSave);
+
+    const surveyClearDraftBtn = document.getElementById('survey-clear-draft-btn');
+    if (surveyClearDraftBtn) {
+        surveyClearDraftBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to clear your saved draft and start fresh?')) {
+                if (selectedChurch) {
+                    clearChurchDraft(selectedChurch.id);
+                }
+                resetSurveyState(false);
+                setStep(1);
+            }
+        });
+    }
+
+    const heroResumeBtn = document.getElementById('hero-resume-btn');
+    if (heroResumeBtn) {
+        heroResumeBtn.addEventListener('click', () => {
+            const draft = getMostRecentDraft();
+            if (draft) {
+                const church = congregationsList.find(c => c.id === draft.churchId);
+                if (church) {
+                    showSurveyPage(church);
+                }
+            }
+        });
+    }
+
+    const heroDiscardDraftBtn = document.getElementById('hero-discard-draft-btn');
+    if (heroDiscardDraftBtn) {
+        heroDiscardDraftBtn.addEventListener('click', () => {
+            const draft = getMostRecentDraft();
+            if (draft && confirm(`Discard saved draft for ${draft.churchName}?`)) {
+                clearChurchDraft(draft.churchId);
+            }
+        });
+    }
+
+    // ==========================================
     // APP INITIALIZATION RUN
     // ==========================================
     renderDirectory();
+    updateHeroResumeCard();
     router();
 });

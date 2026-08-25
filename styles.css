@@ -1984,3 +1984,116 @@ textarea:focus {
     font-size: 0.82rem;
 }
 
+/* ==========================================================================
+   AUTO-SAVE & DRAFT RESUME STYLING
+   ========================================================================== */
+
+/* Hero Resume Banner (HomePage) */
+.hero-resume-card {
+    background: linear-gradient(135deg, hsl(36, 100%, 96%), hsl(36, 60%, 92%));
+    border: 2px solid var(--accent);
+    border-radius: var(--border-radius-md);
+    padding: 20px 28px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: var(--shadow-md);
+    animation: fadeInStep 0.4s ease;
+}
+
+.resume-card-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.resume-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--accent-light);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.resume-card-text h4 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 2px;
+}
+
+.resume-card-text p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.resume-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .hero-resume-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .resume-card-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+
+/* Survey View Draft Restored Banner */
+.survey-draft-banner {
+    background-color: var(--accent-light);
+    border-bottom: 1px solid rgba(222, 136, 63, 0.2);
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 0.9rem;
+    color: var(--primary);
+}
+
+.draft-banner-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.draft-banner-info svg {
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+/* Directory Grid Church Button Draft Pill */
+.church-draft-pill {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent-hover);
+    background-color: var(--accent-light);
+    padding: 3px 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(222, 136, 63, 0.3);
+    margin-top: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.church-btn:hover .church-draft-pill {
+    background-color: var(--accent);
+    color: #fff;
+}
+
+
