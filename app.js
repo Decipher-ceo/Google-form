@@ -446,7 +446,7 @@ function doPost(e) {
         formChurchIdInput.value = church.id;
         
         selectedChurchBadge.textContent = `${church.displayName} (#${church.id})`;
-        surveyMainTitle.textContent = `Information & Survey: ${church.displayName}`;
+        surveyMainTitle.textContent = `Information & Questionnaire: ${church.displayName}`;
         
         const currentUrl = new URL(window.location.href);
         if (currentUrl.searchParams.get('church') !== String(church.id)) {
@@ -614,7 +614,7 @@ function doPost(e) {
         
         if (currentStep === totalSteps) {
             nextStepBtn.innerHTML = `
-                Submit Survey
+                Submit Questionnaire
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="20 6 9 17 4 12"/>
                 </svg>
