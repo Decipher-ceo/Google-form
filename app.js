@@ -100,12 +100,12 @@ function doPost(e) {
         "Section A: Founded Year", "Section A: Constituted Year", "Section A: Mother Church", "Section A: Full Address", "Section A: Community & LGA", "Section A: State", "Section A: Resident Pastor", "Section A: Phone", "Section A: Email", "Section A: Social Media",
         "Section B: Pioneer Members", "Section B: Pioneer Pastor", "Section B: Pioneer Board", "Section B: History Description", "Section B: Major Milestones", "Section B: Lessons Learned",
         "Section C: Pastoral History Table", "Section C: Notable Developments", "Section C: Current Resident Pastor",
-        "Section D: Total Membership (Abroad)", "Section D: Current Membership Category", "Section D: Baptized Last Year", "Section D: New Converts", "Section D: Attendance Trend", "Section D: Membership Matrix Table",
+        "Section D: Current Membership (Home)", "Section D: Current Membership (Abroad)", "Section D: Baptized Members", "Section D: New Converts Received Last Year", "Section D: Attendance Trend", "Section D: Membership Matrix Table",
         "Section E: Board Members", "Section E: Men Fellowship Leader", "Section E: Women Fellowship Leader", "Section E: Youth Fellowship Leader", "Section E: All Positions Filled", "Section E: Vacant Positions", "Section E: Leadership Training Needed",
         "Section F: Ministries Matrix Table", "Section F: Ministries Greatest Impact",
         "Section G: Outreaches Count", "Section G: Follow-up Process", "Section G: Future Church Planting",
         "Section H: Properties Matrix Table", "Section H: Ongoing Disputes", "Section H: Planned Projects", "Section H: Properties Assets Needed", "Section H: Acquired Property Use/Location/Size", "Section H: Acquired Property Documents", "Section H: DCC Has Copies", "Section H: Property Current Use",
-        "Section I: Financial Sources", "Section I: Financial Challenges", "Section I: Boost Financial Inflow",
+        "Section I: Financial Sources", "Section I: Financial Challenges", "Section I: Boost Financial Inflow", "Section I: Other Income Sources",
         "Section J: Community Needs Description", "Section J: Church Response to Needs", "Section J: Growth Opportunities", "Section J: Demographics", "Section J: Predominant Occupation", "Section J: Community Needs Checklist", "Section J: Community Needs Others",
         "Section K: SWOT Strengths Doing Well", "Section K: SWOT Strengths Thriving", "Section K: SWOT Strengths Resources", "Section K: SWOT Weaknesses Improvements", "Section K: SWOT Weaknesses Lacking", "Section K: SWOT Opportunities", "Section K: SWOT Threats", "Section K: Priority Needs Timeline", "Section K: Five Year Vision", "Section K: Prayer Requests"
       ]);
@@ -151,10 +151,10 @@ function doPost(e) {
       secC.notable_developments || "",
       secC.resident_pastor || "",
       
-      secD.total_membership_abroad || "",
-      secD.current_membership_category || "",
-      secD.baptized_last_year || "",
-      secD.new_converts || "",
+      secD.current_membership_home || "",
+      secD.current_membership_abroad || "",
+      secD.baptized_members_count || "",
+      secD.new_converts_last_year || "",
       secD.attendance_trends || "",
       secD.membership_matrix ? JSON.stringify(secD.membership_matrix) : "",
       
@@ -185,6 +185,7 @@ function doPost(e) {
       secI.financial_sources || "",
       secI.financial_challenges || "",
       secI.boost_income || "",
+      secI.other_income_sources || "",
       
       secJ.community_needs_desc || "",
       secJ.community_response || "",

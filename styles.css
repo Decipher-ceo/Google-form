@@ -288,13 +288,14 @@ h1, h2, h3, h4 {
     border: 1px solid var(--border-color);
     overflow: hidden;
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1.15fr 0.85fr;
     margin-bottom: 48px;
-    min-height: 480px;
+    min-height: 460px;
+    align-items: stretch;
 }
 
 .hero-content {
-    padding: 48px;
+    padding: 44px 48px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -322,10 +323,11 @@ h1, h2, h3, h4 {
 }
 
 .hero-lead {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--primary);
     font-weight: 500;
     margin-bottom: 24px;
+    line-height: 1.5;
 }
 
 .hero-divider {
@@ -346,16 +348,35 @@ h1, h2, h3, h4 {
     position: relative;
     width: 100%;
     height: 100%;
-    min-height: 320px;
+    min-height: 420px;
+    overflow: hidden;
+    background-color: var(--primary-dark);
+}
+
+.hero-image-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(15, 30, 22, 0.05) 0%, rgba(15, 30, 22, 0.35) 100%);
+    pointer-events: none;
 }
 
 .hero-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 20%;
     position: absolute;
     top: 0;
     left: 0;
+    transition: transform 0.5s ease;
+}
+
+.hero-card:hover .hero-image {
+    transform: scale(1.03);
 }
 
 /* Directory Section Header & Search */
@@ -1334,12 +1355,25 @@ textarea:focus {
     }
     
     .hero-image-wrapper {
-        min-height: 280px;
+        position: relative;
+        width: 100%;
+        height: 320px;
+        min-height: 260px;
         order: -1; /* Image at the top on tablet/mobile */
+    }
+
+    .hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 25%;
     }
     
     .hero-content {
-        padding: 36px;
+        padding: 36px 32px;
     }
     
     .survey-header {
@@ -1378,15 +1412,31 @@ textarea:focus {
 /* Mobile landscape and tablets */
 @media (max-width: 768px) {
     .main-content {
-        margin: 20px auto;
+        margin: 16px auto;
+        padding: 0 16px;
+    }
+    
+    .hero-card {
+        margin-bottom: 32px;
+        border-radius: var(--border-radius-md);
+    }
+
+    .hero-image-wrapper {
+        height: 260px;
+        min-height: 220px;
+    }
+
+    .hero-content {
+        padding: 28px 24px;
     }
     
     .hero-title {
-        font-size: 1.85rem;
+        font-size: 1.75rem;
     }
     
     .directory-section {
-        padding: 24px;
+        padding: 24px 20px;
+        border-radius: var(--border-radius-md);
     }
     
     .section-header {
@@ -1438,28 +1488,67 @@ textarea:focus {
 @media (max-width: 480px) {
     .header-container {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
         align-items: stretch;
+    }
+
+    .header-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+    
+    .header-actions button {
+        width: 100%;
+        justify-content: center;
     }
     
     #nav-directory-btn {
         width: 100%;
     }
     
+    .hero-card {
+        margin-bottom: 24px;
+    }
+
     .hero-content {
-        padding: 20px;
+        padding: 20px 16px;
     }
     
+    .hero-badge {
+        font-size: 0.72rem;
+        padding: 4px 10px;
+        line-height: 1.3;
+    }
+
     .hero-title {
-        font-size: 1.5rem;
+        font-size: 1.45rem;
+        line-height: 1.25;
+        margin-bottom: 12px;
     }
     
     .hero-lead {
-        font-size: 0.95rem;
+        font-size: 0.92rem;
+        line-height: 1.45;
+        margin-bottom: 16px;
+    }
+
+    .hero-text {
+        font-size: 0.88rem;
+        margin-bottom: 20px;
+    }
+
+    .hero-content .btn-large {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 18px;
+        font-size: 0.92rem;
     }
     
     .hero-image-wrapper {
-        min-height: 200px;
+        height: 220px;
+        min-height: 190px;
     }
     
     .directory-section {
