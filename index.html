@@ -27,15 +27,10 @@
     <header class="app-header">
         <div class="header-container">
             <a href="#" id="brand-logo" class="brand-logo" aria-label="Go to Home Page">
-                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L4 7V17L12 22L20 17V7L12 2Z" stroke="currentColor" stroke-width="2"
-                        stroke-linejoin="round" />
-                    <path d="M12 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    <path d="M9 10H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                </svg>
+                <img src="assets/church Logo.jpeg" alt="ECWA Umuahia DCC Logo" class="brand-logo-img">
                 <div class="brand-text">
                     <span class="brand-title">ECWA Umuahia DCC</span>
-                    <span class="brand-subtitle">Strategic Planning Hub</span>
+                    <span class="brand-subtitle">Strategic Planning & Research Hub</span>
                 </div>
             </a>
             <div class="header-actions">
@@ -68,11 +63,11 @@
             <!-- Hero Banner & Welcome Section -->
             <div class="hero-card">
                 <div class="hero-content">
-                    <span class="hero-badge">ECWA Umuahia DCC Strategic Planning</span>
+                    <span class="hero-badge">ECWA Umuahia DCC Strategic Planning & Research Hub</span>
                     <h1 class="hero-title">Shaping the Future of Our Community, Together</h1>
                     <p class="hero-lead">
-                        Welcome to the strategic planning portal for ECWA Umuahia District Church Council. Share your
-                        feedback to guide leadership decision-making across all local churches.
+                        Welcome to the strategic planning and research portal for ECWA Umuahia District Church Council.
+                        Share your feedback to guide leadership decision-making across all local churches.
                     </p>
                     <div class="hero-divider"></div>
                     <p class="hero-text">
@@ -610,34 +605,30 @@
                         </div>
 
                         <div class="form-group required">
-                            <label class="form-label" for="q-total-mem-abroad">1. What is the total membership including
-                                abroad members?</label>
+                            <label class="form-label" for="q-current-mem-home">1. What is the current church membership (Home)</label>
+                            <input type="text" id="q-current-mem-home" name="q_current_mem_home" class="form-input"
+                                placeholder="e.g. 350" required>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <div class="form-group required">
+                            <label class="form-label" for="q-total-mem-abroad">2. What is the current church membership (abroad)</label>
                             <input type="text" id="q-total-mem-abroad" name="q_total_mem_abroad" class="form-input"
-                                placeholder="e.g. 450" required>
+                                placeholder="e.g. 100" required>
                             <span class="error-message">This field is required.</span>
                         </div>
 
                         <div class="form-group required">
-                            <label class="form-label" for="q-current-mem-ex-abroad">2. What is the current membership by
-                                category excluding abroad members?</label>
-                            <textarea id="q-current-mem-ex-abroad" name="q_current_mem_ex_abroad"
-                                placeholder="Details of active resident membership..." rows="3" required></textarea>
+                            <label class="form-label" for="q-baptized-last-year">3. How many are baptised members of the Church?</label>
+                            <input type="text" id="q-baptized-last-year" name="q_baptized_last_year"
+                                class="form-input" placeholder="e.g. 250" required>
                             <span class="error-message">This field is required.</span>
                         </div>
 
                         <div class="form-group required">
-                            <label class="form-label" for="q-baptized-last-year">3. How many members were baptized last
-                                year?</label>
-                            <input type="number" id="q-baptized-last-year" name="q_baptized_last_year"
-                                class="form-input" min="0" placeholder="Number of baptized members" required>
-                            <span class="error-message">This field is required.</span>
-                        </div>
-
-                        <div class="form-group required">
-                            <label class="form-label" for="q-new-converts">4. How many new converts were
-                                received?</label>
-                            <input type="number" id="q-new-converts" name="q_new_converts" class="form-input" min="0"
-                                placeholder="Number of new converts" required>
+                            <label class="form-label" for="q-new-converts">4. How many new converts were recieved last year?</label>
+                            <input type="text" id="q-new-converts" name="q_new_converts" class="form-input"
+                                placeholder="e.g. 30" required>
                             <span class="error-message">This field is required.</span>
                         </div>
 
@@ -669,8 +660,7 @@
                         </div>
 
                         <div class="form-group required">
-                            <label class="form-label" for="q-board-members">1. The names of the board members of the
-                                church?</label>
+                            <label class="form-label" for="q-board-members">1. What are the names of the current local Church board members?</label>
                             <textarea id="q-board-members" name="q_board_members"
                                 placeholder="List names of church board members..." rows="4" required></textarea>
                             <span class="error-message">This field is required.</span>
@@ -746,7 +736,7 @@
                         </div>
 
                         <div class="form-group required">
-                            <label class="form-label">1 & 2. Status of Church Ministries</label>
+                            <label class="form-label">1. Which agencies and areas of ministries are active?</label>
                             <span class="question-hint">Please indicate for each ministry whether it is active and/or
                                 requires revitalization.</span>
                             <div class="form-table-wrapper">
@@ -819,6 +809,26 @@
                                                 </div>
                                             </td>
                                         </tr>
+                                        <!-- Teenagers Ministry -->
+                                        <tr>
+                                            <td><strong>Teenagers Ministry</strong></td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_active_teenagers"
+                                                            value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_active_teenagers"
+                                                            value="No"> No</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                                    <label><input type="radio" name="q_ministry_revitalize_teenagers"
+                                                            value="Yes" required> Yes</label>
+                                                    <label><input type="radio" name="q_ministry_revitalize_teenagers"
+                                                            value="No"> No</label>
+                                                </div>
+                                            </td>
+                                        </tr>
                                         <!-- Children's ministry -->
                                         <tr>
                                             <td><strong>Children's Ministry</strong></td>
@@ -879,9 +889,9 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <!-- Missions and outreach team -->
+                                        <!-- Missions and Evangelism -->
                                         <tr>
-                                            <td><strong>Missions and Outreach Team</strong></td>
+                                            <td><strong>Missions and Evangelism</strong></td>
                                             <td>
                                                 <div style="display: flex; gap: 16px; justify-content: center;">
                                                     <label><input type="radio" name="q_ministry_active_missions"
@@ -1459,6 +1469,14 @@
                                 <span class="character-count"><span id="boost-char-count">0</span> / 3000
                                     characters</span>
                             </div>
+                            <span class="error-message">This field is required.</span>
+                        </div>
+
+                        <div class="form-group required">
+                            <label class="form-label" for="q-other-income-sources">4. What are the other sources of income?</label>
+                            <textarea id="q-other-income-sources" name="q_other_income_sources"
+                                placeholder="Detail any other sources of income..." rows="4"
+                                required></textarea>
                             <span class="error-message">This field is required.</span>
                         </div>
                     </div>

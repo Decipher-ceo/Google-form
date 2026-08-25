@@ -895,10 +895,11 @@ function doPost(e) {
             { key: 'men', name: 'Men Fellowship' },
             { key: 'women', name: 'Women Fellowship' },
             { key: 'youth', name: 'Youth Fellowship' },
+            { key: 'teenagers', name: 'Teenagers Ministry' },
             { key: 'children', name: 'Children\'s Ministry' },
             { key: 'sundayschool', name: 'Sunday School' },
             { key: 'evangelism', name: 'Evangelism' },
-            { key: 'missions', name: 'Missions and Outreach Team' },
+            { key: 'missions', name: 'Missions and Evangelism' },
             { key: 'discipleship', name: 'Discipleship Ministry' },
             { key: 'media', name: 'Media Ministry' },
             { key: 'welfare', name: 'Welfare Team' },
@@ -998,10 +999,10 @@ function doPost(e) {
                 },
                 section_d: {
                     membership_matrix: membershipMatrix,
-                    total_membership_abroad: formData.get('q_total_mem_abroad'),
-                    current_membership_category: formData.get('q_current_mem_ex_abroad'),
-                    baptized_last_year: formData.get('q_baptized_last_year'),
-                    new_converts: formData.get('q_new_converts'),
+                    current_membership_home: formData.get('q_current_mem_home'),
+                    current_membership_abroad: formData.get('q_total_mem_abroad'),
+                    baptized_members_count: formData.get('q_baptized_last_year'),
+                    new_converts_last_year: formData.get('q_new_converts'),
                     attendance_trends: formData.get('q_attendance_trends')
                 },
                 section_e: {
@@ -1035,7 +1036,8 @@ function doPost(e) {
                 section_i: {
                     financial_sources: formData.get('q_financial_sources'),
                     financial_challenges: formData.get('q_financial_challenges'),
-                    boost_income: formData.get('q_boost_income')
+                    boost_income: formData.get('q_boost_income'),
+                    other_income_sources: formData.get('q_other_income_sources')
                 },
                 section_j: {
                     community_needs_desc: formData.get('q_community_needs_desc'),
