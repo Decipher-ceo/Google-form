@@ -287,6 +287,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1500);
     }
 
+    // Ensure directory view is visible and survey view is hidden on initial load
+    if (surveyView) surveyView.style.display = 'none';
+    if (directoryView) directoryView.style.display = 'block';
+
     // Initialize directory
     renderChurchDirectory(CONGREGATIONS);
 });

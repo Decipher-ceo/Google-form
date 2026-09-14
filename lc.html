@@ -11,9 +11,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
@@ -100,7 +98,7 @@
                     <div class="survey-title-block">
                         <span id="lc-selected-badge" class="church-badge">Church: --</span>
                         <h2 id="lc-survey-title">Local Church Questionnaire</h2>
-                        <p class="survey-desc">Complete all sections for your local congregation. Progress is auto-saved.</p>
+                        <p class="survey-desc">Complete all 11 sections for your local congregation. Data guides ECWA Umuahia DCC strategic planning.</p>
                     </div>
                     <button type="button" id="back-to-directory-btn" class="btn btn-text text-danger">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
@@ -121,117 +119,478 @@
                         <div class="step-indicator" data-step="3"><span class="step-num">3</span><span class="step-label">Pastors</span></div>
                         <div class="step-indicator" data-step="4"><span class="step-num">4</span><span class="step-label">Members</span></div>
                         <div class="step-indicator" data-step="5"><span class="step-num">5</span><span class="step-label">Leadership</span></div>
+                        <div class="step-indicator" data-step="6"><span class="step-num">6</span><span class="step-label">Ministries</span></div>
+                        <div class="step-indicator" data-step="7"><span class="step-num">7</span><span class="step-label">Evangelism</span></div>
+                        <div class="step-indicator" data-step="8"><span class="step-num">8</span><span class="step-label">Property</span></div>
+                        <div class="step-indicator" data-step="9"><span class="step-num">9</span><span class="step-label">Finance</span></div>
+                        <div class="step-indicator" data-step="10"><span class="step-num">10</span><span class="step-label">Community</span></div>
+                        <div class="step-indicator" data-step="11"><span class="step-num">11</span><span class="step-label">SWOT / Vision</span></div>
                     </div>
                 </div>
 
                 <form id="lc-survey-form" novalidate>
                     <input type="hidden" id="lc-form-church-id" name="church_id">
 
-                    <!-- STEP 1: General Info -->
+                    <!-- STEP 1: SECTION A - General Information -->
                     <div class="form-step active" data-step="1">
                         <div class="step-header-card">
                             <h3>SECTION A: General Information</h3>
-                            <p>Provide establishment and registration information for this local church.</p>
+                            <p>Provide baseline registration and location details for this local church or prayer house.</p>
                         </div>
-                        <div class="form-group required">
-                            <label class="form-label" for="q-founded-year">1. What year was the local church founded?</label>
-                            <input type="text" id="q-founded-year" name="q_founded_year" class="form-input" placeholder="e.g. 1982" required>
-                            <span class="error-message">This field is required.</span>
+                        <div class="form-group">
+                            <label class="form-label" for="q-founded-year">1. What year was the local church/prayer house founded?</label>
+                            <input type="text" id="q-founded-year" name="q_founded_year" class="form-input" placeholder="e.g. 1982">
                         </div>
-                        <div class="form-group required">
-                            <label class="form-label" for="q-constituted-year">2. In what year was the local church constituted?</label>
-                            <input type="text" id="q-constituted-year" name="q_constituted_year" class="form-input" placeholder="e.g. 1990" required>
-                            <span class="error-message">This field is required.</span>
+                        <div class="form-group">
+                            <label class="form-label" for="q-constituted-year">2. In what year was the LC recognized/constituted as a local church?</label>
+                            <input type="text" id="q-constituted-year" name="q_constituted_year" class="form-input" placeholder="e.g. 1990">
                         </div>
-                        <div class="form-group required">
-                            <label class="form-label" for="q-dcc-council">3. Name of District Church Council?</label>
-                            <input type="text" id="q-dcc-council" name="q_dcc_council" class="form-input" value="ECWA Umuahia District Church Council" required>
+                        <div class="form-group">
+                            <label class="form-label" for="q-lcc-belong">3. Local church council does it belong to?</label>
+                            <input type="text" id="q-lcc-belong" name="q_lcc_belong" class="form-input" placeholder="e.g. Umuahia LCC">
                         </div>
-                        <div class="form-group required">
-                            <label class="form-label" for="q-mother-church">4. What is the name of the mother church that planted this local church?</label>
-                            <input type="text" id="q-mother-church" name="q_mother_church" class="form-input" placeholder="Name of mother church" required>
-                            <span class="error-message">This field is required.</span>
+                        <div class="form-group">
+                            <label class="form-label" for="q-mother-church">4. Name of the mother church of the LC?</label>
+                            <input type="text" id="q-mother-church" name="q_mother_church" class="form-input" placeholder="Name of mother church">
                         </div>
-                        <div class="form-group required">
-                            <label class="form-label" for="q-full-address">5. What is the full physical address/location of the local church?</label>
-                            <textarea id="q-full-address" name="q_full_address" class="form-input" rows="3" placeholder="Full street address, town, LGA" required></textarea>
-                            <span class="error-message">This field is required.</span>
+                        <div class="form-group">
+                            <label class="form-label" for="q-full-address">5. Church's full address?</label>
+                            <textarea id="q-full-address" name="q_full_address" class="form-input" rows="3" placeholder="Full street address, town, LGA"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-community-lga">6. In what community and local government is the local church situated?</label>
+                            <input type="text" id="q-community-lga" name="q_community_lga" class="form-input" placeholder="Community & LGA name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">7. In what state is the LC/PH situated?</label>
+                            <div class="radio-group-horizontal">
+                                <label class="radio-container"><input type="radio" name="q_state" value="Abia"><span class="radio-checkmark"></span><span class="radio-label">Abia</span></label>
+                                <label class="radio-container"><input type="radio" name="q_state" value="Imo"><span class="radio-checkmark"></span><span class="radio-label">Imo</span></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-current-pastor">8. Who is the current resident pastor of the LC?</label>
+                            <input type="text" id="q-current-pastor" name="q_current_pastor" class="form-input" placeholder="Name of resident pastor">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">9. Official contact details:</label>
+                            <div style="margin-top: 8px;">
+                                <label class="form-label form-sub-label" for="q-contact-phone">a. Phone number?</label>
+                                <input type="tel" id="q-contact-phone" name="q_contact_phone" class="form-input" placeholder="e.g. 08012345678">
+                            </div>
+                            <div style="margin-top: 8px;">
+                                <label class="form-label form-sub-label" for="q-contact-email">b. Email address?</label>
+                                <input type="email" id="q-contact-email" name="q_contact_email" class="form-input" placeholder="e.g. church@ecwa.org">
+                            </div>
+                            <div style="margin-top: 8px;">
+                                <label class="form-label form-sub-label" for="q-contact-social">c. Social media?</label>
+                                <input type="text" id="q-contact-social" name="q_contact_social" class="form-input" placeholder="e.g. Facebook page, YouTube channel">
+                            </div>
                         </div>
                     </div>
 
-                    <!-- STEP 2: History -->
+                    <!-- STEP 2: SECTION B - Church History -->
                     <div class="form-step" data-step="2">
                         <div class="step-header-card">
                             <h3>SECTION B: Church History</h3>
-                            <p>Historical background and pioneer members.</p>
-                        </div>
-                        <div class="form-group required">
-                            <label class="form-label" for="q-church-history">1. Briefly describe the history of the local church from inception to date:</label>
-                            <textarea id="q-church-history" name="q_church_history" class="form-input" rows="6" placeholder="Describe historical development..." required></textarea>
-                            <span class="error-message">This field is required.</span>
+                            <p>Historical background, pioneer leadership, and milestones.</p>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="q-pioneer-members">2. Mention pioneer/founding members:</label>
-                            <textarea id="q-pioneer-members" name="q_pioneer_members" class="form-input" rows="4" placeholder="Names of founding members..."></textarea>
+                            <label class="form-label" for="q-pioneer-members">1. Who is/are the founding/pioneer member(s) of the LC?</label>
+                            <textarea id="q-pioneer-members" name="q_pioneer_members" class="form-input" rows="3" placeholder="List founding members..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-pioneer-pastor">2. Who served as the pioneer pastor?</label>
+                            <input type="text" id="q-pioneer-pastor" name="q_pioneer_pastor" class="form-input" placeholder="Name of pioneer pastor">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-pioneer-board">3. Who served as the pioneer board of the LC?</label>
+                            <textarea id="q-pioneer-board" name="q_pioneer_board" class="form-input" rows="3" placeholder="List pioneer board members..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-church-history">4. Briefly describe the history of the church?</label>
+                            <textarea id="q-church-history" name="q_church_history" class="form-input" rows="6" placeholder="Describe historical development from inception to date..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-milestone">5. What major milestone has the church reached/attained?</label>
+                            <textarea id="q-milestone" name="q_milestones" class="form-input" rows="3" placeholder="List key milestones..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-history-lessons">6. What lessons from its history should guide future ministry?</label>
+                            <textarea id="q-history-lessons" name="q_history_lessons" class="form-input" rows="4" placeholder="Describe historical lessons..."></textarea>
                         </div>
                     </div>
 
-                    <!-- STEP 3: Pastoral History -->
+                    <!-- STEP 3: SECTION C - Pastoral History -->
                     <div class="form-step" data-step="3">
                         <div class="step-header-card">
                             <h3>SECTION C: Pastoral History</h3>
                             <p>Pastors who have served in this local church.</p>
                         </div>
-                        <div class="form-group required">
-                            <label class="form-label" for="q-pastoral-history">1. Mention all resident pastors from inception to date with tenure dates:</label>
-                            <textarea id="q-pastoral-history" name="q_pastoral_history" class="form-input" rows="6" placeholder="Name of Pastor (Years of service e.g. 2010 - 2015)..." required></textarea>
-                            <span class="error-message">This field is required.</span>
+                        <div class="form-group">
+                            <label class="form-label">Pastoral Succession Table:</label>
+                            <div class="form-table-wrapper">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Pastor Name</th>
+                                            <th>Years Served</th>
+                                            <th>Major Contributions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>1</td><td><input type="text" name="q_pastor1_name" class="form-input" placeholder="Pastor 1"></td><td><input type="text" name="q_pastor1_years" class="form-input" placeholder="e.g. 2010-2015"></td><td><input type="text" name="q_pastor1_contrib" class="form-input" placeholder="Contributions"></td></tr>
+                                        <tr><td>2</td><td><input type="text" name="q_pastor2_name" class="form-input" placeholder="Pastor 2"></td><td><input type="text" name="q_pastor2_years" class="form-input" placeholder="e.g. 2015-2020"></td><td><input type="text" name="q_pastor2_contrib" class="form-input" placeholder="Contributions"></td></tr>
+                                        <tr><td>3</td><td><input type="text" name="q_pastor3_name" class="form-input" placeholder="Pastor 3"></td><td><input type="text" name="q_pastor3_years" class="form-input" placeholder="e.g. 2020-2024"></td><td><input type="text" name="q_pastor3_contrib" class="form-input" placeholder="Contributions"></td></tr>
+                                        <tr><td>4</td><td><input type="text" name="q_pastor4_name" class="form-input" placeholder="Pastor 4"></td><td><input type="text" name="q_pastor4_years" class="form-input" placeholder="Current"></td><td><input type="text" name="q_pastor4_contrib" class="form-input" placeholder="Contributions"></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-pastoral-developments">1. Are there notable ministry developments during specific service years?</label>
+                            <textarea id="q-pastoral-developments" name="q_pastoral_developments" class="form-input" rows="4" placeholder="Describe ministry developments..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-resident-pastor-confirm">2. Who is the current resident pastor of the church?</label>
+                            <input type="text" id="q-resident-pastor-confirm" name="q_resident_pastor_confirm" class="form-input" placeholder="Name of current resident pastor">
                         </div>
                     </div>
 
-                    <!-- STEP 4: Membership -->
+                    <!-- STEP 4: SECTION D - Membership Profile -->
                     <div class="form-step" data-step="4">
                         <div class="step-header-card">
-                            <h3>SECTION D: Membership &amp; Attendance</h3>
-                            <p>Current membership demographics and attendance figures.</p>
-                        </div>
-                        <div class="form-group required">
-                            <label class="form-label" for="q-total-membership">1. Total membership count:</label>
-                            <input type="number" id="q-total-membership" name="q_total_membership" class="form-input" placeholder="e.g. 250" required>
-                            <span class="error-message">This field is required.</span>
+                            <h3>SECTION D: Membership Profile</h3>
+                            <p>Current membership demographics, breakdown, and attendance trends.</p>
                         </div>
                         <div class="form-group">
-                            <div class="membership-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                                <div>
-                                    <label class="form-label form-sub-label" for="q-mem-men">Men:</label>
-                                    <input type="number" id="q-mem-men" name="q_mem_men" class="form-input" placeholder="0">
-                                </div>
-                                <div>
-                                    <label class="form-label form-sub-label" for="q-mem-women">Women:</label>
-                                    <input type="number" id="q-mem-women" name="q_mem_women" class="form-input" placeholder="0">
-                                </div>
-                                <div>
-                                    <label class="form-label form-sub-label" for="q-mem-youth">Youths:</label>
-                                    <input type="number" id="q-mem-youth" name="q_mem_youth" class="form-input" placeholder="0">
-                                </div>
-                                <div>
-                                    <label class="form-label form-sub-label" for="q-mem-children">Children:</label>
-                                    <input type="number" id="q-mem-children" name="q_mem_children" class="form-input" placeholder="0">
-                                </div>
+                            <label class="form-label" for="q-total-mem-abroad">1. What is the total membership including abroad members?</label>
+                            <input type="text" id="q-total-mem-abroad" name="q_total_mem_abroad" class="form-input" placeholder="e.g. 350">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-total-mem-local">2. What is the current membership by category excluding abroad members?</label>
+                            <input type="text" id="q-total-mem-local" name="q_total_mem_local" class="form-input" placeholder="e.g. 280">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-baptized-last-year">3. How many members were baptized last year?</label>
+                            <input type="text" id="q-baptized-last-year" name="q_baptized_last_year" class="form-input" placeholder="e.g. 15">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-new-converts">4. How many new converts were received?</label>
+                            <input type="text" id="q-new-converts" name="q_new_converts" class="form-input" placeholder="e.g. 20">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">5. What are the attendance trends over the past three years?</label>
+                            <div class="radio-group-horizontal">
+                                <label class="radio-container"><input type="radio" name="q_attendance_trend" value="Increasing"><span class="radio-checkmark"></span><span class="radio-label">Increasing</span></label>
+                                <label class="radio-container"><input type="radio" name="q_attendance_trend" value="Dwindling"><span class="radio-checkmark"></span><span class="radio-label">Dwindling</span></label>
                             </div>
                         </div>
                     </div>
 
-                    <!-- STEP 5: Leadership -->
+                    <!-- STEP 5: SECTION E - Church Leadership -->
                     <div class="form-step" data-step="5">
                         <div class="step-header-card">
-                            <h3>SECTION E: Local Church Board &amp; Leadership</h3>
-                            <p>Current executive committee and board members.</p>
+                            <h3>SECTION E: Church Leadership</h3>
+                            <p>Board members, fellowship leaders, and leadership development needs.</p>
                         </div>
-                        <div class="form-group required">
-                            <label class="form-label" for="q-board-members">1. Mention current Local Church Board (LCB) members and positions:</label>
-                            <textarea id="q-board-members" name="q_board_members" class="form-input" rows="6" placeholder="Name - Position (e.g. Elder John - LCB Secretary)..." required></textarea>
-                            <span class="error-message">This field is required.</span>
+                        <div class="form-group">
+                            <label class="form-label" for="q-board-members">1. The names of the board members of the church?</label>
+                            <textarea id="q-board-members" name="q_board_members" class="form-input" rows="4" placeholder="List all board members..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">2. The names of the fellowship group leaders?</label>
+                            <div style="margin-top: 8px;">
+                                <label class="form-label form-sub-label" for="q-leader-men">a. Men's fellowship?</label>
+                                <input type="text" id="q-leader-men" name="q_leader_men" class="form-input" placeholder="Men's fellowship leader">
+                            </div>
+                            <div style="margin-top: 8px;">
+                                <label class="form-label form-sub-label" for="q-leader-women">b. Women's fellowship?</label>
+                                <input type="text" id="q-leader-women" name="q_leader_women" class="form-input" placeholder="Women's fellowship leader">
+                            </div>
+                            <div style="margin-top: 8px;">
+                                <label class="form-label form-sub-label" for="q-leader-youth">c. Youth fellowship?</label>
+                                <input type="text" id="q-leader-youth" name="q_leader_youth" class="form-input" placeholder="Youth fellowship leader">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">3. Does the church have all featured leadership positions filled?</label>
+                            <div class="radio-group-horizontal">
+                                <label class="radio-container"><input type="radio" name="q_leadership_filled" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label>
+                                <label class="radio-container"><input type="radio" name="q_leadership_filled" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-vacant-positions">4. Which positions are vacant?</label>
+                            <input type="text" id="q-vacant-positions" name="q_vacant_positions" class="form-input" placeholder="List vacant leadership positions...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-training-needed">5. What leadership training is needed?</label>
+                            <textarea id="q-training-needed" name="q_training_needed" class="form-input" rows="4" placeholder="Describe needed leadership training..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 6: SECTION F - Ministries -->
+                    <div class="form-step" data-step="6">
+                        <div class="step-header-card">
+                            <h3>SECTION F: Ministries</h3>
+                            <p>Active and revitalization status of church ministries &amp; fellowships.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">1. Which ministries are active?</label>
+                            <div class="ministry-checklist" style="margin-top: 8px;">
+                                <div class="ministry-row"><span class="ministry-name">a. Men Fellowship</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_active_men" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_active_men" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">b. Women Fellowship</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_active_women" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_active_women" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">c. Youth Fellowship</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_active_youth" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_active_youth" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">d. Children's Ministry</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_active_children" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_active_children" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">e. Sunday School</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_active_sundayschool" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_active_sundayschool" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">f. Evangelism</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_active_evangelism" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_active_evangelism" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">g. Missions &amp; Outreach Team</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_active_missions" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_active_missions" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">h. Discipleship Ministry</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_active_discipleship" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_active_discipleship" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">i. Media Ministry</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_active_media" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_active_media" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">j. Welfare Team</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_active_welfare" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_active_welfare" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">k. Christian Education Leader</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_active_ces" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_active_ces" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">l. Prayer Band</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_active_prayer" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_active_prayer" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 24px;">
+                            <label class="form-label">2. Which ministries require revitalization?</label>
+                            <div class="ministry-checklist" style="margin-top: 8px;">
+                                <div class="ministry-row"><span class="ministry-name">a. Men Fellowship</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_rev_men" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_rev_men" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">b. Women Fellowship</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_rev_women" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_rev_women" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">c. Youth Fellowship</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_rev_youth" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_rev_youth" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">d. Children's Ministry</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_rev_children" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_rev_children" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">e. Sunday School</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_rev_sundayschool" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_rev_sundayschool" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">f. Evangelism</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_rev_evangelism" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_rev_evangelism" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">g. Missions &amp; Outreach Team</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_rev_missions" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_rev_missions" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">h. Discipleship Ministry</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_rev_discipleship" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_rev_discipleship" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">i. Media Ministry</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_rev_media" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_rev_media" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">j. Welfare Team</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_rev_welfare" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_rev_welfare" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">k. Christian Education Leader</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_rev_ces" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_rev_ces" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">l. Prayer Band</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_rev_prayer" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_rev_prayer" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-ministry-impact">3. Which ministries has shown the greatest impact?</label>
+                            <textarea id="q-ministry-impact" name="q_ministry_impact" class="form-input" rows="4" placeholder="Describe ministries with greatest impact..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 7: SECTION G - Evangelism and Missions -->
+                    <div class="form-step" data-step="7">
+                        <div class="step-header-card">
+                            <h3>SECTION G: Evangelism and Missions</h3>
+                            <p>Outreach activities, follow-up processes, and church planting targets.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-evangelism-outreaches">1. How many evangelistic outreaches has been carried out this year?</label>
+                            <input type="text" id="q-evangelism-outreaches" name="q_evangelism_outreaches" class="form-input" placeholder="e.g. 5">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-followup-process">2. What follow-up process exists?</label>
+                            <textarea id="q-followup-process" name="q_followup_process" class="form-input" rows="4" placeholder="Describe your follow-up process for converts..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-planting-communities">3. Are there communities identified for future church planting?</label>
+                            <textarea id="q-planting-communities" name="q_planting_communities" class="form-input" rows="4" placeholder="List identified communities for future planting..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 8: SECTION H - Property and Assets -->
+                    <div class="form-step" data-step="8">
+                        <div class="step-header-card">
+                            <h3>SECTION H: Property and Assets</h3>
+                            <p>Inventory, documentation status, legal registration, and planned projects.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">1–3. Properties &amp; Assets Status Table:</label>
+                            <div class="form-table-wrapper">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Property / Asset</th>
+                                            <th>Has Asset?</th>
+                                            <th>Fully Documented?</th>
+                                            <th>Requires Legal Reg.?</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Land</td><td><label class="radio-container"><input type="radio" name="q_asset_has_land" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_has_land" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_doc_land" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_doc_land" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_reg_land" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_reg_land" value="No"><span class="radio-label">No</span></label></td></tr>
+                                        <tr><td>Church Building(s)</td><td><label class="radio-container"><input type="radio" name="q_asset_has_building" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_has_building" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_doc_building" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_doc_building" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_reg_building" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_reg_building" value="No"><span class="radio-label">No</span></label></td></tr>
+                                        <tr><td>Pastorium</td><td><label class="radio-container"><input type="radio" name="q_asset_has_pastorium" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_has_pastorium" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_doc_pastorium" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_doc_pastorium" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_reg_pastorium" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_reg_pastorium" value="No"><span class="radio-label">No</span></label></td></tr>
+                                        <tr><td>Vehicles</td><td><label class="radio-container"><input type="radio" name="q_asset_has_vehicles" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_has_vehicles" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_doc_vehicles" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_doc_vehicles" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_reg_vehicles" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_reg_vehicles" value="No"><span class="radio-label">No</span></label></td></tr>
+                                        <tr><td>Equipments</td><td><label class="radio-container"><input type="radio" name="q_asset_has_equip" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_has_equip" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_doc_equip" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_doc_equip" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_reg_equip" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_reg_equip" value="No"><span class="radio-label">No</span></label></td></tr>
+                                        <tr><td>Furniture(s) &amp; Fittings</td><td><label class="radio-container"><input type="radio" name="q_asset_has_furniture" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_has_furniture" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_doc_furniture" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_doc_furniture" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_reg_furniture" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_reg_furniture" value="No"><span class="radio-label">No</span></label></td></tr>
+                                        <tr><td>ICT Equipment</td><td><label class="radio-container"><input type="radio" name="q_asset_has_ict" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_has_ict" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_doc_ict" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_doc_ict" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_reg_ict" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_reg_ict" value="No"><span class="radio-label">No</span></label></td></tr>
+                                        <tr><td>Generator</td><td><label class="radio-container"><input type="radio" name="q_asset_has_gen" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_has_gen" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_doc_gen" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_doc_gen" value="No"><span class="radio-label">No</span></label></td><td><label class="radio-container"><input type="radio" name="q_asset_reg_gen" value="Yes"><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_asset_reg_gen" value="No"><span class="radio-label">No</span></label></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-ongoing-disputes">4. Are there any ongoing disputes?</label>
+                            <textarea id="q-ongoing-disputes" name="q_ongoing_disputes" class="form-input" rows="3" placeholder="Describe any disputes..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-planned-infrastructure">5. What infrastructural Projects are planned?</label>
+                            <textarea id="q-planned-infrastructure" name="q_planned_infrastructure" class="form-input" rows="4" placeholder="Describe planned infrastructural projects..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-properties-needed">6. What properties and assets are needed?</label>
+                            <textarea id="q-properties-needed" name="q_properties_needed" class="form-input" rows="3" placeholder="List needed properties/assets..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-acquired-property-details">7. Location, size and use of the acquired property?</label>
+                            <textarea id="q-acquired-property-details" name="q_acquired_property_details" class="form-input" rows="3" placeholder="Specify location, size and use..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-acquired-property-docs">8. Available documents for the acquired property?</label>
+                            <textarea id="q-acquired-property-docs" name="q_acquired_property_docs" class="form-input" rows="3" placeholder="List available documents..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">9. Does the DCC secretariat have copies of the above documents?</label>
+                            <div class="radio-group-horizontal">
+                                <label class="radio-container"><input type="radio" name="q_dcc_has_copies" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label>
+                                <label class="radio-container"><input type="radio" name="q_dcc_has_copies" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-property-in-use">10. Is the property currently in use or not in use?</label>
+                            <input type="text" id="q-property-in-use" name="q_property_in_use" class="form-input" placeholder="e.g. Currently in use for worship">
+                        </div>
+                    </div>
+
+                    <!-- STEP 9: SECTION I - Financial Profile -->
+                    <div class="form-step" data-step="9">
+                        <div class="step-header-card">
+                            <h3>SECTION I: Financial Profile</h3>
+                            <p>Known income sources, financial challenges, and inflow strategies.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-income-sources">1. What are the church's known sources of financial income?</label>
+                            <textarea id="q-income-sources" name="q_income_sources" class="form-input" rows="4" placeholder="List tithes, offerings, donations, etc..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-financial-challenges">2. What financial challenges does the church face?</label>
+                            <textarea id="q-financial-challenges" name="q_financial_challenges" class="form-input" rows="4" placeholder="Describe financial challenges..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-boost-income">3. What can the church do to boost its financial inflow?</label>
+                            <textarea id="q-boost-income" name="q_boost_income" class="form-input" rows="4" placeholder="Describe strategies to boost financial inflow..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 10: SECTION J - Community Profile -->
+                    <div class="form-step" data-step="10">
+                        <div class="step-header-card">
+                            <h3>SECTION J: Community Profile</h3>
+                            <p>Community demographics, needs, and church response.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-community-needs">1. What are the greatest needs of the community where the church is situated?</label>
+                            <textarea id="q-community-needs" name="q_community_needs" class="form-input" rows="4" placeholder="Describe community needs..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-community-response">2. How is the church responding to these needs?</label>
+                            <textarea id="q-community-response" name="q_community_response" class="form-input" rows="4" placeholder="Describe church response..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-evangelism-opps">3. What opportunity exists for evangelism and community development?</label>
+                            <textarea id="q-evangelism-opps" name="q_evangelism_opps" class="form-input" rows="4" placeholder="Describe opportunities..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-community-demographics">4. What is the dominant ethnic group and major religious group in that community?</label>
+                            <input type="text" id="q-community-demographics" name="q_community_demographics" class="form-input" placeholder="e.g. Igbo, Christianity">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-community-occupation">5. What is the predominant occupation?</label>
+                            <input type="text" id="q-community-occupation" name="q_community_occupation" class="form-input" placeholder="e.g. Farming, Trading, Civil Service">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">6. Community Needs:</label>
+                            <div class="ministry-checklist" style="margin-top: 8px;">
+                                <div class="ministry-row"><span class="ministry-name">a. Youth Development</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_need_youth" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_need_youth" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">b. Skill Acquisition</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_need_skills" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_need_skills" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">c. Healthcare Outreach</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_need_healthcare" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_need_healthcare" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">d. Educational Support</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_need_education" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_need_education" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">e. Water and Sanitation</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_need_water" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_need_water" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">f. Peace Building</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_need_peace" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_need_peace" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">g. Evangelism</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_need_evangelism" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_need_evangelism" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-needs-others">Others (specify):</label>
+                            <textarea id="q-needs-others" name="q_community_needs_others" class="form-input" rows="3" placeholder="Specify other community needs..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 11: SECTION K - Strategic Assessment -->
+                    <div class="form-step" data-step="11">
+                        <div class="step-header-card">
+                            <h3>SECTION K: Strategic Assessment of The LC</h3>
+                            <p>SWOT analysis, priority needs timeline, 5-year vision, and prayer requests.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" style="font-weight: 700; color: var(--primary);">STRENGTHS</label>
+                            <div style="margin-top: 8px;">
+                                <label class="form-label form-sub-label" for="q-swot-well">a. What is the LC doing well?</label>
+                                <textarea id="q-swot-well" name="q_swot_well" class="form-input" rows="3" placeholder="Describe what the LC is doing well..."></textarea>
+                            </div>
+                            <div style="margin-top: 8px;">
+                                <label class="form-label form-sub-label" for="q-swot-thriving">b. What ministries are thriving?</label>
+                                <textarea id="q-swot-thriving" name="q_swot_thriving" class="form-input" rows="3" placeholder="Describe thriving ministries..."></textarea>
+                            </div>
+                            <div style="margin-top: 8px;">
+                                <label class="form-label form-sub-label" for="q-swot-resources">c. What resources do we have?</label>
+                                <textarea id="q-swot-resources" name="q_swot_resources" class="form-input" rows="3" placeholder="Describe available resources..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 24px;">
+                            <label class="form-label" style="font-weight: 700; color: var(--warning, #f59e0b);">WEAKNESSES</label>
+                            <div style="margin-top: 8px;">
+                                <label class="form-label form-sub-label" for="q-swot-improvements">a. What areas need improvements?</label>
+                                <textarea id="q-swot-improvements" name="q_swot_improvements" class="form-input" rows="3" placeholder="Describe areas needing improvement..."></textarea>
+                            </div>
+                            <div style="margin-top: 8px;">
+                                <label class="form-label form-sub-label" for="q-swot-lacking">b. Where else are we lacking?</label>
+                                <textarea id="q-swot-lacking" name="q_swot_lacking" class="form-input" rows="3" placeholder="Describe areas lacking..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 24px;">
+                            <label class="form-label" style="font-weight: 700; color: var(--accent, #10b981);">OPPORTUNITIES</label>
+                            <div style="margin-top: 8px;">
+                                <label class="form-label form-sub-label" for="q-swot-growth">a. What opportunities exist for growth?</label>
+                                <textarea id="q-swot-growth" name="q_swot_growth" class="form-input" rows="3" placeholder="Describe opportunities for growth..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 24px;">
+                            <label class="form-label" style="font-weight: 700; color: var(--error, #ef4444);">THREATS</label>
+                            <div style="margin-top: 8px;">
+                                <label class="form-label form-sub-label" for="q-swot-threats">a. What external challenges affect us e.g. insecurity?</label>
+                                <textarea id="q-swot-threats" name="q_swot_threats" class="form-input" rows="3" placeholder="Describe external challenges and threats..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 24px; padding-top: 16px; border-top: 1px dashed var(--border-color);">
+                            <label class="form-label">Priority Needs Timeline:</label>
+                            <div class="ministry-checklist" style="margin-top: 8px;">
+                                <div class="ministry-row"><span class="ministry-name">Immediate</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_priority_immediate" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_priority_immediate" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">Medium-term</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_priority_medium" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_priority_medium" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                                <div class="ministry-row"><span class="ministry-name">Long-term</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="q_priority_long" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="q_priority_long" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 20px;">
+                            <label class="form-label" for="q-five-year-vision">1. What are your five year visions for the church?</label>
+                            <textarea id="q-five-year-vision" name="q_five_year_vision" class="form-input" rows="4" placeholder="Describe 5-year vision..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="q-prayer-requests">2. Prayer requests?</label>
+                            <textarea id="q-prayer-requests" name="q_prayer_requests" class="form-input" rows="4" placeholder="Share prayer points..."></textarea>
                         </div>
                     </div>
                 </form>
