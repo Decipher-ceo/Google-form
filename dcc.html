@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="ECWA Umuahia District Church Council - Executive DCC Strategic Assessment Portal.">
+    <title>DCC Strategic Questionnaire - ECWA Umuahia DCC</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Top Accent Line -->
+    <div class="top-accent-bar"></div>
+
+    <!-- Navigation Header -->
+    <header class="app-header">
+        <div class="header-container">
+            <a href="index.html" class="brand-logo" aria-label="Go to Home Page">
+                <img src="assets/church Logo.jpeg" alt="ECWA Umuahia DCC Logo" class="brand-logo-img">
+                <div class="brand-text">
+                    <span class="brand-title">ECWA Umuahia DCC</span>
+                    <span class="brand-subtitle">Button 3: DCC Strategic Assessment Portal</span>
+                </div>
+            </a>
+            <div class="header-actions">
+                <a href="index.html" class="btn btn-outline" aria-label="Back to Home Page">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" />
+                    </svg>
+                    Back to Home Page
+                </a>
+                <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- ================= DCC SURVEY VIEW ================= -->
+        <section id="dcc-survey-view" class="view active">
+            <div class="survey-container">
+                <!-- Survey Header -->
+                <div class="survey-header">
+                    <div class="survey-title-block">
+                        <span class="church-badge badge-rose">DCC Strategic Portal</span>
+                        <h2>District Church Council Strategic Assessment</h2>
+                        <p class="survey-desc">Executive baseline questionnaire for ECWA Umuahia DCC leadership &amp; strategic planning.</p>
+                    </div>
+                    <button type="button" id="exit-dcc-survey-btn" class="btn btn-text text-danger">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                        Exit DCC Portal
+                    </button>
+                </div>
+
+                <!-- Progress Tracker -->
+                <div class="stepper-progress-container">
+                    <div class="progress-bar-track">
+                        <div id="dcc-progress-fill" class="progress-bar-fill" style="width: 0%;"></div>
+                    </div>
+                    <div class="stepper-steps" id="dcc-stepper-steps">
+                        <div class="step-indicator active" data-step="1"><span class="step-num">1</span><span class="step-label">Respondent</span></div>
+                        <div class="step-indicator" data-step="2"><span class="step-num">2</span><span class="step-label">General</span></div>
+                        <div class="step-indicator" data-step="3"><span class="step-num">3</span><span class="step-label">Execs</span></div>
+                        <div class="step-indicator" data-step="4"><span class="step-num">4</span><span class="step-label">Pastors</span></div>
+                        <div class="step-indicator" data-step="5"><span class="step-num">5</span><span class="step-label">Staff</span></div>
+                        <div class="step-indicator" data-step="6"><span class="step-num">6</span><span class="step-label">Congregations</span></div>
+                        <div class="step-indicator" data-step="7"><span class="step-num">7</span><span class="step-label">Ministries</span></div>
+                        <div class="step-indicator" data-step="8"><span class="step-num">8</span><span class="step-label">Missions</span></div>
+                        <div class="step-indicator" data-step="9"><span class="step-num">9</span><span class="step-label">Edu</span></div>
+                        <div class="step-indicator" data-step="10"><span class="step-num">10</span><span class="step-label">Medical</span></div>
+                        <div class="step-indicator" data-step="11"><span class="step-num">11</span><span class="step-label">Finance</span></div>
+                        <div class="step-indicator" data-step="12"><span class="step-num">12</span><span class="step-label">Assets</span></div>
+                        <div class="step-indicator" data-step="13"><span class="step-num">13</span><span class="step-label">Media</span></div>
+                        <div class="step-indicator" data-step="14"><span class="step-num">14</span><span class="step-label">Youth</span></div>
+                        <div class="step-indicator" data-step="15"><span class="step-num">15</span><span class="step-label">Women</span></div>
+                        <div class="step-indicator" data-step="16"><span class="step-num">16</span><span class="step-label">Men</span></div>
+                        <div class="step-indicator" data-step="17"><span class="step-num">17</span><span class="step-label">Children</span></div>
+                        <div class="step-indicator" data-step="18"><span class="step-num">18</span><span class="step-label">Welfare</span></div>
+                        <div class="step-indicator" data-step="19"><span class="step-num">19</span><span class="step-label">Governance</span></div>
+                        <div class="step-indicator" data-step="20"><span class="step-num">20</span><span class="step-label">Community</span></div>
+                        <div class="step-indicator" data-step="21"><span class="step-num">21</span><span class="step-label">SWOT</span></div>
+                        <div class="step-indicator" data-step="22"><span class="step-num">22</span><span class="step-label">Vision</span></div>
+                    </div>
+                </div>
+
+                <form id="dcc-survey-form" novalidate>
+                    <!-- STEP 1: Respondent Info -->
+                    <div class="form-step active" data-step="1">
+                        <div class="step-header-card">
+                            <h3>RESPONDENT INFORMATION</h3>
+                            <p>Official details of the executive completing this strategic assessment.</p>
+                        </div>
+                        <div class="form-group required">
+                            <label class="form-label" for="dcc-respondent-name">Full Name of Respondent</label>
+                            <input type="text" id="dcc-respondent-name" name="dcc_respondent_name" class="form-input" placeholder="e.g. Rev. Dr. John Doe" required>
+                        </div>
+                        <div class="form-group required">
+                            <label class="form-label" for="dcc-respondent-office">Official Designation / Position</label>
+                            <input type="text" id="dcc-respondent-office" name="dcc_respondent_office" class="form-input" placeholder="e.g. DCC Chairman / Secretary / ESP Secretary" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-respondent-phone">Phone Number</label>
+                            <input type="tel" id="dcc-respondent-phone" name="dcc_respondent_phone" class="form-input" placeholder="e.g. 08012345678">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-respondent-email">Email Address</label>
+                            <input type="email" id="dcc-respondent-email" name="dcc_respondent_email" class="form-input" placeholder="e.g. respondent@ecwau muahiadcc.org">
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Section A - General Info -->
+                    <div class="form-step" data-step="2">
+                        <div class="step-header-card">
+                            <h3>SECTION A: General Information</h3>
+                            <p>Overview of ECWA Umuahia DCC establishment and jurisdiction.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-established-year">Year of Establishment of DCC</label>
+                            <input type="text" id="dcc-established-year" name="dcc_established_year" class="form-input" placeholder="e.g. 1985">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-headquarters">DCC Headquarters Location</label>
+                            <input type="text" id="dcc-headquarters" name="dcc_headquarters_location" class="form-input" placeholder="e.g. Umuahia, Abia State">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-num-lcc">Total Number of LCC Councils</label>
+                            <input type="text" id="dcc-num-lcc" name="dcc_num_lcc_councils" class="form-input" placeholder="e.g. 9">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-num-churches">Total Number of Local Churches</label>
+                            <input type="text" id="dcc-num-churches" name="dcc_total_local_churches" class="form-input" placeholder="e.g. 61">
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Section B - Executive Leadership -->
+                    <div class="form-step" data-step="3">
+                        <div class="step-header-card">
+                            <h3>SECTION B: Executive Leadership</h3>
+                            <p>Record of DCC executive officers and leadership history.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-past-chairmen">Past and Current DCC Chairmen</label>
+                            <textarea id="dcc-past-chairmen" name="dcc_past_chairmen" class="form-input" rows="4" placeholder="List past and current chairmen..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-past-secretaries">Past and Current DCC Secretaries</label>
+                            <textarea id="dcc-past-secretaries" name="dcc_past_secretaries" class="form-input" rows="4" placeholder="List past and current secretaries..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Section C - Pastoral Workforce -->
+                    <div class="form-step" data-step="4">
+                        <div class="step-header-card">
+                            <h3>SECTION C: Pastoral Workforce</h3>
+                            <p>Statistics on ordained, licensed, and serving ministers in the DCC.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-ordained-count">Number of Ordained Ministers</label>
+                            <input type="text" id="dcc-ordained-count" name="dcc_ordained_count" class="form-input" placeholder="e.g. 25">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-licensed-count">Number of Licensed Pastors</label>
+                            <input type="text" id="dcc-licensed-count" name="dcc_licensed_count" class="form-input" placeholder="e.g. 35">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-pastoral-needs">Pastoral Workforce Needs &amp; Challenges</label>
+                            <textarea id="dcc-pastoral-needs" name="dcc_pastoral_needs" class="form-input" rows="4" placeholder="Describe workforce needs..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 5: Section D - Staff & Administrative Personnel -->
+                    <div class="form-step" data-step="5">
+                        <div class="step-header-card">
+                            <h3>SECTION D: Staff &amp; Administrative Personnel</h3>
+                            <p>Secretariat staff, administrative personnel, and support teams.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-secretariat-staff">DCC Secretariat Staff Count &amp; Roles</label>
+                            <textarea id="dcc-secretariat-staff" name="dcc_secretariat_staff" class="form-input" rows="4" placeholder="List roles and counts..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 6: Section E - Congregations & Growth -->
+                    <div class="form-step" data-step="6">
+                        <div class="step-header-card">
+                            <h3>SECTION E: Congregations &amp; Growth</h3>
+                            <p>Church planting, prayer houses, and expansion across the district.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-growth-rate">District Membership Growth Assessment</label>
+                            <textarea id="dcc-growth-rate" name="dcc_growth_assessment" class="form-input" rows="4" placeholder="Describe growth trends..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 7: Section F - Functional Ministries -->
+                    <div class="form-step" data-step="7">
+                        <div class="step-header-card">
+                            <h3>SECTION F: Functional Ministries</h3>
+                            <p>Assessment of district-wide fellowships, departments, and ministries.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-ministry-overview">District Ministries Status &amp; Performance</label>
+                            <textarea id="dcc-ministry-overview" name="dcc_ministry_overview" class="form-input" rows="4" placeholder="Overview of active ministries..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 8: Section G - Missions & Evangelism -->
+                    <div class="form-step" data-step="8">
+                        <div class="step-header-card">
+                            <h3>SECTION G: Missions &amp; Evangelism</h3>
+                            <p>Missions outreaches, cross-cultural initiatives, and church planting targets.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-missions-overview">DCC Missions &amp; Outreach Strategy</label>
+                            <textarea id="dcc-missions-overview" name="dcc_missions_strategy" class="form-input" rows="4" placeholder="Describe missions activities..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 9: Section H - Christian Education -->
+                    <div class="form-step" data-step="9">
+                        <div class="step-header-card">
+                            <h3>SECTION H: Christian Education (CES)</h3>
+                            <p>Sunday school, Bible training, and educational curriculum support.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-ces-overview">Christian Education Status</label>
+                            <textarea id="dcc-ces-overview" name="dcc_ces_status" class="form-input" rows="4" placeholder="Describe CES activities..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 10: Section I - Medical & Social Services -->
+                    <div class="form-step" data-step="10">
+                        <div class="step-header-card">
+                            <h3>SECTION I: Medical &amp; Social Services</h3>
+                            <p>Health centres, clinics, and community social service initiatives.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-medical-overview">Medical Services &amp; Facilities</label>
+                            <textarea id="dcc-medical-overview" name="dcc_medical_facilities" class="form-input" rows="4" placeholder="Describe health services..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 11: Section J - Financial Profile -->
+                    <div class="form-step" data-step="11">
+                        <div class="step-header-card">
+                            <h3>SECTION J: Financial Profile</h3>
+                            <p>DCC financial status, income streams, assessments, and budgetary health.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-financial-sources">Main Sources of DCC Income</label>
+                            <textarea id="dcc-financial-sources" name="dcc_income_sources" class="form-input" rows="4" placeholder="Describe financial sources..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 12: Section K - Property & Assets -->
+                    <div class="form-step" data-step="12">
+                        <div class="step-header-card">
+                            <h3>SECTION K: Property &amp; Land Assets</h3>
+                            <p>Land holdings, secretariat buildings, vehicles, and documentation status.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-property-assets">DCC Property Inventory &amp; Legal Documentation</label>
+                            <textarea id="dcc-property-assets" name="dcc_property_inventory" class="form-input" rows="4" placeholder="List properties and documentation status..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 13: Section L - Media & Communications -->
+                    <div class="form-step" data-step="13">
+                        <div class="step-header-card">
+                            <h3>SECTION L: Media &amp; Communications</h3>
+                            <p>Broadcasting, publication, ICT infrastructure, and public relations.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-media-overview">Media Infrastructure &amp; Projects</label>
+                            <textarea id="dcc-media-overview" name="dcc_media_projects" class="form-input" rows="4" placeholder="Describe media facilities..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 14: Section M - Youth Ministry -->
+                    <div class="form-step" data-step="14">
+                        <div class="step-header-card">
+                            <h3>SECTION M: Youth Fellowship</h3>
+                            <p>District youth programs, conventions, and empowerment projects.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-youth-overview">Youth Fellowship Overview</label>
+                            <textarea id="dcc-youth-overview" name="dcc_youth_overview" class="form-input" rows="4" placeholder="Describe youth activities..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 15: Section N - Women Fellowship -->
+                    <div class="form-step" data-step="15">
+                        <div class="step-header-card">
+                            <h3>SECTION N: Women Fellowship</h3>
+                            <p>District women programs, conferences, and development projects.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-women-overview">Women Fellowship Overview</label>
+                            <textarea id="dcc-women-overview" name="dcc_women_overview" class="form-input" rows="4" placeholder="Describe women activities..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 16: Section O - Men Fellowship -->
+                    <div class="form-step" data-step="16">
+                        <div class="step-header-card">
+                            <h3>SECTION O: Men Fellowship</h3>
+                            <p>District men programs, retreats, and strategic initiatives.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-men-overview">Men Fellowship Overview</label>
+                            <textarea id="dcc-men-overview" name="dcc_men_overview" class="form-input" rows="4" placeholder="Describe men activities..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 17: Section P - Children's Ministry -->
+                    <div class="form-step" data-step="17">
+                        <div class="step-header-card">
+                            <h3>SECTION P: Children's Ministry</h3>
+                            <p>Children evangelism, Sunday school training, and teachers' welfare.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-children-overview">Children Ministry Overview</label>
+                            <textarea id="dcc-children-overview" name="dcc_children_overview" class="form-input" rows="4" placeholder="Describe children ministry..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 18: Section Q - Welfare & Relief Services -->
+                    <div class="form-step" data-step="18">
+                        <div class="step-header-card">
+                            <h3>SECTION Q: Welfare &amp; Relief Services</h3>
+                            <p>Support for widows, orphans, retired ministers, and emergency relief.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-welfare-overview">Welfare &amp; Relief Interventions</label>
+                            <textarea id="dcc-welfare-overview" name="dcc_welfare_interventions" class="form-input" rows="4" placeholder="Describe welfare programs..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 19: Section R - Governance & Policy -->
+                    <div class="form-step" data-step="19">
+                        <div class="step-header-card">
+                            <h3>SECTION R: Governance &amp; Policy</h3>
+                            <p>DCC council meetings, constitutional adherence, and administrative policies.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-governance-overview">Governance &amp; Policy Assessment</label>
+                            <textarea id="dcc-governance-overview" name="dcc_governance_assessment" class="form-input" rows="4" placeholder="Describe governance structures..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 20: Section S - Community Impact -->
+                    <div class="form-step" data-step="20">
+                        <div class="step-header-card">
+                            <h3>SECTION S: Community &amp; Civic Impact</h3>
+                            <p>Civic engagement, peacebuilding, and socio-economic transformation.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-community-overview">Community &amp; Civic Impact</label>
+                            <textarea id="dcc-community-overview" name="dcc_community_impact" class="form-input" rows="4" placeholder="Describe community impact..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 21: Section T & U - SWOT Analysis -->
+                    <div class="form-step" data-step="21">
+                        <div class="step-header-card">
+                            <h3>SECTIONS T &amp; U: Strategic SWOT Analysis</h3>
+                            <p>Strengths, Weaknesses, Opportunities, and Threats for ECWA Umuahia DCC.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" style="font-weight: 700; color: var(--primary);">STRENGTHS</label>
+                            <textarea id="dcc-swot-strengths" name="dcc_swot_strengths" class="form-input" rows="3" placeholder="Describe key strengths..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" style="font-weight: 700; color: var(--warning, #f59e0b);">WEAKNESSES</label>
+                            <textarea id="dcc-swot-weaknesses" name="dcc_swot_weaknesses" class="form-input" rows="3" placeholder="Describe key weaknesses..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" style="font-weight: 700; color: var(--accent, #10b981);">OPPORTUNITIES</label>
+                            <textarea id="dcc-swot-opportunities" name="dcc_swot_opportunities" class="form-input" rows="3" placeholder="Describe strategic opportunities..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" style="font-weight: 700; color: var(--error, #ef4444);">THREATS</label>
+                            <textarea id="dcc-swot-threats" name="dcc_swot_threats" class="form-input" rows="3" placeholder="Describe external threats..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 22: Section V - Vision & Recommendations -->
+                    <div class="form-step" data-step="22">
+                        <div class="step-header-card">
+                            <h3>SECTION V: 5-Year Strategic Vision &amp; Recommendations</h3>
+                            <p>Long-term strategic roadmap and executive recommendations for the DCC.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-five-year-vision">5-Year Vision for ECWA Umuahia DCC</label>
+                            <textarea id="dcc-five-year-vision" name="dcc_five_year_vision" class="form-input" rows="4" placeholder="Outline 5-year vision..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-recommendations">Recommendations to DCC Executive &amp; Board</label>
+                            <textarea id="dcc-recommendations" name="dcc_recommendations" class="form-input" rows="4" placeholder="Provide recommendations..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-prayer-requests">District Prayer Requests</label>
+                            <textarea id="dcc-prayer-requests" name="dcc_prayer_requests" class="form-input" rows="4" placeholder="Share prayer points for the DCC..."></textarea>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Navigation Buttons -->
+                <div class="form-nav-buttons">
+                    <button type="button" id="dcc-prev-step-btn" class="btn btn-outline" style="visibility: hidden;">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" />
+                        </svg>
+                        Back
+                    </button>
+                    <button type="button" id="dcc-next-step-btn" class="btn btn-primary">
+                        Next Step (1/22)
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shared JS -->
+    <script src="js/data.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/dcc.js"></script>
+</body>
+</html>

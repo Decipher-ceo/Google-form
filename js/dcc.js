@@ -75,10 +75,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        if (!isValid) {
-            showToast('Please fill out all required fields before proceeding.', 'error');
-        }
         return isValid;
+    }
+
+    function validateAllSteps() {
+        let allValid = true;
+        let firstFailedStep = null;
+
+        for (let s = 1; s <= totalSteps; s++) {
+            if (!validateStep(s)) {
+                allValid = false;
+                if (!firstFailedStep) firstFailedStep = s;
+            }
+        }
+
+        if (!allValid) {
+            showToast('Please fill out required fields before submitting.', 'error');
+            if (firstFailedStep) {
+                updateStepUI(firstFailedStep);
+                window.scrollTo({ top: 120, behavior: 'smooth' });
+            }
+        }
+
+        return allValid;
     }
 
     // Event Listeners for Nav
@@ -93,8 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (nextStepBtn) {
         nextStepBtn.addEventListener('click', () => {
-            if (!validateStep(currentStep)) return;
-
             if (currentStep < totalSteps) {
                 updateStepUI(currentStep + 1);
                 window.scrollTo({ top: 120, behavior: 'smooth' });
@@ -114,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Make stepper indicators clickable for easy navigation
     stepperSteps.forEach((indicator, idx) => {
+        indicator.style.cursor = 'pointer';
         indicator.addEventListener('click', () => {
             const targetStep = idx + 1;
             updateStepUI(targetStep);
@@ -123,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Submit DCC Assessment ---
     function submitDCCForm() {
+        if (!validateAllSteps()) return;
         const formData = new FormData(surveyForm);
         const data = Object.fromEntries(formData.entries());
         data.form_type = 'DCC Strategic Assessment';

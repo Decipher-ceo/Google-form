@@ -1,43 +1,52 @@
-# FaithForward Church Feedback Hub
+# ECWA Umuahia District Church Council - Strategic Feedback & Assessment Hub
 
-A premium multi-step survey wizard built for collecting comprehensive data from local churches. Designed with a modern, responsive UI that works beautifully on phones, tablets, and desktops.
+A modern, responsive multi-portal web application for baseline data collection, strategic research, and assessment across ECWA Umuahia District Church Council.
 
-## Features
+## 🌟 Portals & Questionnaires
 
-- **11-Step Survey Wizard** — Covers General Info, History, Pastors, Membership, Leadership, Ministries, Evangelism & Missions, Property & Assets, Financial Profile, Community Profile, and SWOT/Strategic Vision.
-- **Interactive Church Directory** — Browse and select from 50 local churches with search filtering.
-- **Free Navigation** — Jump between any section using the clickable step indicators; no forced linear progression.
-- **Responsive Design** — Optimized breakpoints for ultra-small phones (360px), standard phones (480px), tablets (768px), iPads (992px), and desktops.
-- **Data Export** — Submissions are structured as JSON and can be sent to a Google Sheets webhook, Formspree, or any custom API endpoint.
-- **Local Sandbox Mode** — Works fully offline; responses are stored in the browser until a backend is configured.
-- **Premium UI** — Glassmorphism effects, smooth animations, Google Fonts (Outfit), and a curated green/earth-tone color palette.
+1. **Local Church Questionnaire (`lc.html`)** — Button 1
+   - Complete 11-step questionnaire for all 61 Local Churches in the district.
+   - Interactive directory search with live filtering by name or number.
 
-## Tech Stack
+2. **LCC Questionnaire (`lcc.html`)** — Button 2
+   - Complete 10-step questionnaire for Local Church Councils (Sections A–J).
+   - Selectable LCC Council cards with automatic name assignment.
 
-- **HTML5** — Semantic markup with accessibility in mind
-- **CSS3** — Vanilla CSS with custom properties, flexbox, grid, and media queries
-- **JavaScript** — Vanilla JS (no frameworks or build tools required)
+3. **DCC Strategic Assessment (`dcc.html`)** — Button 3
+   - Executive 22-step strategic portal for District Church Council leadership (Sections A–V).
 
-## Getting Started
+## ✨ Key Features
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/<your-username>/<repo-name>.git
-   ```
-2. Open `index.html` in your browser — no server or build step needed.
+- **Free Step Navigation** — Jump to any step instantly by clicking stepper indicators or navigating forward/backward without blocking validation.
+- **Responsive Layout** — Tailored breakpoints supporting ultra-small phones (360px), smartphones (480px), tablets (768px), iPads (992px), and desktops.
+- **Data Export & Local Backup** — Submissions stream to your configured webhook (Google Apps Script, Make.com, n8n, custom API) and auto-backup locally in browser storage (`localStorage`).
+- **Dark Mode Support** — Seamless light/dark theme toggle with persistent preferences.
 
-## Project Structure
+## 📁 Project Structure
 
 ```
-├── index.html          # Main application page
-├── styles.css          # Complete stylesheet with responsive breakpoints
-├── app.js              # Application logic (wizard, validation, data extraction)
+├── index.html          # Strategic Hub Landing Page (Portals & Webhook Setup)
+├── lc.html             # Button 1: Local Church Questionnaire Page (61 Churches)
+├── lcc.html            # Button 2: LCC Questionnaire Page (LCC Councils)
+├── dcc.html            # Button 3: DCC Strategic Assessment Portal (22 Steps)
+├── styles.css          # Complete design system stylesheet & responsive rules
+├── js/
+│   ├── data.js         # Registry of 61 Local Churches & LCC Councils
+│   ├── common.js       # Shared utilities (Theme Toggle, Modal, Toast Notifications)
+│   ├── lc.js           # Button 1 Controller (Search filter, step navigation, submit)
+│   ├── lcc.js          # Button 2 Controller (LCC selector, step navigation, submit)
+│   └── dcc.js          # Button 3 Controller (DCC step navigation, submit)
 ├── assets/
-│   └── church_hero_banner.png   # Hero section background image
+│   ├── church Logo.jpeg # Official ECWA Umuahia DCC Logo
+│   └── church_hero_banner.png # Hero section image
 ├── .gitignore
 └── README.md
 ```
 
-## License
+## 🚀 Getting Started
 
-This project is provided as-is for church administrative use.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Decipher-ceo/Google-form.git
+   ```
+2. Open `index.html` in any modern web browser — no build steps or dependencies required.

@@ -161,6 +161,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Allow clicking step indicators directly
+    stepperSteps.forEach((indicator) => {
+        indicator.style.cursor = 'pointer';
+        indicator.addEventListener('click', () => {
+            const stepNum = parseInt(indicator.dataset.step, 10);
+            if (stepNum && stepNum !== currentStep) {
+                updateStepUI(stepNum);
+                window.scrollTo({ top: 100, behavior: 'smooth' });
+            }
+        });
+    });
+
     // --- Validate Current Step Inputs ---
     function validateStep(stepNum) {
         const stepEl = document.querySelector(`#lc-survey-form .form-step[data-step="${stepNum}"]`);
@@ -179,10 +191,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        if (!isValid) {
-            showToast('Please fill out all required fields before proceeding.', 'error');
-        }
         return isValid;
+    }
+
+    function validateAllSteps() {
+        let allValid = true;
+        let firstFailedStep = null;
+
+        for (let s = 1; s <= totalSteps; s++) {
+            if (!validateStep(s)) {
+                allValid = false;
+                if (!firstFailedStep) firstFailedStep = s;
+            }
+        }
+
+        if (!allValid) {
+            showToast('Please fill out required fields before submitting.', 'error');
+            if (firstFailedStep) {
+                updateStepUI(firstFailedStep);
+                window.scrollTo({ top: 100, behavior: 'smooth' });
+            }
+        }
+
+        return allValid;
     }
 
     if (prevStepBtn) {
@@ -196,8 +227,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (nextStepBtn) {
         nextStepBtn.addEventListener('click', () => {
-            if (!validateStep(currentStep)) return;
-
             if (currentStep < totalSteps) {
                 updateStepUI(currentStep + 1);
                 window.scrollTo({ top: 100, behavior: 'smooth' });
@@ -210,6 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Submit Local Church Questionnaire ---
     function submitLCForm() {
+        if (!validateAllSteps()) return;
         const formData = new FormData(surveyForm);
         const data = Object.fromEntries(formData.entries());
         data.church_name = selectedChurch ? selectedChurch.rawName : 'Unknown Church';
