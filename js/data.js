@@ -68,15 +68,15 @@ const CHURCH_NAMES = [
 ];
 
 const LCC_COUNCILS = [
-    { id: "bende", name: "Bende", desc: "Local Church Council - Bende Zone" },
-    { id: "etiti", name: "Etiti", desc: "Local Church Council - Etiti Zone" },
-    { id: "ibeku", name: "Ibeku", desc: "Local Church Council - Ibeku Zone" },
-    { id: "item", name: "Item", desc: "Local Church Council - Item Zone" },
-    { id: "mbano", name: "Mbano", desc: "Local Church Council - Mbano Zone" },
-    { id: "ohafia", name: "Ohafia", desc: "Local Church Council - Ohafia Zone" },
-    { id: "ohuhu", name: "Ohuhu", desc: "Local Church Council - Ohuhu Zone" },
-    { id: "olokoro", name: "Olokoro", desc: "Local Church Council - Olokoro Zone" },
-    { id: "owerri", name: "Owerri", desc: "Local Church Council - Owerri Zone" }
+    { id: "bende", name: "Bende", desc: "Bende Local Church council" },
+    { id: "etiti", name: "Etiti", desc: "Etiti Local Church council" },
+    { id: "ibeku", name: "Ibeku", desc: "Ibeku Local Church council" },
+    { id: "item", name: "Item", desc: "Item Local Church council" },
+    { id: "mbano", name: "Mbano", desc: "Mbano Local Church council" },
+    { id: "ohafia", name: "Ohafia", desc: "Ohafia Local Church council" },
+    { id: "ohuhu", name: "Ohuhu", desc: "Ohuhu Local Church council" },
+    { id: "olokoro", name: "Olokoro", desc: "Olokoro Local Church council" },
+    { id: "owerri", name: "Owerri", desc: "Owerri Local Church council" }
 ];
 
 // Helper mapping for Local Churches

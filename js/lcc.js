@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
             card.setAttribute('role', 'button');
             card.setAttribute('tabindex', '0');
             card.innerHTML = `
-                <div class="card-badge badge-amber">LCC Council</div>
                 <div class="card-icon-wrapper icon-amber">
                     <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>

@@ -11,7 +11,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
@@ -28,22 +30,33 @@
                 <img src="assets/church Logo.jpeg" alt="ECWA Umuahia DCC Logo" class="brand-logo-img">
                 <div class="brand-text">
                     <span class="brand-title">ECWA Umuahia DCC</span>
-                    <span class="brand-subtitle">Button 2: LCC Questionnaire Portal</span>
+                    <span class="brand-subtitle">LCC Questionnaire Portal</span>
                 </div>
             </a>
             <div class="header-actions">
                 <a href="index.html" class="btn btn-outline" aria-label="Back to Home Page">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" />
+                        <line x1="19" y1="12" x2="5" y2="12" />
+                        <polyline points="12 19 5 12 12 5" />
                     </svg>
                     Back to Home Page
                 </a>
                 <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme">
-                    <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
                     </svg>
-                    <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                     </svg>
                 </button>
             </div>
@@ -57,7 +70,8 @@
                 <div class="directory-view-header">
                     <div class="title-area">
                         <h2>Select Your Local Church Council (LCC)</h2>
-                        <p><span class="count-badge badge-amber">9 Councils</span> Choose your LCC council from ECWA Umuahia District Church Council below.</p>
+                        <p><span class="count-badge badge-amber">9 Councils</span> Choose your LCC council from ECWA
+                            Umuahia District Church Council below.</p>
                     </div>
                 </div>
 
@@ -69,482 +83,931 @@
         </section>
 
         <!-- ================= LCC SURVEY VIEW ================= -->
-<!-- ================= LCC SURVEY VIEW ================= -->
-<section id="lcc-survey-view" class="view" style="display: none;">
-    <div class="survey-container">
-        <!-- Survey Header -->
-        <div class="survey-header">
-            <div class="survey-title-block">
-                <span id="lcc-selected-badge" class="church-badge">LCC: --</span>
-                <h2 id="lcc-survey-title">LCC Information &amp; Questionnaire</h2>
-                <p class="survey-desc">Complete the Local Church Council questionnaire. Data guides ECWA Umuahia DCC strategic planning.</p>
-            </div>
-            <button type="button" id="exit-lcc-survey-btn" class="btn btn-text text-danger">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-                Cancel Questionnaire
-            </button>
-        </div>
+        <!-- ================= LCC SURVEY VIEW ================= -->
+        <section id="lcc-survey-view" class="view" style="display: none;">
+            <div class="survey-container">
+                <!-- Survey Header -->
+                <div class="survey-header">
+                    <div class="survey-title-block">
+                        <span id="lcc-selected-badge" class="church-badge">LCC: --</span>
+                        <h2 id="lcc-survey-title">LCC Information &amp; Questionnaire</h2>
+                        <p class="survey-desc">Complete the Local Church Council questionnaire. Data guides ECWA Umuahia
+                            DCC strategic planning.</p>
+                    </div>
+                    <button type="button" id="exit-lcc-survey-btn" class="btn btn-text text-danger">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                        Cancel Questionnaire
+                    </button>
+                </div>
 
-        <!-- Progress Tracker -->
-        <div class="stepper-progress-container">
-            <div class="progress-bar-track">
-                <div id="lcc-progress-fill" class="progress-bar-fill" style="width: 0%;"></div>
-            </div>
-            <div class="stepper-steps" id="lcc-stepper-steps">
-                <div class="step-indicator active" data-step="1"><span class="step-num">1</span><span class="step-label">General</span></div>
-                <div class="step-indicator" data-step="2"><span class="step-num">2</span><span class="step-label">Coverage</span></div>
-                <div class="step-indicator" data-step="3"><span class="step-num">3</span><span class="step-label">HR</span></div>
-                <div class="step-indicator" data-step="4"><span class="step-num">4</span><span class="step-label">Members</span></div>
-                <div class="step-indicator" data-step="5"><span class="step-num">5</span><span class="step-label">Agencies</span></div>
-                <div class="step-indicator" data-step="6"><span class="step-num">6</span><span class="step-label">Property</span></div>
-                <div class="step-indicator" data-step="7"><span class="step-num">7</span><span class="step-label">Programs</span></div>
-                <div class="step-indicator" data-step="8"><span class="step-num">8</span><span class="step-label">Finance</span></div>
-                <div class="step-indicator" data-step="9"><span class="step-num">9</span><span class="step-label">Community</span></div>
-                <div class="step-indicator" data-step="10"><span class="step-num">10</span><span class="step-label">SWOT</span></div>
-            </div>
-        </div>
+                <!-- Progress Tracker -->
+                <div class="stepper-progress-container">
+                    <div class="progress-bar-track">
+                        <div id="lcc-progress-fill" class="progress-bar-fill" style="width: 0%;"></div>
+                    </div>
+                    <div class="stepper-steps" id="lcc-stepper-steps">
+                        <div class="step-indicator active" data-step="1"><span class="step-num">1</span><span
+                                class="step-label">General</span></div>
+                        <div class="step-indicator" data-step="2"><span class="step-num">2</span><span
+                                class="step-label">Coverage</span></div>
+                        <div class="step-indicator" data-step="3"><span class="step-num">3</span><span
+                                class="step-label">HR</span></div>
+                        <div class="step-indicator" data-step="4"><span class="step-num">4</span><span
+                                class="step-label">Members</span></div>
+                        <div class="step-indicator" data-step="5"><span class="step-num">5</span><span
+                                class="step-label">Agencies</span></div>
+                        <div class="step-indicator" data-step="6"><span class="step-num">6</span><span
+                                class="step-label">Property</span></div>
+                        <div class="step-indicator" data-step="7"><span class="step-num">7</span><span
+                                class="step-label">Programs</span></div>
+                        <div class="step-indicator" data-step="8"><span class="step-num">8</span><span
+                                class="step-label">Finance</span></div>
+                        <div class="step-indicator" data-step="9"><span class="step-num">9</span><span
+                                class="step-label">Community</span></div>
+                        <div class="step-indicator" data-step="10"><span class="step-num">10</span><span
+                                class="step-label">SWOT</span></div>
+                    </div>
+                </div>
 
-        <form id="lcc-survey-form" novalidate>
-            <input type="hidden" id="lcc-form-council-id" name="lcc_council_id">
+                <form id="lcc-survey-form" novalidate>
+                    <input type="hidden" id="lcc-form-council-id" name="lcc_council_id">
 
-            <!-- STEP 1: SECTION A - General Information -->
-            <div class="form-step active" data-step="1">
-                <div class="step-header-card">
-                    <h3>SECTION A: General Information</h3>
-                    <p>Provide baseline registration details for this Local Church Council.</p>
-                </div>
-                <div class="form-group required">
-                    <label class="form-label" for="lcc-q-name">1. Name of LCC?</label>
-                    <input type="text" id="lcc-q-name" name="lcc_q_name" class="form-input" placeholder="Select or write LCC name" required>
-                    <span class="error-message">This field is required.</span>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-constituted-year">2. In what year was the LCC constituted?</label>
-                    <input type="text" id="lcc-q-constituted-year" name="lcc_q_constituted_year" class="form-input" placeholder="e.g. 1990">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">3. Mention the LCC executives from inception to date:</label>
-                    <div style="margin-top: 12px;">
-                        <label class="form-label form-sub-label" for="lcc-q-overseers">a. Local Overseers:</label>
-                        <textarea id="lcc-q-overseers" name="lcc_q_local_overseers" class="form-input" rows="3" placeholder="List all local overseers from inception to date..."></textarea>
-                    </div>
-                    <div style="margin-top: 12px;">
-                        <label class="form-label form-sub-label" for="lcc-q-asst-overseers">b. Assistant Local Overseers:</label>
-                        <textarea id="lcc-q-asst-overseers" name="lcc_q_asst_local_overseers" class="form-input" rows="3" placeholder="List all assistant local overseers..."></textarea>
-                    </div>
-                    <div style="margin-top: 12px;">
-                        <label class="form-label form-sub-label" for="lcc-q-secretaries">c. Secretaries:</label>
-                        <textarea id="lcc-q-secretaries" name="lcc_q_secretaries" class="form-input" rows="3" placeholder="List all secretaries..."></textarea>
-                    </div>
-                    <div style="margin-top: 12px;">
-                        <label class="form-label form-sub-label" for="lcc-q-asst-secretaries">d. Assistant Secretaries:</label>
-                        <textarea id="lcc-q-asst-secretaries" name="lcc_q_asst_secretaries" class="form-input" rows="3" placeholder="List all assistant secretaries..."></textarea>
-                    </div>
-                    <div style="margin-top: 12px;">
-                        <label class="form-label form-sub-label" for="lcc-q-treasurers">e. Treasurers:</label>
-                        <textarea id="lcc-q-treasurers" name="lcc_q_treasurers" class="form-input" rows="3" placeholder="List all treasurers..."></textarea>
-                    </div>
-                    <div style="margin-top: 12px;">
-                        <label class="form-label form-sub-label" for="lcc-q-fin-secs">f. Financial Secretaries:</label>
-                        <textarea id="lcc-q-fin-secs" name="lcc_q_financial_secretaries" class="form-input" rows="3" placeholder="List all financial secretaries..."></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <!-- STEP 2: SECTION B - Coverage -->
-            <div class="form-step" data-step="2">
-                <div class="step-header-card">
-                    <h3>SECTION B: Coverage</h3>
-                    <p>Details about the geographical and organisational coverage of this LCC.</p>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-num-churches">1. Number of local churches within the LCC?</label>
-                    <input type="text" id="lcc-q-num-churches" name="lcc_q_num_churches" class="form-input" placeholder="e.g. 8">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-num-prayer-houses">2. Number of prayer houses within the LCC?</label>
-                    <input type="text" id="lcc-q-num-prayer-houses" name="lcc_q_num_prayer_houses" class="form-input" placeholder="e.g. 3">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-num-communities">3. How many communities does the LCC cover?</label>
-                    <input type="text" id="lcc-q-num-communities" name="lcc_q_num_communities" class="form-input" placeholder="e.g. 5">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-community-names">4. What are the names of the communities the LCC covers?</label>
-                    <textarea id="lcc-q-community-names" name="lcc_q_community_names" class="form-input" rows="4" placeholder="List all community names..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-num-lgas">5. How many LGAs does the LCC cover?</label>
-                    <input type="text" id="lcc-q-num-lgas" name="lcc_q_num_lgas" class="form-input" placeholder="e.g. 2">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-church-names">6. Names of Local churches under the LCC?</label>
-                    <textarea id="lcc-q-church-names" name="lcc_q_church_names" class="form-input" rows="5" placeholder="List all local church names under this LCC..."></textarea>
-                </div>
-            </div>
-
-            <!-- STEP 3: SECTION C - Human Resources -->
-            <div class="form-step" data-step="3">
-                <div class="step-header-card">
-                    <h3>SECTION C: Human Resources</h3>
-                    <p>Information about pastoral workforce and fellowship leadership within the LCC.</p>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-serving-pastors">1. Number of serving pastors in the LCC?</label>
-                    <input type="text" id="lcc-q-serving-pastors" name="lcc_q_serving_pastors" class="form-input" placeholder="e.g. 5">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-licensed-ordained">2. Number of licensed and ordained ministers from inception till date?</label>
-                    <input type="text" id="lcc-q-licensed-ordained" name="lcc_q_licensed_ordained" class="form-input" placeholder="e.g. 12">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">3. Fellowship group leaders/others from inception till date:</label>
-                    <div style="margin-top: 12px;">
-                        <label class="form-label form-sub-label" for="lcc-q-men-leaders">a. Men Fellowship:</label>
-                        <textarea id="lcc-q-men-leaders" name="lcc_q_men_fellowship_leaders" class="form-input" rows="3" placeholder="List men fellowship leaders from inception..."></textarea>
-                    </div>
-                    <div style="margin-top: 12px;">
-                        <label class="form-label form-sub-label" for="lcc-q-women-leaders">b. Women Fellowship Leadership:</label>
-                        <textarea id="lcc-q-women-leaders" name="lcc_q_women_fellowship_leaders" class="form-input" rows="3" placeholder="List women fellowship leaders..."></textarea>
-                    </div>
-                    <div style="margin-top: 12px;">
-                        <label class="form-label form-sub-label" for="lcc-q-youth-leaders">c. Youth Fellowship Leadership:</label>
-                        <textarea id="lcc-q-youth-leaders" name="lcc_q_youth_fellowship_leaders" class="form-input" rows="3" placeholder="List youth fellowship leaders..."></textarea>
-                    </div>
-                    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border);">
-                        <label class="form-label form-sub-label" style="font-weight: 600;">Others:</label>
-                    </div>
-                    <div style="margin-top: 8px;">
-                        <label class="form-label form-sub-label" for="lcc-q-edu-secs">a. Christian Education Secretaries:</label>
-                        <textarea id="lcc-q-edu-secs" name="lcc_q_edu_secretaries" class="form-input" rows="3" placeholder="List CES leaders..."></textarea>
-                    </div>
-                    <div style="margin-top: 12px;">
-                        <label class="form-label form-sub-label" for="lcc-q-children-coord">b. Children Ministry Coordinator:</label>
-                        <textarea id="lcc-q-children-coord" name="lcc_q_children_coord" class="form-input" rows="3" placeholder="List children ministry coordinators..."></textarea>
-                    </div>
-                    <div style="margin-top: 12px;">
-                        <label class="form-label form-sub-label" for="lcc-q-choir-coord">c. LCC Choir Coordinators:</label>
-                        <textarea id="lcc-q-choir-coord" name="lcc_q_choir_coord" class="form-input" rows="3" placeholder="List choir coordinators..."></textarea>
-                    </div>
-                    <div style="margin-top: 12px;">
-                        <label class="form-label form-sub-label" for="lcc-q-esp-secs">d. ECWA Strategic Planning &amp; Research Secretaries (ESP):</label>
-                        <textarea id="lcc-q-esp-secs" name="lcc_q_esp_secretaries" class="form-input" rows="3" placeholder="List ESP secretaries..."></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-current-licensed">4. Number of licensed pastors currently?</label>
-                    <input type="text" id="lcc-q-current-licensed" name="lcc_q_current_licensed" class="form-input" placeholder="e.g. 4">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-current-ordained">5. Number of ordained ministers currently?</label>
-                    <input type="text" id="lcc-q-current-ordained" name="lcc_q_current_ordained" class="form-input" placeholder="e.g. 3">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-unlicensed">6. Number of unlicensed pastors?</label>
-                    <input type="text" id="lcc-q-unlicensed" name="lcc_q_unlicensed" class="form-input" placeholder="e.g. 2">
-                </div>
-            </div>
-
-            <!-- STEP 4: SECTION D - Membership Summary -->
-            <div class="form-step" data-step="4">
-                <div class="step-header-card">
-                    <h3>SECTION D: Membership Summary</h3>
-                    <p>Total membership and category breakdowns for this LCC.</p>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-total-membership">1. What is the total membership within the LCC?</label>
-                    <input type="text" id="lcc-q-total-membership" name="lcc_q_total_membership" class="form-input" placeholder="e.g. 500">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">2. Total number of the following categories within the LCC:</label>
-                    <div class="membership-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
-                        <div>
-                            <label class="form-label form-sub-label" for="lcc-q-mem-men">a. Men:</label>
-                            <input type="text" id="lcc-q-mem-men" name="lcc_q_mem_men" class="form-input" placeholder="e.g. 120">
+                    <!-- STEP 1: SECTION A - General Information -->
+                    <div class="form-step active" data-step="1">
+                        <div class="step-header-card">
+                            <h3>SECTION A: General Information</h3>
+                            <p>Provide baseline registration details for this Local Church Council.</p>
                         </div>
-                        <div>
-                            <label class="form-label form-sub-label" for="lcc-q-mem-women">b. Women:</label>
-                            <input type="text" id="lcc-q-mem-women" name="lcc_q_mem_women" class="form-input" placeholder="e.g. 180">
+                        <div class="form-group required">
+                            <label class="form-label" for="lcc-q-name">1. Name of LCC?</label>
+                            <input type="text" id="lcc-q-name" name="lcc_q_name" class="form-input"
+                                placeholder="Select or write LCC name" required>
+                            <span class="error-message">This field is required.</span>
                         </div>
-                        <div>
-                            <label class="form-label form-sub-label" for="lcc-q-mem-youth">c. Youths:</label>
-                            <input type="text" id="lcc-q-mem-youth" name="lcc_q_mem_youth" class="form-input" placeholder="e.g. 100">
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-constituted-year">2. In what year was the LCC
+                                constituted?</label>
+                            <input type="text" id="lcc-q-constituted-year" name="lcc_q_constituted_year"
+                                class="form-input" placeholder="e.g. 1990">
                         </div>
-                        <div>
-                            <label class="form-label form-sub-label" for="lcc-q-mem-children">d. Children:</label>
-                            <input type="text" id="lcc-q-mem-children" name="lcc_q_mem_children" class="form-input" placeholder="e.g. 100">
-                        </div>
-                        <div>
-                            <label class="form-label form-sub-label" for="lcc-q-mem-baptized">e. Baptized Members:</label>
-                            <input type="text" id="lcc-q-mem-baptized" name="lcc_q_mem_baptized" class="form-input" placeholder="e.g. 350">
-                        </div>
-                        <div>
-                            <label class="form-label form-sub-label" for="lcc-q-mem-unbaptized">f. Unbaptized Members:</label>
-                            <input type="text" id="lcc-q-mem-unbaptized" name="lcc_q_mem_unbaptized" class="form-input" placeholder="e.g. 150">
+                        <div class="form-group">
+                            <label class="form-label">3. Mention the LCC executives from inception to date:</label>
+                            <div style="margin-top: 12px;">
+                                <label class="form-label form-sub-label" for="lcc-q-overseers">a. Local
+                                    Overseers:</label>
+                                <textarea id="lcc-q-overseers" name="lcc_q_local_overseers" class="form-input" rows="3"
+                                    placeholder="List all local overseers from inception to date..."></textarea>
+                            </div>
+                            <div style="margin-top: 12px;">
+                                <label class="form-label form-sub-label" for="lcc-q-asst-overseers">b. Assistant Local
+                                    Overseers:</label>
+                                <textarea id="lcc-q-asst-overseers" name="lcc_q_asst_local_overseers" class="form-input"
+                                    rows="3" placeholder="List all assistant local overseers..."></textarea>
+                            </div>
+                            <div style="margin-top: 12px;">
+                                <label class="form-label form-sub-label" for="lcc-q-secretaries">c. Secretaries:</label>
+                                <textarea id="lcc-q-secretaries" name="lcc_q_secretaries" class="form-input" rows="3"
+                                    placeholder="List all secretaries..."></textarea>
+                            </div>
+                            <div style="margin-top: 12px;">
+                                <label class="form-label form-sub-label" for="lcc-q-asst-secretaries">d. Assistant
+                                    Secretaries:</label>
+                                <textarea id="lcc-q-asst-secretaries" name="lcc_q_asst_secretaries" class="form-input"
+                                    rows="3" placeholder="List all assistant secretaries..."></textarea>
+                            </div>
+                            <div style="margin-top: 12px;">
+                                <label class="form-label form-sub-label" for="lcc-q-treasurers">e. Treasurers:</label>
+                                <textarea id="lcc-q-treasurers" name="lcc_q_treasurers" class="form-input" rows="3"
+                                    placeholder="List all treasurers..."></textarea>
+                            </div>
+                            <div style="margin-top: 12px;">
+                                <label class="form-label form-sub-label" for="lcc-q-fin-secs">f. Financial
+                                    Secretaries:</label>
+                                <textarea id="lcc-q-fin-secs" name="lcc_q_financial_secretaries" class="form-input"
+                                    rows="3" placeholder="List all financial secretaries..."></textarea>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-avg-attendance">3. What is the average attendance to the LCC activities?</label>
-                    <input type="text" id="lcc-q-avg-attendance" name="lcc_q_avg_attendance" class="form-input" placeholder="e.g. 250">
-                </div>
-            </div>
 
-            <!-- STEP 5: SECTION E - Agencies and Ministries -->
-            <div class="form-step" data-step="5">
-                <div class="step-header-card">
-                    <h3>SECTION E: Agencies and Ministries</h3>
-                    <p>Select which agencies and ministries are functional in this LCC.</p>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">1. Which agencies and ministries are functional in the LCC?</label>
-                    <p class="question-hint">Select Yes or No for each ministry.</p>
-                    <div class="ministry-checklist" style="margin-top: 12px;">
-                        <div class="ministry-row"><span class="ministry-name">a. Men Fellowship</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_ministry_men" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_ministry_men" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">b. Women Fellowship</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_ministry_women" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_ministry_women" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">c. Youth Fellowship</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_ministry_youth" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_ministry_youth" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">d. Children's Ministry</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_ministry_children" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_ministry_children" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">e. Boy's Brigade</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_ministry_boys_brigade" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_ministry_boys_brigade" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">f. Girls Brigade</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_ministry_girls_brigade" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_ministry_girls_brigade" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">g. Christian Education Secretary (CES)</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_ministry_ces" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_ministry_ces" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">h. LCC Choir</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_ministry_choir" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_ministry_choir" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">i. ECWA Strategic Planning Secretary</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_ministry_esp" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_ministry_esp" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">j. Missions and Evangelism</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_ministry_missions" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_ministry_missions" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">k. Finance Committee</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_ministry_finance" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_ministry_finance" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">l. Welfare Committee</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_ministry_welfare" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_ministry_welfare" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                    <!-- STEP 2: SECTION B - Coverage -->
+                    <div class="form-step" data-step="2">
+                        <div class="step-header-card">
+                            <h3>SECTION B: Coverage</h3>
+                            <p>Details about the geographical and organisational coverage of this LCC.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-num-churches">1. Number of local churches within the
+                                LCC?</label>
+                            <input type="text" id="lcc-q-num-churches" name="lcc_q_num_churches" class="form-input"
+                                placeholder="e.g. 8">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-num-prayer-houses">2. Number of prayer houses within
+                                the LCC?</label>
+                            <input type="text" id="lcc-q-num-prayer-houses" name="lcc_q_num_prayer_houses"
+                                class="form-input" placeholder="e.g. 3">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-num-communities">3. How many communities does the LCC
+                                cover?</label>
+                            <input type="text" id="lcc-q-num-communities" name="lcc_q_num_communities"
+                                class="form-input" placeholder="e.g. 5">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-community-names">4. What are the names of the
+                                communities the LCC covers?</label>
+                            <textarea id="lcc-q-community-names" name="lcc_q_community_names" class="form-input"
+                                rows="4" placeholder="List all community names..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-num-lgas">5. How many LGAs does the LCC cover?</label>
+                            <input type="text" id="lcc-q-num-lgas" name="lcc_q_num_lgas" class="form-input"
+                                placeholder="e.g. 2">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-church-names">6. Names of Local churches under the
+                                LCC?</label>
+                            <textarea id="lcc-q-church-names" name="lcc_q_church_names" class="form-input" rows="5"
+                                placeholder="List all local church names under this LCC..."></textarea>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-ministry-others">Others (specify):</label>
-                    <textarea id="lcc-q-ministry-others" name="lcc_q_ministry_others" class="form-input" rows="3" placeholder="Specify any other functional agencies or ministries..."></textarea>
-                </div>
-            </div>
 
-            <!-- STEP 6: SECTION F - Property And Assets -->
-            <div class="form-step" data-step="6">
-                <div class="step-header-card">
-                    <h3>SECTION F: Property And Assets</h3>
-                    <p>Information about properties, assets, and infrastructure within the LCC.</p>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-properties">1. What properties does the LCC have?</label>
-                    <textarea id="lcc-q-properties" name="lcc_q_properties" class="form-input" rows="4" placeholder="List all LCC properties..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-assets">2. What assets does the LCC have?</label>
-                    <textarea id="lcc-q-assets" name="lcc_q_assets" class="form-input" rows="4" placeholder="List all LCC assets..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-documented">3. Which properties are fully documented with the DCC?</label>
-                    <textarea id="lcc-q-documented" name="lcc_q_documented_properties" class="form-input" rows="3" placeholder="List documented properties..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-needs-registration">4. Which requires registration?</label>
-                    <textarea id="lcc-q-needs-registration" name="lcc_q_requires_registration" class="form-input" rows="3" placeholder="List properties needing registration..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">5. Are there any properties under dispute?</label>
-                    <div class="radio-group-vertical">
-                        <label class="radio-container"><input type="radio" name="lcc_q_has_disputes" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label>
-                        <label class="radio-container"><input type="radio" name="lcc_q_has_disputes" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label>
+                    <!-- STEP 3: SECTION C - Human Resources -->
+                    <div class="form-step" data-step="3">
+                        <div class="step-header-card">
+                            <h3>SECTION C: Human Resources</h3>
+                            <p>Information about pastoral workforce and fellowship leadership within the LCC.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-serving-pastors">1. Number of serving pastors in the
+                                LCC?</label>
+                            <input type="text" id="lcc-q-serving-pastors" name="lcc_q_serving_pastors"
+                                class="form-input" placeholder="e.g. 5">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-licensed-ordained">2. Number of licensed and ordained
+                                ministers from inception till date?</label>
+                            <input type="text" id="lcc-q-licensed-ordained" name="lcc_q_licensed_ordained"
+                                class="form-input" placeholder="e.g. 12">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">3. Fellowship group leaders/others from inception till
+                                date:</label>
+                            <div style="margin-top: 12px;">
+                                <label class="form-label form-sub-label" for="lcc-q-men-leaders">a. Men
+                                    Fellowship:</label>
+                                <textarea id="lcc-q-men-leaders" name="lcc_q_men_fellowship_leaders" class="form-input"
+                                    rows="3" placeholder="List men fellowship leaders from inception..."></textarea>
+                            </div>
+                            <div style="margin-top: 12px;">
+                                <label class="form-label form-sub-label" for="lcc-q-women-leaders">b. Women Fellowship
+                                    Leadership:</label>
+                                <textarea id="lcc-q-women-leaders" name="lcc_q_women_fellowship_leaders"
+                                    class="form-input" rows="3"
+                                    placeholder="List women fellowship leaders..."></textarea>
+                            </div>
+                            <div style="margin-top: 12px;">
+                                <label class="form-label form-sub-label" for="lcc-q-youth-leaders">c. Youth Fellowship
+                                    Leadership:</label>
+                                <textarea id="lcc-q-youth-leaders" name="lcc_q_youth_fellowship_leaders"
+                                    class="form-input" rows="3"
+                                    placeholder="List youth fellowship leaders..."></textarea>
+                            </div>
+                            <div style="margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border);">
+                                <label class="form-label form-sub-label" style="font-weight: 600;">Others:</label>
+                            </div>
+                            <div style="margin-top: 8px;">
+                                <label class="form-label form-sub-label" for="lcc-q-edu-secs">a. Christian Education
+                                    Secretaries:</label>
+                                <textarea id="lcc-q-edu-secs" name="lcc_q_edu_secretaries" class="form-input" rows="3"
+                                    placeholder="List CES leaders..."></textarea>
+                            </div>
+                            <div style="margin-top: 12px;">
+                                <label class="form-label form-sub-label" for="lcc-q-children-coord">b. Children Ministry
+                                    Coordinator:</label>
+                                <textarea id="lcc-q-children-coord" name="lcc_q_children_coord" class="form-input"
+                                    rows="3" placeholder="List children ministry coordinators..."></textarea>
+                            </div>
+                            <div style="margin-top: 12px;">
+                                <label class="form-label form-sub-label" for="lcc-q-choir-coord">c. LCC Choir
+                                    Coordinators:</label>
+                                <textarea id="lcc-q-choir-coord" name="lcc_q_choir_coord" class="form-input" rows="3"
+                                    placeholder="List choir coordinators..."></textarea>
+                            </div>
+                            <div style="margin-top: 12px;">
+                                <label class="form-label form-sub-label" for="lcc-q-esp-secs">d. ECWA Strategic Planning
+                                    &amp; Research Secretaries (ESP):</label>
+                                <textarea id="lcc-q-esp-secs" name="lcc_q_esp_secretaries" class="form-input" rows="3"
+                                    placeholder="List ESP secretaries..."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-current-licensed">4. Number of licensed pastors
+                                currently?</label>
+                            <input type="text" id="lcc-q-current-licensed" name="lcc_q_current_licensed"
+                                class="form-input" placeholder="e.g. 4">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-current-ordained">5. Number of ordained ministers
+                                currently?</label>
+                            <input type="text" id="lcc-q-current-ordained" name="lcc_q_current_ordained"
+                                class="form-input" placeholder="e.g. 3">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-unlicensed">6. Number of unlicensed pastors?</label>
+                            <input type="text" id="lcc-q-unlicensed" name="lcc_q_unlicensed" class="form-input"
+                                placeholder="e.g. 2">
+                        </div>
                     </div>
-                    <label class="form-label form-sub-label" for="lcc-q-dispute-details" style="margin-top: 12px;">If yes, specify:</label>
-                    <textarea id="lcc-q-dispute-details" name="lcc_q_dispute_details" class="form-input" rows="3" placeholder="Describe any property disputes..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-infra-needed">6. What infrastructural projects, properties and assets are needed within the LCC?</label>
-                    <textarea id="lcc-q-infra-needed" name="lcc_q_infra_needed" class="form-input" rows="4" placeholder="List needed infrastructure..."></textarea>
-                </div>
-            </div>
 
-            <!-- STEP 7: SECTION G - Programs -->
-            <div class="form-step" data-step="7">
-                <div class="step-header-card">
-                    <h3>SECTION G: Programs</h3>
-                    <p>Ongoing mission programs and activities within the LCC.</p>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">1. What are the mission programs within the LCC?</label>
-                    <p class="question-hint">Select Yes or No for each program.</p>
-                    <div class="ministry-checklist" style="margin-top: 12px;">
-                        <div class="ministry-row"><span class="ministry-name">a. LCC Combined Services</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_prog_combined" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_prog_combined" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">b. LCC Council Meeting</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_prog_council" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_prog_council" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">c. Leadership Training</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_prog_leadership" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_prog_leadership" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">d. Stakeholders Forum</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_prog_stakeholders" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_prog_stakeholders" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">e. Evangelism/Outreaches</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_prog_evangelism" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_prog_evangelism" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">f. Retreats/Conferences</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_prog_retreats" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_prog_retreats" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">g. Audit Exercises</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_prog_audit" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_prog_audit" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">h. Community Development Projects</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_prog_community" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_prog_community" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">i. Girls and Boys Brigade Week</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_prog_brigade" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_prog_brigade" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">j. Choir Competition</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_prog_choir" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_prog_choir" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">k. LCC Pastoral Visits</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_prog_visits" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_prog_visits" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">l. LCC Harvests</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_prog_harvests" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_prog_harvests" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                    <!-- STEP 4: SECTION D - Membership Summary -->
+                    <div class="form-step" data-step="4">
+                        <div class="step-header-card">
+                            <h3>SECTION D: Membership Summary</h3>
+                            <p>Total membership and category breakdowns for this LCC.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-total-membership">1. What is the total membership
+                                within the LCC?</label>
+                            <input type="text" id="lcc-q-total-membership" name="lcc_q_total_membership"
+                                class="form-input" placeholder="e.g. 500">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">2. Total number of the following categories within the
+                                LCC:</label>
+                            <div class="membership-grid"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
+                                <div>
+                                    <label class="form-label form-sub-label" for="lcc-q-mem-men">a. Men:</label>
+                                    <input type="text" id="lcc-q-mem-men" name="lcc_q_mem_men" class="form-input"
+                                        placeholder="e.g. 120">
+                                </div>
+                                <div>
+                                    <label class="form-label form-sub-label" for="lcc-q-mem-women">b. Women:</label>
+                                    <input type="text" id="lcc-q-mem-women" name="lcc_q_mem_women" class="form-input"
+                                        placeholder="e.g. 180">
+                                </div>
+                                <div>
+                                    <label class="form-label form-sub-label" for="lcc-q-mem-youth">c. Youths:</label>
+                                    <input type="text" id="lcc-q-mem-youth" name="lcc_q_mem_youth" class="form-input"
+                                        placeholder="e.g. 100">
+                                </div>
+                                <div>
+                                    <label class="form-label form-sub-label" for="lcc-q-mem-children">d.
+                                        Children:</label>
+                                    <input type="text" id="lcc-q-mem-children" name="lcc_q_mem_children"
+                                        class="form-input" placeholder="e.g. 100">
+                                </div>
+                                <div>
+                                    <label class="form-label form-sub-label" for="lcc-q-mem-baptized">e. Baptized
+                                        Members:</label>
+                                    <input type="text" id="lcc-q-mem-baptized" name="lcc_q_mem_baptized"
+                                        class="form-input" placeholder="e.g. 350">
+                                </div>
+                                <div>
+                                    <label class="form-label form-sub-label" for="lcc-q-mem-unbaptized">f. Unbaptized
+                                        Members:</label>
+                                    <input type="text" id="lcc-q-mem-unbaptized" name="lcc_q_mem_unbaptized"
+                                        class="form-input" placeholder="e.g. 150">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-avg-attendance">3. What is the average attendance to
+                                the LCC activities?</label>
+                            <input type="text" id="lcc-q-avg-attendance" name="lcc_q_avg_attendance" class="form-input"
+                                placeholder="e.g. 250">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-prog-others">Others (specify):</label>
-                    <textarea id="lcc-q-prog-others" name="lcc_q_program_others" class="form-input" rows="3" placeholder="Specify any other programs..."></textarea>
-                </div>
-            </div>
 
-            <!-- STEP 8: SECTION H - Financial Information -->
-            <div class="form-step" data-step="8">
-                <div class="step-header-card">
-                    <h3>SECTION H: Financial Information</h3>
-                    <p>Financial status, income sources, and challenges of the LCC.</p>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-boost-income">1. What can the LCC do to boost their financial inflow?</label>
-                    <textarea id="lcc-q-boost-income" name="lcc_q_boost_income" class="form-input" rows="4" placeholder="Describe strategies to boost income..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-income-sources">2. What are the LCC's main sources of income?</label>
-                    <textarea id="lcc-q-income-sources" name="lcc_q_income_sources" class="form-input" rows="4" placeholder="List main income sources..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-financial-challenges">3. What financial challenges does the LCC face?</label>
-                    <textarea id="lcc-q-financial-challenges" name="lcc_q_financial_challenges" class="form-input" rows="4" placeholder="Describe financial challenges..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-projects-funding">4. What LCC projects require funding?</label>
-                    <textarea id="lcc-q-projects-funding" name="lcc_q_projects_funding" class="form-input" rows="4" placeholder="List projects needing funding..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-financial-assets">5. What are the financial assets of the LCC?</label>
-                    <textarea id="lcc-q-financial-assets" name="lcc_q_financial_assets" class="form-input" rows="4" placeholder="List financial assets..."></textarea>
-                </div>
-            </div>
-
-            <!-- STEP 9: SECTION I - Community Profile -->
-            <div class="form-step" data-step="9">
-                <div class="step-header-card">
-                    <h3>SECTION I: Community Profile</h3>
-                    <p>Community demographics, needs, and LCC engagement opportunities.</p>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-community-needs">1. What are the greatest needs of the community where the LCC is located?</label>
-                    <textarea id="lcc-q-community-needs" name="lcc_q_community_needs" class="form-input" rows="4" placeholder="Describe the community's greatest needs..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-community-response">2. How is the LCC responding to those needs?</label>
-                    <textarea id="lcc-q-community-response" name="lcc_q_community_response" class="form-input" rows="4" placeholder="Describe how the LCC is responding..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-opportunities">3. What opportunities exist that should be explored by the LCC?</label>
-                    <textarea id="lcc-q-opportunities" name="lcc_q_opportunities" class="form-input" rows="4" placeholder="Describe available opportunities..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-occupation">4. What is the predominant occupation in that community?</label>
-                    <input type="text" id="lcc-q-occupation" name="lcc_q_occupation" class="form-input" placeholder="e.g. Farming, Trading, Civil Service">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-demographics">5. What is the dominant ethnic group and religious group in that community?</label>
-                    <input type="text" id="lcc-q-demographics" name="lcc_q_demographics" class="form-input" placeholder="e.g. Igbo, Christianity">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">6. Community needs:</label>
-                    <p class="question-hint">Select Yes or No for each community need.</p>
-                    <div class="ministry-checklist" style="margin-top: 12px;">
-                        <div class="ministry-row"><span class="ministry-name">a. Youth Development</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_need_youth" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_need_youth" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">b. Skill Acquisition</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_need_skills" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_need_skills" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">c. Health Care Outreach</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_need_healthcare" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_need_healthcare" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">d. Educational Support</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_need_education" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_need_education" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">e. Water and Sanitation</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_need_water" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_need_water" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">f. Peace Building</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_need_peace" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_need_peace" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">g. Evangelism</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_need_evangelism" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_need_evangelism" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">h. Micro Finance Bank</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_need_microfinance" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_need_microfinance" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
+                    <!-- STEP 5: SECTION E - Agencies and Ministries -->
+                    <div class="form-step" data-step="5">
+                        <div class="step-header-card">
+                            <h3>SECTION E: Agencies and Ministries</h3>
+                            <p>Select which agencies and ministries are functional in this LCC.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">1. Which agencies and ministries are functional in the
+                                LCC?</label>
+                            <p class="question-hint">Select Yes or No for each ministry.</p>
+                            <div class="ministry-checklist" style="margin-top: 12px;">
+                                <div class="ministry-row"><span class="ministry-name">a. Men Fellowship</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_ministry_men" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_ministry_men"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">b. Women Fellowship</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_ministry_women" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_ministry_women"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">c. Youth Fellowship</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_ministry_youth" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_ministry_youth"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">d. Children's Ministry</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_ministry_children" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_ministry_children"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">e. Boy's Brigade</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_ministry_boys_brigade" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio"
+                                                name="lcc_q_ministry_boys_brigade" value="No"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">f. Girls Brigade</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_ministry_girls_brigade" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio"
+                                                name="lcc_q_ministry_girls_brigade" value="No"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">g. Christian Education Secretary
+                                        (CES)</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_ministry_ces" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_ministry_ces"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">h. LCC Choir</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_ministry_choir" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_ministry_choir"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">i. ECWA Strategic Planning
+                                        Secretary</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_ministry_esp" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_ministry_esp"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">j. Missions and Evangelism</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_ministry_missions" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_ministry_missions"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">k. Finance Committee</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_ministry_finance" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_ministry_finance"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">l. Welfare Committee</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_ministry_welfare" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_ministry_welfare"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-ministry-others">Others (specify):</label>
+                            <textarea id="lcc-q-ministry-others" name="lcc_q_ministry_others" class="form-input"
+                                rows="3"
+                                placeholder="Specify any other functional agencies or ministries..."></textarea>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-needs-others">Others (specify):</label>
-                    <textarea id="lcc-q-needs-others" name="lcc_q_community_needs_others" class="form-input" rows="3" placeholder="Specify any other community needs..."></textarea>
+
+                    <!-- STEP 6: SECTION F - Property And Assets -->
+                    <div class="form-step" data-step="6">
+                        <div class="step-header-card">
+                            <h3>SECTION F: Property And Assets</h3>
+                            <p>Information about properties, assets, and infrastructure within the LCC.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-properties">1. What properties does the LCC
+                                have?</label>
+                            <textarea id="lcc-q-properties" name="lcc_q_properties" class="form-input" rows="4"
+                                placeholder="List all LCC properties..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-assets">2. What assets does the LCC have?</label>
+                            <textarea id="lcc-q-assets" name="lcc_q_assets" class="form-input" rows="4"
+                                placeholder="List all LCC assets..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-documented">3. Which properties are fully documented
+                                with the DCC?</label>
+                            <textarea id="lcc-q-documented" name="lcc_q_documented_properties" class="form-input"
+                                rows="3" placeholder="List documented properties..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-needs-registration">4. Which requires
+                                registration?</label>
+                            <textarea id="lcc-q-needs-registration" name="lcc_q_requires_registration"
+                                class="form-input" rows="3"
+                                placeholder="List properties needing registration..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">5. Are there any properties under dispute?</label>
+                            <div class="radio-group-vertical">
+                                <label class="radio-container"><input type="radio" name="lcc_q_has_disputes"
+                                        value="Yes"><span class="radio-checkmark"></span><span
+                                        class="radio-label">Yes</span></label>
+                                <label class="radio-container"><input type="radio" name="lcc_q_has_disputes"
+                                        value="No"><span class="radio-checkmark"></span><span
+                                        class="radio-label">No</span></label>
+                            </div>
+                            <label class="form-label form-sub-label" for="lcc-q-dispute-details"
+                                style="margin-top: 12px;">If yes, specify:</label>
+                            <textarea id="lcc-q-dispute-details" name="lcc_q_dispute_details" class="form-input"
+                                rows="3" placeholder="Describe any property disputes..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-infra-needed">6. What infrastructural projects,
+                                properties and assets are needed within the LCC?</label>
+                            <textarea id="lcc-q-infra-needed" name="lcc_q_infra_needed" class="form-input" rows="4"
+                                placeholder="List needed infrastructure..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 7: SECTION G - Programs -->
+                    <div class="form-step" data-step="7">
+                        <div class="step-header-card">
+                            <h3>SECTION G: Programs</h3>
+                            <p>Ongoing mission programs and activities within the LCC.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">1. What are the mission programs within the LCC?</label>
+                            <p class="question-hint">Select Yes or No for each program.</p>
+                            <div class="ministry-checklist" style="margin-top: 12px;">
+                                <div class="ministry-row"><span class="ministry-name">a. LCC Combined Services</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_prog_combined" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_prog_combined"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">b. LCC Council Meeting</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_prog_council" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_prog_council"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">c. Leadership Training</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_prog_leadership" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_prog_leadership"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">d. Stakeholders Forum</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_prog_stakeholders" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_prog_stakeholders"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">e. Evangelism/Outreaches</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_prog_evangelism" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_prog_evangelism"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">f. Retreats/Conferences</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_prog_retreats" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_prog_retreats"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">g. Audit Exercises</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_prog_audit" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_prog_audit"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">h. Community Development
+                                        Projects</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_prog_community" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_prog_community"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">i. Girls and Boys Brigade
+                                        Week</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_prog_brigade" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_prog_brigade"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">j. Choir Competition</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_prog_choir" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_prog_choir"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">k. LCC Pastoral Visits</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_prog_visits" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_prog_visits"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">l. LCC Harvests</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_prog_harvests" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_prog_harvests"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-prog-others">Others (specify):</label>
+                            <textarea id="lcc-q-prog-others" name="lcc_q_program_others" class="form-input" rows="3"
+                                placeholder="Specify any other programs..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 8: SECTION H - Financial Information -->
+                    <div class="form-step" data-step="8">
+                        <div class="step-header-card">
+                            <h3>SECTION H: Financial Information</h3>
+                            <p>Financial status, income sources, and challenges of the LCC.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-boost-income">1. What can the LCC do to boost their
+                                financial inflow?</label>
+                            <textarea id="lcc-q-boost-income" name="lcc_q_boost_income" class="form-input" rows="4"
+                                placeholder="Describe strategies to boost income..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-income-sources">2. What are the LCC's main sources of
+                                income?</label>
+                            <textarea id="lcc-q-income-sources" name="lcc_q_income_sources" class="form-input" rows="4"
+                                placeholder="List main income sources..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-financial-challenges">3. What financial challenges does
+                                the LCC face?</label>
+                            <textarea id="lcc-q-financial-challenges" name="lcc_q_financial_challenges"
+                                class="form-input" rows="4" placeholder="Describe financial challenges..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-projects-funding">4. What LCC projects require
+                                funding?</label>
+                            <textarea id="lcc-q-projects-funding" name="lcc_q_projects_funding" class="form-input"
+                                rows="4" placeholder="List projects needing funding..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-financial-assets">5. What are the financial assets of
+                                the LCC?</label>
+                            <textarea id="lcc-q-financial-assets" name="lcc_q_financial_assets" class="form-input"
+                                rows="4" placeholder="List financial assets..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 9: SECTION I - Community Profile -->
+                    <div class="form-step" data-step="9">
+                        <div class="step-header-card">
+                            <h3>SECTION I: Community Profile</h3>
+                            <p>Community demographics, needs, and LCC engagement opportunities.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-community-needs">1. What are the greatest needs of the
+                                community where the LCC is located?</label>
+                            <textarea id="lcc-q-community-needs" name="lcc_q_community_needs" class="form-input"
+                                rows="4" placeholder="Describe the community's greatest needs..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-community-response">2. How is the LCC responding to
+                                those needs?</label>
+                            <textarea id="lcc-q-community-response" name="lcc_q_community_response" class="form-input"
+                                rows="4" placeholder="Describe how the LCC is responding..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-opportunities">3. What opportunities exist that should
+                                be explored by the LCC?</label>
+                            <textarea id="lcc-q-opportunities" name="lcc_q_opportunities" class="form-input" rows="4"
+                                placeholder="Describe available opportunities..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-occupation">4. What is the predominant occupation in
+                                that community?</label>
+                            <input type="text" id="lcc-q-occupation" name="lcc_q_occupation" class="form-input"
+                                placeholder="e.g. Farming, Trading, Civil Service">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-demographics">5. What is the dominant ethnic group and
+                                religious group in that community?</label>
+                            <input type="text" id="lcc-q-demographics" name="lcc_q_demographics" class="form-input"
+                                placeholder="e.g. Igbo, Christianity">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">6. Community needs:</label>
+                            <p class="question-hint">Select Yes or No for each community need.</p>
+                            <div class="ministry-checklist" style="margin-top: 12px;">
+                                <div class="ministry-row"><span class="ministry-name">a. Youth Development</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_need_youth" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_need_youth"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">b. Skill Acquisition</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_need_skills" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_need_skills"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">c. Health Care Outreach</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_need_healthcare" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_need_healthcare"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">d. Educational Support</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_need_education" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_need_education"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">e. Water and Sanitation</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_need_water" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_need_water"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">f. Peace Building</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_need_peace" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_need_peace"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">g. Evangelism</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_need_evangelism" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_need_evangelism"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">h. Micro Finance Bank</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_need_microfinance" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_need_microfinance"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-needs-others">Others (specify):</label>
+                            <textarea id="lcc-q-needs-others" name="lcc_q_community_needs_others" class="form-input"
+                                rows="3" placeholder="Specify any other community needs..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- STEP 10: SECTION J - Strategic Assessment / SWOT -->
+                    <div class="form-step" data-step="10">
+                        <div class="step-header-card">
+                            <h3>SECTION J: Strategic Assessment of the LCC</h3>
+                            <p>SWOT Analysis (Strengths, Weaknesses, Opportunities, Threats), priority needs, and
+                                vision.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" style="font-weight: 700; color: var(--primary);">STRENGTHS</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-swot-well">What is the LCC doing well?</label>
+                            <textarea id="lcc-q-swot-well" name="lcc_q_swot_doing_well" class="form-input" rows="4"
+                                placeholder="Describe what the LCC is doing well..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-swot-thriving">What ministries are thriving?</label>
+                            <textarea id="lcc-q-swot-thriving" name="lcc_q_swot_thriving" class="form-input" rows="4"
+                                placeholder="Describe thriving ministries..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-swot-resources">What resources does the LCC
+                                have?</label>
+                            <textarea id="lcc-q-swot-resources" name="lcc_q_swot_resources" class="form-input" rows="4"
+                                placeholder="Describe available resources..."></textarea>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 24px;">
+                            <label class="form-label"
+                                style="font-weight: 700; color: var(--warning, #f59e0b);">WEAKNESSES</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-swot-improvements">What areas does the LCC need
+                                improvements?</label>
+                            <textarea id="lcc-q-swot-improvements" name="lcc_q_swot_improvements" class="form-input"
+                                rows="4" placeholder="Describe areas needing improvement..."></textarea>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 24px;">
+                            <label class="form-label"
+                                style="font-weight: 700; color: var(--error, #ef4444);">THREATS</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">What external challenges affect the LCC?</label>
+                            <div class="ministry-checklist" style="margin-top: 12px;">
+                                <div class="ministry-row"><span class="ministry-name">a. Insecurity</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_threat_insecurity" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_threat_insecurity"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">b. Declining Members</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_threat_declining" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_threat_declining"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">c. Financial Challenges</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_threat_financial" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_threat_financial"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                            </div>
+                            <label class="form-label form-sub-label" for="lcc-q-threat-others"
+                                style="margin-top: 12px;">Others (specify):</label>
+                            <textarea id="lcc-q-threat-others" name="lcc_q_threat_others" class="form-input" rows="3"
+                                placeholder="Specify other threats..."></textarea>
+                        </div>
+
+                        <div class="form-group"
+                            style="margin-top: 24px; padding-top: 20px; border-top: 2px solid var(--border);">
+                            <label class="form-label" style="font-weight: 700; color: var(--primary);">PRIORITY NEEDS OF
+                                THE LCC</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="ministry-checklist">
+                                <div class="ministry-row"><span class="ministry-name">Immediate Needs</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_priority_immediate" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_priority_immediate"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">Medium Term Needs</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_priority_medium" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_priority_medium"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                                <div class="ministry-row"><span class="ministry-name">Long Term Needs</span>
+                                    <div class="radio-group-horizontal"><label class="radio-container"><input
+                                                type="radio" name="lcc_q_priority_long" value="Yes"><span
+                                                class="radio-checkmark"></span><span
+                                                class="radio-label">Yes</span></label><label
+                                            class="radio-container"><input type="radio" name="lcc_q_priority_long"
+                                                value="No"><span class="radio-checkmark"></span><span
+                                                class="radio-label">No</span></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-five-year-vision">What are your five-year visions for
+                                the LCC?</label>
+                            <textarea id="lcc-q-five-year-vision" name="lcc_q_five_year_vision" class="form-input"
+                                rows="4" placeholder="Describe your five-year vision for the LCC..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lcc-q-prayer-requests">Prayer Requests</label>
+                            <textarea id="lcc-q-prayer-requests" name="lcc_q_prayer_requests" class="form-input"
+                                rows="4" placeholder="Share your prayer requests for the LCC..."></textarea>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Navigation Buttons -->
+                <div class="form-nav-buttons">
+                    <button type="button" id="lcc-prev-step-btn" class="btn btn-outline" style="visibility: hidden;">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="19" y1="12" x2="5" y2="12" />
+                            <polyline points="12 19 5 12 12 5" />
+                        </svg>
+                        Back
+                    </button>
+                    <button type="button" id="lcc-next-step-btn" class="btn btn-primary">
+                        Next Step
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                    </button>
                 </div>
             </div>
-
-            <!-- STEP 10: SECTION J - Strategic Assessment / SWOT -->
-            <div class="form-step" data-step="10">
-                <div class="step-header-card">
-                    <h3>SECTION J: Strategic Assessment of the LCC</h3>
-                    <p>SWOT Analysis (Strengths, Weaknesses, Opportunities, Threats), priority needs, and vision.</p>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" style="font-weight: 700; color: var(--primary);">STRENGTHS</label>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-swot-well">What is the LCC doing well?</label>
-                    <textarea id="lcc-q-swot-well" name="lcc_q_swot_doing_well" class="form-input" rows="4" placeholder="Describe what the LCC is doing well..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-swot-thriving">What ministries are thriving?</label>
-                    <textarea id="lcc-q-swot-thriving" name="lcc_q_swot_thriving" class="form-input" rows="4" placeholder="Describe thriving ministries..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-swot-resources">What resources does the LCC have?</label>
-                    <textarea id="lcc-q-swot-resources" name="lcc_q_swot_resources" class="form-input" rows="4" placeholder="Describe available resources..."></textarea>
-                </div>
-
-                <div class="form-group" style="margin-top: 24px;">
-                    <label class="form-label" style="font-weight: 700; color: var(--warning, #f59e0b);">WEAKNESSES</label>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-swot-improvements">What areas does the LCC need improvements?</label>
-                    <textarea id="lcc-q-swot-improvements" name="lcc_q_swot_improvements" class="form-input" rows="4" placeholder="Describe areas needing improvement..."></textarea>
-                </div>
-
-                <div class="form-group" style="margin-top: 24px;">
-                    <label class="form-label" style="font-weight: 700; color: var(--error, #ef4444);">THREATS</label>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">What external challenges affect the LCC?</label>
-                    <div class="ministry-checklist" style="margin-top: 12px;">
-                        <div class="ministry-row"><span class="ministry-name">a. Insecurity</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_threat_insecurity" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_threat_insecurity" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">b. Declining Members</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_threat_declining" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_threat_declining" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">c. Financial Challenges</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_threat_financial" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_threat_financial" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                    </div>
-                    <label class="form-label form-sub-label" for="lcc-q-threat-others" style="margin-top: 12px;">Others (specify):</label>
-                    <textarea id="lcc-q-threat-others" name="lcc_q_threat_others" class="form-input" rows="3" placeholder="Specify other threats..."></textarea>
-                </div>
-
-                <div class="form-group" style="margin-top: 24px; padding-top: 20px; border-top: 2px solid var(--border);">
-                    <label class="form-label" style="font-weight: 700; color: var(--primary);">PRIORITY NEEDS OF THE LCC</label>
-                </div>
-                <div class="form-group">
-                    <div class="ministry-checklist">
-                        <div class="ministry-row"><span class="ministry-name">Immediate Needs</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_priority_immediate" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_priority_immediate" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">Medium Term Needs</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_priority_medium" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_priority_medium" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                        <div class="ministry-row"><span class="ministry-name">Long Term Needs</span><div class="radio-group-horizontal"><label class="radio-container"><input type="radio" name="lcc_q_priority_long" value="Yes"><span class="radio-checkmark"></span><span class="radio-label">Yes</span></label><label class="radio-container"><input type="radio" name="lcc_q_priority_long" value="No"><span class="radio-checkmark"></span><span class="radio-label">No</span></label></div></div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-five-year-vision">What are your five-year visions for the LCC?</label>
-                    <textarea id="lcc-q-five-year-vision" name="lcc_q_five_year_vision" class="form-input" rows="4" placeholder="Describe your five-year vision for the LCC..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="lcc-q-prayer-requests">Prayer Requests</label>
-                    <textarea id="lcc-q-prayer-requests" name="lcc_q_prayer_requests" class="form-input" rows="4" placeholder="Share your prayer requests for the LCC..."></textarea>
-                </div>
-            </div>
-        </form>
-
-        <!-- Navigation Buttons -->
-        <div class="form-nav-buttons">
-            <button type="button" id="lcc-prev-step-btn" class="btn btn-outline" style="visibility: hidden;">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" />
-                </svg>
-                Back
-            </button>
-            <button type="button" id="lcc-next-step-btn" class="btn btn-primary">
-                Next Step
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-                </svg>
-            </button>
-        </div>
-    </div>
-</section>
+        </section>
 
     </main>
 
@@ -553,4 +1016,5 @@
     <script src="js/common.js"></script>
     <script src="js/lcc.js"></script>
 </body>
+
 </html>
