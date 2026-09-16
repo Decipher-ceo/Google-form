@@ -357,19 +357,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-animated-title {
-    font-size: 2.5rem;
+    font-size: 1.25rem;
     font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 16px;
+    line-height: 1.35;
+    margin-bottom: 12px;
     background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .hero-animated-subtitle {
-    font-size: 1.1rem;
+    font-size: 0.55rem;
     color: var(--text-muted);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 /* Stats Ribbon */
@@ -1123,4 +1123,35 @@ h1, h2, h3, h4, h5, h6 {
     .radio-group-horizontal {
         width: 100%;
     }
+}
+
+/* ==========================================================================
+   APP FOOTER STYLING
+   ========================================================================== */
+
+.app-footer {
+    background: linear-gradient(135deg, var(--primary) 0%, hsl(155, 45%, 12%) 100%);
+    color: #ffffff;
+    padding: 24px 0;
+    margin-top: auto;
+    border-top: 4px solid var(--accent);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.footer-container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-container p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: rgba(255, 255, 255, 0.9);
 }
