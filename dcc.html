@@ -140,8 +140,8 @@
                                 </label>
                             </div>
                             <div style="margin-top: 10px;">
-                                <label class="form-label" for="dcc-source-other">Others (specify):</label>
-                                <input type="text" id="dcc-source-other" name="dcc_source_of_info_others" class="form-input" placeholder="Allow extra space for Others">
+                                <label class="form-label" for="dcc-source-other">Allow extra space for others where ans is subjective:</label>
+                                <input type="text" id="dcc-source-other" name="dcc_source_of_info_others" class="form-input" placeholder="Allow extra space for others">
                             </div>
                         </div>
                         <div class="form-group">
@@ -200,36 +200,41 @@
                                 <table class="custom-form-table">
                                     <thead>
                                         <tr>
-                                            <th>N/A</th>
-                                            <th>DCC Chairman</th>
-                                            <th>DCC sectary</th>
-                                            <th>DCC Financial sectary</th>
+                                            <th>Office</th>
+                                            <th>Name</th>
+                                            <th>Year(s) of service</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Term / Period 1</td>
-                                            <td><input type="text" name="dcc_pioneer_chairman_1" class="form-input" placeholder="Name &amp; tenure"></td>
-                                            <td><input type="text" name="dcc_pioneer_secretary_1" class="form-input" placeholder="Name &amp; tenure"></td>
-                                            <td><input type="text" name="dcc_pioneer_finsec_1" class="form-input" placeholder="Name &amp; tenure"></td>
+                                            <td>DCC Chairman</td>
+                                            <td><input type="text" name="dcc_pioneer_chairman_name" class="form-input" placeholder="Name"></td>
+                                            <td><input type="text" name="dcc_pioneer_chairman_years" class="form-input" placeholder="Year(s) of service"></td>
                                         </tr>
                                         <tr>
-                                            <td>Term / Period 2</td>
-                                            <td><input type="text" name="dcc_pioneer_chairman_2" class="form-input" placeholder="Name &amp; tenure"></td>
-                                            <td><input type="text" name="dcc_pioneer_secretary_2" class="form-input" placeholder="Name &amp; tenure"></td>
-                                            <td><input type="text" name="dcc_pioneer_finsec_2" class="form-input" placeholder="Name &amp; tenure"></td>
+                                            <td>DCC Vice Chairman</td>
+                                            <td><input type="text" name="dcc_pioneer_vice_chairman_name" class="form-input" placeholder="Name"></td>
+                                            <td><input type="text" name="dcc_pioneer_vice_chairman_years" class="form-input" placeholder="Year(s) of service"></td>
                                         </tr>
                                         <tr>
-                                            <td>Term / Period 3</td>
-                                            <td><input type="text" name="dcc_pioneer_chairman_3" class="form-input" placeholder="Name &amp; tenure"></td>
-                                            <td><input type="text" name="dcc_pioneer_secretary_3" class="form-input" placeholder="Name &amp; tenure"></td>
-                                            <td><input type="text" name="dcc_pioneer_finsec_3" class="form-input" placeholder="Name &amp; tenure"></td>
+                                            <td>DCC Sectary</td>
+                                            <td><input type="text" name="dcc_pioneer_secretary_name" class="form-input" placeholder="Name"></td>
+                                            <td><input type="text" name="dcc_pioneer_secretary_years" class="form-input" placeholder="Year(s) of service"></td>
                                         </tr>
                                         <tr>
-                                            <td>Term / Period 4</td>
-                                            <td><input type="text" name="dcc_pioneer_chairman_4" class="form-input" placeholder="Name &amp; tenure"></td>
-                                            <td><input type="text" name="dcc_pioneer_secretary_4" class="form-input" placeholder="Name &amp; tenure"></td>
-                                            <td><input type="text" name="dcc_pioneer_finsec_4" class="form-input" placeholder="Name &amp; tenure"></td>
+                                            <td>DCC Assistant Sectary</td>
+                                            <td><input type="text" name="dcc_pioneer_asst_secretary_name" class="form-input" placeholder="Name"></td>
+                                            <td><input type="text" name="dcc_pioneer_asst_secretary_years" class="form-input" placeholder="Year(s) of service"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>DCC Delegate</td>
+                                            <td><input type="text" name="dcc_pioneer_delegate_name" class="form-input" placeholder="Name"></td>
+                                            <td><input type="text" name="dcc_pioneer_delegate_years" class="form-input" placeholder="Year(s) of service"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>DCC Treasurer</td>
+                                            <td><input type="text" name="dcc_pioneer_treasurer_name" class="form-input" placeholder="Name"></td>
+                                            <td><input type="text" name="dcc_pioneer_treasurer_years" class="form-input" placeholder="Year(s) of service"></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -240,8 +245,12 @@
                             <textarea id="dcc-secB-q2" name="dcc_secB_history" class="form-input" rows="5" placeholder="Briefly describe the history of UMDCC..."></textarea>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="dcc-secB-q3">3. What major achievement(s) has the DCC recorded in the last five years?</label>
-                            <textarea id="dcc-secB-q3" name="dcc_secB_achievements_5yrs" class="form-input" rows="5" placeholder="What major achievement(s) has the DCC recorded in the last five years?..."></textarea>
+                            <label class="form-label" for="dcc-secB-q3-milestones">3. What are the five most significant milestones/achievements in the history of the DCC?</label>
+                            <textarea id="dcc-secB-q3-milestones" name="dcc_secB_five_milestones_history" class="form-input" rows="5" placeholder="What are the five most significant milestones/achievements in the history of the DCC?..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="dcc-secB-q3-achievements">3. What major achievement(s) has the DCC recorded in the last five years?</label>
+                            <textarea id="dcc-secB-q3-achievements" name="dcc_secB_achievements_5yrs" class="form-input" rows="5" placeholder="What major achievement(s) has the DCC recorded in the last five years?..."></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="dcc-secB-q4">4. What historical lessons should inform the next seven years:</label>
@@ -255,7 +264,7 @@
                             <h3>SECTION C: Governance and Administration</h3>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">1. How effective is the current governance structure?</label>
+                            <label class="form-label">1. How effective is the current DCC leadership, administration?</label>
                             <div class="radio-group-vertical">
                                 <label class="radio-option">
                                     <input type="radio" name="dcc_secC_governance_effectiveness" value="a. Highly effective">
@@ -276,15 +285,15 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="dcc-secC-q2">2. What administrative process work well?</label>
-                            <textarea id="dcc-secC-q2" name="dcc_secC_admin_processes_work_well" class="form-input" rows="4" placeholder="What administrative process work well..."></textarea>
+                            <label class="form-label" for="dcc-secC-q2">2. What administrative processes work well?</label>
+                            <textarea id="dcc-secC-q2" name="dcc_secC_admin_processes_work_well" class="form-input" rows="4" placeholder="What administrative processes work well..."></textarea>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="dcc-secC-q3">3. What administrative process require improvement?</label>
-                            <textarea id="dcc-secC-q3" name="dcc_secC_admin_processes_improvement" class="form-input" rows="4" placeholder="What administrative process require improvement..."></textarea>
+                            <label class="form-label" for="dcc-secC-q3">3. What administrative processes require improvement?</label>
+                            <textarea id="dcc-secC-q3" name="dcc_secC_admin_processes_improvement" class="form-input" rows="4" placeholder="What administrative processes require improvement..."></textarea>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">4. Are there clearly differed reporting channels between the LC, LCC and DCC?</label>
+                            <label class="form-label">4. Are there clearly differed reporting channels between the LC &gt;&gt;LCC&gt;&gt; DCC?</label>
                             <div class="radio-group-horizontal">
                                 <label class="radio-option">
                                     <input type="radio" name="dcc_secC_reporting_channels" value="YES">
@@ -312,8 +321,21 @@
                             <h3>SECTION D: Membership</h3>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="dcc-secD-q1">1. What has been the membership trend over the last few years?</label>
-                            <input type="text" id="dcc-secD-q1" name="dcc_secD_membership_trend" class="form-input" placeholder="Membership trend over last few years">
+                            <label class="form-label">1. What has been the membership trend over the last few years?</label>
+                            <div class="radio-group-horizontal">
+                                <label class="radio-option">
+                                    <input type="radio" name="dcc_secD_membership_trend" value="Increasing">
+                                    <span>Increasing</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="dcc_secD_membership_trend" value="Declining">
+                                    <span>Declining</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="dcc_secD_membership_trend" value="NOT SURE">
+                                    <span>NOT SURE</span>
+                                </label>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">2. What category are growing fastest?</label>
@@ -337,7 +359,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">3. What group(s) are declining faster?</label>
+                            <label class="form-label">3. What category are declining faster?</label>
                             <div class="radio-group-horizontal">
                                 <label class="radio-option">
                                     <input type="radio" name="dcc_secD_declining_group" value="Men">
@@ -416,12 +438,14 @@
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="I. Christian Education"> <span>I. Christian Education</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="j. Media"> <span>j. Media</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="k. Sports"> <span>k. Sports</span></label>
-                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="j. Sunday school"> <span>j. Sunday school</span></label>
-                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="l. Prayer"> <span>l. Prayer</span></label>
-                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="m. Discipleship"> <span>m. Discipleship</span></label>
-                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="n. Choir/music"> <span>n. Choir/music</span></label>
-                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="o. ECWA strategic planning and research unit"> <span>o. ECWA strategic planning and research unit</span></label>
-                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="p. Welfare"> <span>p. Welfare</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="l. Sunday school"> <span>l. Sunday school</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="m. Prayer"> <span>m. Prayer</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="o. Discipleship"> <span>o. Discipleship</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="p. Choir/music"> <span>p. Choir/music</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="q. ECWA strategic planning and research unit"> <span>q. ECWA strategic planning and research unit</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="r. Welfare"> <span>r. Welfare</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="s. Boys brigade"> <span>s. Boys brigade</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q1_strong" value="t. Girls brigade"> <span>t. Girls brigade</span></label>
                             </div>
                             <div style="margin-top: 8px;">
                                 <input type="text" name="dcc_secF_q1_other" class="form-input" placeholder="Others (specify)">
@@ -449,6 +473,8 @@
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q2_revitalize" value="n. Choir/music"> <span>n. Choir/music</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q2_revitalize" value="o. ECWA strategic planning and research unit"> <span>o. ECWA strategic planning and research unit</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q2_revitalize" value="p. Welfare"> <span>p. Welfare</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q2_revitalize" value="q. Boys brigade"> <span>q. Boys brigade</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q2_revitalize" value="r. Girls brigade"> <span>r. Girls brigade</span></label>
                             </div>
                             <div style="margin-top: 8px;">
                                 <input type="text" name="dcc_secF_q2_other" class="form-input" placeholder="Others (specify)">
@@ -476,6 +502,8 @@
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q3_underresourced" value="n. Choir/music"> <span>n. Choir/music</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q3_underresourced" value="o. ECWA strategic planning and research unit"> <span>o. ECWA strategic planning and research unit</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q3_underresourced" value="p. Welfare"> <span>p. Welfare</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q3_underresourced" value="q. Boys brigade"> <span>q. Boys brigade</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secF_q3_underresourced" value="r. Girls brigade"> <span>r. Girls brigade</span></label>
                             </div>
                             <div style="margin-top: 8px;">
                                 <input type="text" name="dcc_secF_q3_other" class="form-input" placeholder="Others (specify)">
@@ -529,13 +557,13 @@
                         </div>
                     </div>
 
-                    <!-- STEP 9: SECTION G: Evangelism and Ministries: -->
+                    <!-- STEP 9: SECTION G: Evangelism and Missions: -->
                     <div class="form-step" data-step="9">
                         <div class="step-header-card">
-                            <h3>SECTION G: Evangelism and Ministries:</h3>
+                            <h3>SECTION G: Evangelism and Missions:</h3>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="dcc-evang-q1">1. What evangelism strategies are currently being used? ( e.g medical outreaches, welfare outreaches?.)</label>
+                            <label class="form-label" for="dcc-evang-q1">1. What evangelism strategies are currently being used? ( e.g medical outreaches, welfare outreaches, radio ministry, church evangelism, one-on-one, missions, tracks sharing, etc)</label>
                             <textarea id="dcc-evang-q1" name="dcc_evang_strategies" class="form-input" rows="4" placeholder="What evangelism strategies are currently being used..."></textarea>
                         </div>
                         <div class="form-group">
@@ -555,8 +583,8 @@
                             <input type="text" id="dcc-evang-q5" name="dcc_evang_churches_planted_5yrs" class="form-input" placeholder="Number of churches planted in last five years">
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="dcc-evang-q6">6. How many mission stations have become recognized?</label>
-                            <input type="text" id="dcc-evang-q6" name="dcc_evang_recognized_mission_stations" class="form-input" placeholder="Number of recognized mission stations">
+                            <label class="form-label" for="dcc-evang-q6">6. How many mission stations have become recognized local churches ?</label>
+                            <input type="text" id="dcc-evang-q6" name="dcc_evang_recognized_mission_stations" class="form-input" placeholder="Number of mission stations that have become recognized local churches">
                         </div>
                     </div>
 
@@ -570,8 +598,8 @@
                             <textarea id="dcc-secH-q1" name="dcc_secH_priority_communities" class="form-input" rows="4" placeholder="Which communities are priority areas..."></textarea>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="dcc-secH-q2">2. Which resources are required for church planting?</label>
-                            <textarea id="dcc-secH-q2" name="dcc_secH_planting_resources_required" class="form-input" rows="4" placeholder="Which resources are required for church planting..."></textarea>
+                            <label class="form-label" for="dcc-secH-q2">2. What resources are required for church planting?</label>
+                            <textarea id="dcc-secH-q2" name="dcc_secH_planting_resources_required" class="form-input" rows="4" placeholder="What resources are required for church planting..."></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="dcc-secH-q3">3. What factors causes church plants to succeed?</label>
@@ -593,7 +621,7 @@
                             <div class="checkbox-grid">
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secI_programs" value="a. Pastoral training"> <span>a. Pastoral training</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secI_programs" value="b. DCC pastoral visits"> <span>b. DCC pastoral visits</span></label>
-                                <label class="checkbox-option"><input type="checkbox" name="dcc_secI_programs" value="c. Stakeholders meting"> <span>c. Stakeholders meting</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secI_programs" value="c. Stakeholders meeting"> <span>c. Stakeholders meeting</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secI_programs" value="d. DCC mission/Evangelism outreaches"> <span>d. DCC mission/Evangelism outreaches</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secI_programs" value="e. Audit seminars &amp; exercises"> <span>e. Audit seminars &amp; exercises</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secI_programs" value="f. DCC conference"> <span>f. DCC conference</span></label>
@@ -601,6 +629,7 @@
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secI_programs" value="h. Leadership trainings"> <span>h. Leadership trainings</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secI_programs" value="I. Administrative training"> <span>I. Administrative training</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secI_programs" value="j. Sunday school teacher training"> <span>j. Sunday school teacher training</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secI_programs" value="k. DCC convention and annivesary"> <span>k. DCC convention and annivesary</span></label>
                             </div>
                             <div style="margin-top: 10px;">
                                 <label class="form-label" for="dcc-secI-other">Others (specify):</label>
@@ -690,6 +719,7 @@
                             <div class="radio-group-horizontal">
                                 <label class="radio-option"><input type="radio" name="dcc_secK_disputed_properties" value="Yes"> <span>Yes</span></label>
                                 <label class="radio-option"><input type="radio" name="dcc_secK_disputed_properties" value="No"> <span>No</span></label>
+                                <label class="radio-option"><input type="radio" name="dcc_secK_disputed_properties" value="Not sure"> <span>Not sure</span></label>
                             </div>
                         </div>
                         <div class="form-group">
@@ -709,6 +739,7 @@
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secK_infrastructure_needed" value="Land"> <span>Land</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secK_infrastructure_needed" value="Health centers"> <span>Health centers</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secK_infrastructure_needed" value="Training facilities"> <span>Training facilities</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secK_infrastructure_needed" value="Micro finance bank"> <span>Micro finance bank</span></label>
                             </div>
                             <div style="margin-top: 10px;">
                                 <label class="form-label" for="dcc-secK-infra-other">Others (specify):</label>
@@ -739,8 +770,8 @@
                             <input type="text" id="dcc-secL-q3" name="dcc_secL_partnerships_to_strengthen" class="form-input" placeholder="Which partnerships should be strengthened">
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="dcc-secL-q4">4. What new partnerships could improve the DCC?</label>
-                            <input type="text" id="dcc-secL-q4" name="dcc_secL_new_partnerships" class="form-input" placeholder="What new partnerships could improve the DCC">
+                            <label class="form-label" for="dcc-secL-q4">4. What new partnerships could advance the DCC?</label>
+                            <input type="text" id="dcc-secL-q4" name="dcc_secL_new_partnerships" class="form-input" placeholder="What new partnerships could advance the DCC">
                         </div>
                     </div>
 
@@ -802,6 +833,7 @@
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secN_indicators" value="Financial growth"> <span>Financial growth</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secN_indicators" value="Community projects"> <span>Community projects</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secN_indicators" value="Number of local churches and Local church council"> <span>Number of local churches and Local church council</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secN_indicators" value="None"> <span>None</span></label>
                             </div>
                             <div style="margin-top: 10px;">
                                 <label class="form-label" for="dcc-secN-other">Others (specify):</label>
@@ -865,8 +897,8 @@
                             <textarea id="dcc-secP-q1" name="dcc_secP_political" class="form-input" rows="4" placeholder="1. Political: what political developments could affect ministry..."></textarea>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="dcc-secP-q2">2. Economic: How are inflation, unemployment, poverty and economic hardship affect the churches?</label>
-                            <textarea id="dcc-secP-q2" name="dcc_secP_economic" class="form-input" rows="4" placeholder="2. Economic: How are inflation, unemployment, poverty and economic hardship affect the churches..."></textarea>
+                            <label class="form-label" for="dcc-secP-q2">2. Economic: How are inflation, unemployment, poverty and economic hardship affecting the churches?</label>
+                            <textarea id="dcc-secP-q2" name="dcc_secP_economic" class="form-input" rows="4" placeholder="2. Economic: How are inflation, unemployment, poverty and economic hardship affecting the churches..."></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="dcc-secP-q3">3. Social: What cultural changes are occurring?</label>
@@ -896,6 +928,7 @@
                             <div class="radio-group-horizontal">
                                 <label class="radio-option"><input type="radio" name="dcc_secQ_digital_platforms_used" value="Yes"> <span>Yes</span></label>
                                 <label class="radio-option"><input type="radio" name="dcc_secQ_digital_platforms_used" value="No"> <span>No</span></label>
+                                <label class="radio-option"><input type="radio" name="dcc_secQ_digital_platforms_used" value="Not sure"> <span>Not sure</span></label>
                             </div>
                         </div>
                         <div class="form-group">
@@ -903,8 +936,20 @@
                             <textarea id="dcc-secQ-q2" name="dcc_secQ_improve_ministry_admin" class="form-input" rows="4" placeholder="How can digital technology improve ministry and administrations..."></textarea>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="dcc-secQ-q3">3. What digital technological platform does the DCC take advantage of for ministry?</label>
-                            <textarea id="dcc-secQ-q3" name="dcc_secQ_platforms_taken_advantage_of" class="form-input" rows="4" placeholder="What digital technological platform does the DCC take advantage of for ministry..."></textarea>
+                            <label class="form-label">3. What digital technological platform does the DCC take advantage of for ministry?</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secQ_platforms" value="Church website"> <span>Church website</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secQ_platforms" value="DCC website"> <span>DCC website</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secQ_platforms" value="Facebook Page"> <span>Facebook Page</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secQ_platforms" value="YouTube Page"> <span>YouTube Page</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secQ_platforms" value="Live stream service"> <span>Live stream service</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secQ_platforms" value="Whatsapp ministry"> <span>Whatsapp ministry</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secQ_platforms" value="Google meet"> <span>Google meet</span></label>
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <label class="form-label" for="dcc-secQ-platform-other">others (specify):</label>
+                                <input type="text" id="dcc-secQ-platform-other" name="dcc_secQ_platforms_others" class="form-input" placeholder="others (specify)">
+                            </div>
                         </div>
                     </div>
 
@@ -970,21 +1015,57 @@
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secT1_priorities" value="Theological education"> <span>Theological education</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secT1_priorities" value="Pastoral ministry"> <span>Pastoral ministry</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secT1_priorities" value="Retirement"> <span>Retirement</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT1_priorities" value="Missions and Evangelism"> <span>Missions and Evangelism</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT1_priorities" value="Discipleship"> <span>Discipleship</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT1_priorities" value="Church planting"> <span>Church planting</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT1_priorities" value="Fund development"> <span>Fund development</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT1_priorities" value="Administration"> <span>Administration</span></label>
                             </div>
                         </div>
 
                         <!-- SECTION T 2 -->
                         <div class="step-header-card" style="margin-top: 32px;">
                             <h3>SECTION T 2: Priority Ranking</h3>
-                            <p>Please identify the five most important priorities for 2027-2031.</p>
                         </div>
                         <div class="form-group">
-                            <div style="display: flex; flex-direction: column; gap: 10px;">
-                                <input type="text" name="dcc_secT2_top_1" class="form-input" placeholder="Priority 1">
-                                <input type="text" name="dcc_secT2_top_2" class="form-input" placeholder="Priority 2">
-                                <input type="text" name="dcc_secT2_top_3" class="form-input" placeholder="Priority 3">
-                                <input type="text" name="dcc_secT2_top_4" class="form-input" placeholder="Priority 4">
-                                <input type="text" name="dcc_secT2_top_5" class="form-input" placeholder="Priority 5">
+                            <label class="form-label">2. Please identify the five most important priorities for 2027-2031.</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Missions and administration"> <span>Missions and administration</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Human resource development"> <span>Human resource development</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Conflict transformation"> <span>Conflict transformation</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Justice and peace making"> <span>Justice and peace making</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Media information communication technology (ICT)"> <span>Media information communication technology (ICT)</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Cooperate governance"> <span>Cooperate governance</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Church leadership"> <span>Church leadership</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Leadership development institute"> <span>Leadership development institute</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Financial reporting and audit"> <span>Financial reporting and audit</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Investment"> <span>Investment</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Medical and health services(people with disabilities)"> <span>Medical and health services(people with disabilities)</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Youth development"> <span>Youth development</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Women ministry"> <span>Women ministry</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Children ministry"> <span>Children ministry</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Domestic violence"> <span>Domestic violence</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Care for the widows/orphans/indigents"> <span>Care for the widows/orphans/indigents</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Church and community transformation(CCT)"> <span>Church and community transformation(CCT)</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Emergency relief and development"> <span>Emergency relief and development</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="General Education"> <span>General Education</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Christian education"> <span>Christian education</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Partnership"> <span>Partnership</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="(ECWA sons and daughters in diaspora)"> <span>(ECWA sons and daughters in diaspora)</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Entrepreneurship development"> <span>Entrepreneurship development</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Creation care and climate change"> <span>Creation care and climate change</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Spiritual development"> <span>Spiritual development</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Political and civic education"> <span>Political and civic education</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="ECWA special rehabilitation center (ESRC)"> <span>ECWA special rehabilitation center (ESRC)</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Research strategy and monitoring and evaluation(M&amp;E)"> <span>Research strategy and monitoring and evaluation(M&amp;E)</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Theological education"> <span>Theological education</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Pastoral ministry"> <span>Pastoral ministry</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Retirement"> <span>Retirement</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Missions and Evangelism"> <span>Missions and Evangelism</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Discipleship"> <span>Discipleship</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Church planting"> <span>Church planting</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Fund development"> <span>Fund development</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secT2_priorities" value="Administration"> <span>Administration</span></label>
                             </div>
                         </div>
 
@@ -1034,9 +1115,13 @@
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secU_resources" value="b. Financial resources"> <span>b. Financial resources</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secU_resources" value="c. Equipments"> <span>c. Equipments</span></label>
                                 <label class="checkbox-option"><input type="checkbox" name="dcc_secU_resources" value="d. Research"> <span>d. Research</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secU_resources" value="e. Infrastructure"> <span>e. Infrastructure</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secU_resources" value="f. Technology"> <span>f. Technology</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secU_resources" value="g. Training"> <span>g. Training</span></label>
+                                <label class="checkbox-option"><input type="checkbox" name="dcc_secU_resources" value="h. partnership"> <span>h. partnership</span></label>
                             </div>
                             <div style="margin-top: 10px;">
-                                <label class="form-label" for="dcc-secU-resource-other">e. Others (specify):</label>
+                                <label class="form-label" for="dcc-secU-resource-other">i. Others (specify):</label>
                                 <input type="text" id="dcc-secU-resource-other" name="dcc_secU_resources_others" class="form-input" placeholder="Others (specify)">
                             </div>
                         </div>
@@ -1061,8 +1146,8 @@
                             <input type="text" id="dcc-secU-q6" name="dcc_secU_support_ecwa_hq" class="form-input" placeholder="What support is required from ECWA headquarters">
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="dcc-secU-q7">7. What support is required from the LCC?</label>
-                            <input type="text" id="dcc-secU-q7" name="dcc_secU_support_lcc" class="form-input" placeholder="What support is required from the LCC">
+                            <label class="form-label" for="dcc-secU-q7">7. What support is required from the LCCs?</label>
+                            <input type="text" id="dcc-secU-q7" name="dcc_secU_support_lccs" class="form-input" placeholder="What support is required from the LCCs">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="dcc-secU-q8">8. What support is required from local churches?</label>
