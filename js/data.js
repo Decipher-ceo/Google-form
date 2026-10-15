@@ -99,7 +99,7 @@ const LCC_CHURCH_GROUPS = [
             "ECWA Okaiuga",
             "ECWA Ubaha",
             "ECWA Umuagu",
-            "ECWA Orieanaenyi"
+            "EWCA Orieamaenyi"
         ]
     },
     {

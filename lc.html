@@ -60,11 +60,11 @@
                         <p><span class="count-badge">66 Local Churches</span> <span class="count-badge badge-amber">9 LCC Councils</span> Grouped under their respective Local Church Councils (LCC). Find your LCC, then click your church to begin.</p>
                     </div>
                     <div class="search-box">
-                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="11" cy="11" r="8" />
                             <line x1="21" y1="21" x2="16.65" y2="16.65" />
                         </svg>
-                        <input type="text" id="church-search"
+                        <input type="text" id="church-search" class="search-input"
                             placeholder="Search by church or LCC (e.g. Mgbele, Township, Bende, Owerri)..."
                             aria-label="Search congregations">
                         <button id="search-clear-btn" class="search-clear" style="display: none;"
@@ -139,27 +139,27 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-founded-year">1. What year was the local church/prayer house founded?</label>
-                            <input type="text" id="q-founded-year" name="q_founded_year" class="form-input" placeholder="e.g. 1982">
+                            <input type="text" id="q-founded-year" name="q_founded_year" class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-constituted-year">2. In what year was the LC recognized/constituted as a local church?</label>
-                            <input type="text" id="q-constituted-year" name="q_constituted_year" class="form-input" placeholder="e.g. 1990">
+                            <input type="text" id="q-constituted-year" name="q_constituted_year" class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-lcc-belong">3. Local church council does it belong to?</label>
-                            <input type="text" id="q-lcc-belong" name="q_lcc_belong" class="form-input" placeholder="e.g. Umuahia LCC">
+                            <input type="text" id="q-lcc-belong" name="q_lcc_belong" class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-mother-church">4. Name of the mother church of the LC?</label>
-                            <input type="text" id="q-mother-church" name="q_mother_church" class="form-input" placeholder="Name of mother church">
+                            <input type="text" id="q-mother-church" name="q_mother_church" class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-full-address">5. Church's full address?</label>
-                            <textarea id="q-full-address" name="q_full_address" class="form-input" rows="3" placeholder="Full street address, town, LGA"></textarea>
+                            <textarea id="q-full-address" name="q_full_address" class="form-input" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-community-lga">6. In what community and local government is the local church situated?</label>
-                            <input type="text" id="q-community-lga" name="q_community_lga" class="form-input" placeholder="Community & LGA name">
+                            <input type="text" id="q-community-lga" name="q_community_lga" class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label">7. In what state is the LC/PH situated?</label>
@@ -170,21 +170,21 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-current-pastor">8. Who is the current resident pastor of the LC?</label>
-                            <input type="text" id="q-current-pastor" name="q_current_pastor" class="form-input" placeholder="Name of resident pastor">
+                            <input type="text" id="q-current-pastor" name="q_current_pastor" class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label">9. Official contact details:</label>
                             <div style="margin-top: 8px;">
                                 <label class="form-label form-sub-label" for="q-contact-phone">a. Phone number?</label>
-                                <input type="tel" id="q-contact-phone" name="q_contact_phone" class="form-input" placeholder="e.g. 08012345678">
+                                <input type="tel" id="q-contact-phone" name="q_contact_phone" class="form-input">
                             </div>
                             <div style="margin-top: 8px;">
                                 <label class="form-label form-sub-label" for="q-contact-email">b. Email address?</label>
-                                <input type="email" id="q-contact-email" name="q_contact_email" class="form-input" placeholder="e.g. church@ecwa.org">
+                                <input type="email" id="q-contact-email" name="q_contact_email" class="form-input">
                             </div>
                             <div style="margin-top: 8px;">
                                 <label class="form-label form-sub-label" for="q-contact-social">c. Social media?</label>
-                                <input type="text" id="q-contact-social" name="q_contact_social" class="form-input" placeholder="e.g. Facebook page, YouTube channel">
+                                <input type="text" id="q-contact-social" name="q_contact_social" class="form-input">
                             </div>
                         </div>
                     </div>
@@ -197,27 +197,27 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-pioneer-members">1. Who is/are the founding/pioneer member(s) of the LC?</label>
-                            <textarea id="q-pioneer-members" name="q_pioneer_members" class="form-input" rows="3" placeholder="List founding members..."></textarea>
+                            <textarea id="q-pioneer-members" name="q_pioneer_members" class="form-input" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-pioneer-pastor">2. Who served as the pioneer pastor?</label>
-                            <input type="text" id="q-pioneer-pastor" name="q_pioneer_pastor" class="form-input" placeholder="Name of pioneer pastor">
+                            <input type="text" id="q-pioneer-pastor" name="q_pioneer_pastor" class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-pioneer-board">3. Who served as the pioneer board of the LC?</label>
-                            <textarea id="q-pioneer-board" name="q_pioneer_board" class="form-input" rows="3" placeholder="List pioneer board members..."></textarea>
+                            <textarea id="q-pioneer-board" name="q_pioneer_board" class="form-input" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-church-history">4. Briefly describe the history of the church?</label>
-                            <textarea id="q-church-history" name="q_church_history" class="form-input" rows="6" placeholder="Describe historical development from inception to date..."></textarea>
+                            <textarea id="q-church-history" name="q_church_history" class="form-input" rows="6"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-milestone">5. What major milestone has the church reached/attained?</label>
-                            <textarea id="q-milestone" name="q_milestones" class="form-input" rows="3" placeholder="List key milestones..."></textarea>
+                            <textarea id="q-milestone" name="q_milestones" class="form-input" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-history-lessons">6. What lessons from its history should guide future ministry?</label>
-                            <textarea id="q-history-lessons" name="q_history_lessons" class="form-input" rows="4" placeholder="Describe historical lessons..."></textarea>
+                            <textarea id="q-history-lessons" name="q_history_lessons" class="form-input" rows="4"></textarea>
                         </div>
                     </div>
 
@@ -240,21 +240,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr><td>1</td><td><input type="text" name="q_pastor1_name" class="form-input" placeholder="Pastor 1"></td><td><input type="text" name="q_pastor1_years" class="form-input" placeholder="e.g. 2010-2015"></td><td><input type="text" name="q_pastor1_contrib" class="form-input" placeholder="Contributions"></td></tr>
-                                        <tr><td>2</td><td><input type="text" name="q_pastor2_name" class="form-input" placeholder="Pastor 2"></td><td><input type="text" name="q_pastor2_years" class="form-input" placeholder="e.g. 2015-2020"></td><td><input type="text" name="q_pastor2_contrib" class="form-input" placeholder="Contributions"></td></tr>
-                                        <tr><td>3</td><td><input type="text" name="q_pastor3_name" class="form-input" placeholder="Pastor 3"></td><td><input type="text" name="q_pastor3_years" class="form-input" placeholder="e.g. 2020-2024"></td><td><input type="text" name="q_pastor3_contrib" class="form-input" placeholder="Contributions"></td></tr>
-                                        <tr><td>4</td><td><input type="text" name="q_pastor4_name" class="form-input" placeholder="Pastor 4"></td><td><input type="text" name="q_pastor4_years" class="form-input" placeholder="Current"></td><td><input type="text" name="q_pastor4_contrib" class="form-input" placeholder="Contributions"></td></tr>
+                                        <tr><td>1</td><td><input type="text" name="q_pastor1_name" class="form-input"></td><td><input type="text" name="q_pastor1_years" class="form-input"></td><td><input type="text" name="q_pastor1_contrib" class="form-input"></td></tr>
+                                        <tr><td>2</td><td><input type="text" name="q_pastor2_name" class="form-input"></td><td><input type="text" name="q_pastor2_years" class="form-input"></td><td><input type="text" name="q_pastor2_contrib" class="form-input"></td></tr>
+                                        <tr><td>3</td><td><input type="text" name="q_pastor3_name" class="form-input"></td><td><input type="text" name="q_pastor3_years" class="form-input"></td><td><input type="text" name="q_pastor3_contrib" class="form-input"></td></tr>
+                                        <tr><td>4</td><td><input type="text" name="q_pastor4_name" class="form-input"></td><td><input type="text" name="q_pastor4_years" class="form-input"></td><td><input type="text" name="q_pastor4_contrib" class="form-input"></td></tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-pastoral-developments">1. Are there notable ministry developments during specific service years?</label>
-                            <textarea id="q-pastoral-developments" name="q_pastoral_developments" class="form-input" rows="4" placeholder="Describe ministry developments..."></textarea>
+                            <textarea id="q-pastoral-developments" name="q_pastoral_developments" class="form-input" rows="4"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-resident-pastor-confirm">2. Who is the current resident pastor of the church?</label>
-                            <input type="text" id="q-resident-pastor-confirm" name="q_resident_pastor_confirm" class="form-input" placeholder="Name of current resident pastor">
+                            <input type="text" id="q-resident-pastor-confirm" name="q_resident_pastor_confirm" class="form-input">
                         </div>
                     </div>
 
@@ -266,19 +266,19 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-total-mem-abroad">1. What is the total membership including abroad members?</label>
-                            <input type="text" id="q-total-mem-abroad" name="q_total_mem_abroad" class="form-input" placeholder="e.g. 350">
+                            <input type="text" id="q-total-mem-abroad" name="q_total_mem_abroad" class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-total-mem-local">2. What is the current membership by category excluding abroad members?</label>
-                            <input type="text" id="q-total-mem-local" name="q_total_mem_local" class="form-input" placeholder="e.g. 280">
+                            <input type="text" id="q-total-mem-local" name="q_total_mem_local" class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-baptized-last-year">3. How many members were baptized last year?</label>
-                            <input type="text" id="q-baptized-last-year" name="q_baptized_last_year" class="form-input" placeholder="e.g. 15">
+                            <input type="text" id="q-baptized-last-year" name="q_baptized_last_year" class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-new-converts">4. How many new converts were received?</label>
-                            <input type="text" id="q-new-converts" name="q_new_converts" class="form-input" placeholder="e.g. 20">
+                            <input type="text" id="q-new-converts" name="q_new_converts" class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label">5. What are the attendance trends over the past three years?</label>
@@ -297,21 +297,21 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-board-members">1. The names of the board members of the church?</label>
-                            <textarea id="q-board-members" name="q_board_members" class="form-input" rows="4" placeholder="List all board members..."></textarea>
+                            <textarea id="q-board-members" name="q_board_members" class="form-input" rows="4"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label">2. The names of the fellowship group leaders?</label>
                             <div style="margin-top: 8px;">
                                 <label class="form-label form-sub-label" for="q-leader-men">a. Men's fellowship?</label>
-                                <input type="text" id="q-leader-men" name="q_leader_men" class="form-input" placeholder="Men's fellowship leader">
+                                <input type="text" id="q-leader-men" name="q_leader_men" class="form-input">
                             </div>
                             <div style="margin-top: 8px;">
                                 <label class="form-label form-sub-label" for="q-leader-women">b. Women's fellowship?</label>
-                                <input type="text" id="q-leader-women" name="q_leader_women" class="form-input" placeholder="Women's fellowship leader">
+                                <input type="text" id="q-leader-women" name="q_leader_women" class="form-input">
                             </div>
                             <div style="margin-top: 8px;">
                                 <label class="form-label form-sub-label" for="q-leader-youth">c. Youth fellowship?</label>
-                                <input type="text" id="q-leader-youth" name="q_leader_youth" class="form-input" placeholder="Youth fellowship leader">
+                                <input type="text" id="q-leader-youth" name="q_leader_youth" class="form-input">
                             </div>
                         </div>
                         <div class="form-group">
@@ -323,11 +323,11 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-vacant-positions">4. Which positions are vacant?</label>
-                            <input type="text" id="q-vacant-positions" name="q_vacant_positions" class="form-input" placeholder="List vacant leadership positions...">
+                            <input type="text" id="q-vacant-positions" name="q_vacant_positions" class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-training-needed">5. What leadership training is needed?</label>
-                            <textarea id="q-training-needed" name="q_training_needed" class="form-input" rows="4" placeholder="Describe needed leadership training..."></textarea>
+                            <textarea id="q-training-needed" name="q_training_needed" class="form-input" rows="4"></textarea>
                         </div>
                     </div>
 
@@ -373,7 +373,7 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-ministry-impact">3. Which ministries has shown the greatest impact?</label>
-                            <textarea id="q-ministry-impact" name="q_ministry_impact" class="form-input" rows="4" placeholder="Describe ministries with greatest impact..."></textarea>
+                            <textarea id="q-ministry-impact" name="q_ministry_impact" class="form-input" rows="4"></textarea>
                         </div>
                     </div>
 
@@ -385,15 +385,15 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-evangelism-outreaches">1. How many evangelistic outreaches has been carried out this year?</label>
-                            <input type="text" id="q-evangelism-outreaches" name="q_evangelism_outreaches" class="form-input" placeholder="e.g. 5">
+                            <input type="text" id="q-evangelism-outreaches" name="q_evangelism_outreaches" class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-followup-process">2. What follow-up process exists?</label>
-                            <textarea id="q-followup-process" name="q_followup_process" class="form-input" rows="4" placeholder="Describe your follow-up process for converts..."></textarea>
+                            <textarea id="q-followup-process" name="q_followup_process" class="form-input" rows="4"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-planting-communities">3. Are there communities identified for future church planting?</label>
-                            <textarea id="q-planting-communities" name="q_planting_communities" class="form-input" rows="4" placeholder="List identified communities for future planting..."></textarea>
+                            <textarea id="q-planting-communities" name="q_planting_communities" class="form-input" rows="4"></textarea>
                         </div>
                     </div>
 
@@ -430,23 +430,23 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-ongoing-disputes">4. Are there any ongoing disputes?</label>
-                            <textarea id="q-ongoing-disputes" name="q_ongoing_disputes" class="form-input" rows="3" placeholder="Describe any disputes..."></textarea>
+                            <textarea id="q-ongoing-disputes" name="q_ongoing_disputes" class="form-input" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-planned-infrastructure">5. What infrastructural Projects are planned?</label>
-                            <textarea id="q-planned-infrastructure" name="q_planned_infrastructure" class="form-input" rows="4" placeholder="Describe planned infrastructural projects..."></textarea>
+                            <textarea id="q-planned-infrastructure" name="q_planned_infrastructure" class="form-input" rows="4"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-properties-needed">6. What properties and assets are needed?</label>
-                            <textarea id="q-properties-needed" name="q_properties_needed" class="form-input" rows="3" placeholder="List needed properties/assets..."></textarea>
+                            <textarea id="q-properties-needed" name="q_properties_needed" class="form-input" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-acquired-property-details">7. Location, size and use of the acquired property?</label>
-                            <textarea id="q-acquired-property-details" name="q_acquired_property_details" class="form-input" rows="3" placeholder="Specify location, size and use..."></textarea>
+                            <textarea id="q-acquired-property-details" name="q_acquired_property_details" class="form-input" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-acquired-property-docs">8. Available documents for the acquired property?</label>
-                            <textarea id="q-acquired-property-docs" name="q_acquired_property_docs" class="form-input" rows="3" placeholder="List available documents..."></textarea>
+                            <textarea id="q-acquired-property-docs" name="q_acquired_property_docs" class="form-input" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label">9. Does the DCC secretariat have copies of the above documents?</label>
@@ -457,7 +457,7 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-property-in-use">10. Is the property currently in use or not in use?</label>
-                            <input type="text" id="q-property-in-use" name="q_property_in_use" class="form-input" placeholder="e.g. Currently in use for worship">
+                            <input type="text" id="q-property-in-use" name="q_property_in_use" class="form-input">
                         </div>
                     </div>
 
@@ -469,15 +469,15 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-income-sources">1. What are the church's known sources of financial income?</label>
-                            <textarea id="q-income-sources" name="q_income_sources" class="form-input" rows="4" placeholder="List tithes, offerings, donations, etc..."></textarea>
+                            <textarea id="q-income-sources" name="q_income_sources" class="form-input" rows="4"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-financial-challenges">2. What financial challenges does the church face?</label>
-                            <textarea id="q-financial-challenges" name="q_financial_challenges" class="form-input" rows="4" placeholder="Describe financial challenges..."></textarea>
+                            <textarea id="q-financial-challenges" name="q_financial_challenges" class="form-input" rows="4"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-boost-income">3. What can the church do to boost its financial inflow?</label>
-                            <textarea id="q-boost-income" name="q_boost_income" class="form-input" rows="4" placeholder="Describe strategies to boost financial inflow..."></textarea>
+                            <textarea id="q-boost-income" name="q_boost_income" class="form-input" rows="4"></textarea>
                         </div>
                     </div>
 
@@ -489,23 +489,23 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-community-needs">1. What are the greatest needs of the community where the church is situated?</label>
-                            <textarea id="q-community-needs" name="q_community_needs" class="form-input" rows="4" placeholder="Describe community needs..."></textarea>
+                            <textarea id="q-community-needs" name="q_community_needs" class="form-input" rows="4"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-community-response">2. How is the church responding to these needs?</label>
-                            <textarea id="q-community-response" name="q_community_response" class="form-input" rows="4" placeholder="Describe church response..."></textarea>
+                            <textarea id="q-community-response" name="q_community_response" class="form-input" rows="4"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-evangelism-opps">3. What opportunity exists for evangelism and community development?</label>
-                            <textarea id="q-evangelism-opps" name="q_evangelism_opps" class="form-input" rows="4" placeholder="Describe opportunities..."></textarea>
+                            <textarea id="q-evangelism-opps" name="q_evangelism_opps" class="form-input" rows="4"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-community-demographics">4. What is the dominant ethnic group and major religious group in that community?</label>
-                            <input type="text" id="q-community-demographics" name="q_community_demographics" class="form-input" placeholder="e.g. Igbo, Christianity">
+                            <input type="text" id="q-community-demographics" name="q_community_demographics" class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-community-occupation">5. What is the predominant occupation?</label>
-                            <input type="text" id="q-community-occupation" name="q_community_occupation" class="form-input" placeholder="e.g. Farming, Trading, Civil Service">
+                            <input type="text" id="q-community-occupation" name="q_community_occupation" class="form-input">
                         </div>
                         <div class="form-group">
                             <label class="form-label">6. Community Needs:</label>
@@ -521,7 +521,7 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-needs-others">Others (specify):</label>
-                            <textarea id="q-needs-others" name="q_community_needs_others" class="form-input" rows="3" placeholder="Specify other community needs..."></textarea>
+                            <textarea id="q-needs-others" name="q_community_needs_others" class="form-input" rows="3"></textarea>
                         </div>
                     </div>
 
@@ -535,15 +535,15 @@
                             <label class="form-label" style="font-weight: 700; color: var(--primary);">STRENGTHS</label>
                             <div style="margin-top: 8px;">
                                 <label class="form-label form-sub-label" for="q-swot-well">a. What is the LC doing well?</label>
-                                <textarea id="q-swot-well" name="q_swot_well" class="form-input" rows="3" placeholder="Describe what the LC is doing well..."></textarea>
+                                <textarea id="q-swot-well" name="q_swot_well" class="form-input" rows="3"></textarea>
                             </div>
                             <div style="margin-top: 8px;">
                                 <label class="form-label form-sub-label" for="q-swot-thriving">b. What ministries are thriving?</label>
-                                <textarea id="q-swot-thriving" name="q_swot_thriving" class="form-input" rows="3" placeholder="Describe thriving ministries..."></textarea>
+                                <textarea id="q-swot-thriving" name="q_swot_thriving" class="form-input" rows="3"></textarea>
                             </div>
                             <div style="margin-top: 8px;">
                                 <label class="form-label form-sub-label" for="q-swot-resources">c. What resources do we have?</label>
-                                <textarea id="q-swot-resources" name="q_swot_resources" class="form-input" rows="3" placeholder="Describe available resources..."></textarea>
+                                <textarea id="q-swot-resources" name="q_swot_resources" class="form-input" rows="3"></textarea>
                             </div>
                         </div>
 
@@ -551,11 +551,11 @@
                             <label class="form-label" style="font-weight: 700; color: var(--warning, #f59e0b);">WEAKNESSES</label>
                             <div style="margin-top: 8px;">
                                 <label class="form-label form-sub-label" for="q-swot-improvements">a. What areas need improvements?</label>
-                                <textarea id="q-swot-improvements" name="q_swot_improvements" class="form-input" rows="3" placeholder="Describe areas needing improvement..."></textarea>
+                                <textarea id="q-swot-improvements" name="q_swot_improvements" class="form-input" rows="3"></textarea>
                             </div>
                             <div style="margin-top: 8px;">
                                 <label class="form-label form-sub-label" for="q-swot-lacking">b. Where else are we lacking?</label>
-                                <textarea id="q-swot-lacking" name="q_swot_lacking" class="form-input" rows="3" placeholder="Describe areas lacking..."></textarea>
+                                <textarea id="q-swot-lacking" name="q_swot_lacking" class="form-input" rows="3"></textarea>
                             </div>
                         </div>
 
@@ -563,7 +563,7 @@
                             <label class="form-label" style="font-weight: 700; color: var(--accent, #10b981);">OPPORTUNITIES</label>
                             <div style="margin-top: 8px;">
                                 <label class="form-label form-sub-label" for="q-swot-growth">a. What opportunities exist for growth?</label>
-                                <textarea id="q-swot-growth" name="q_swot_growth" class="form-input" rows="3" placeholder="Describe opportunities for growth..."></textarea>
+                                <textarea id="q-swot-growth" name="q_swot_growth" class="form-input" rows="3"></textarea>
                             </div>
                         </div>
 
@@ -571,7 +571,7 @@
                             <label class="form-label" style="font-weight: 700; color: var(--error, #ef4444);">THREATS</label>
                             <div style="margin-top: 8px;">
                                 <label class="form-label form-sub-label" for="q-swot-threats">a. What external challenges affect us e.g. insecurity?</label>
-                                <textarea id="q-swot-threats" name="q_swot_threats" class="form-input" rows="3" placeholder="Describe external challenges and threats..."></textarea>
+                                <textarea id="q-swot-threats" name="q_swot_threats" class="form-input" rows="3"></textarea>
                             </div>
                         </div>
 
@@ -586,11 +586,11 @@
 
                         <div class="form-group" style="margin-top: 20px;">
                             <label class="form-label" for="q-five-year-vision">1. What are your five year visions for the church?</label>
-                            <textarea id="q-five-year-vision" name="q_five_year_vision" class="form-input" rows="4" placeholder="Describe 5-year vision..."></textarea>
+                            <textarea id="q-five-year-vision" name="q_five_year_vision" class="form-input" rows="4"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="q-prayer-requests">2. Prayer requests?</label>
-                            <textarea id="q-prayer-requests" name="q_prayer_requests" class="form-input" rows="4" placeholder="Share prayer points..."></textarea>
+                            <textarea id="q-prayer-requests" name="q_prayer_requests" class="form-input" rows="4"></textarea>
                         </div>
                     </div>
                 </form>
