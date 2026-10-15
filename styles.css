@@ -595,6 +595,200 @@ h1, h2, h3, h4, h5, h6 {
     gap: 20px;
 }
 
+/* ==========================================================================
+   LC DIRECTORY: 3 ROWS x 3 COLUMNS GROUPED UNDER LCCs
+   ========================================================================== */
+
+.lc-grouped-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    width: 100%;
+}
+
+@media (max-width: 1040px) {
+    .lc-grouped-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .lc-grouped-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.lc-lcc-section-card {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.lc-lcc-section-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.lc-lcc-section-header {
+    background: linear-gradient(135deg, var(--primary-light) 0%, rgba(222, 136, 63, 0.08) 100%);
+    padding: 14px 18px;
+    border-bottom: 1.5px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+[data-theme="dark"] .lc-lcc-section-header {
+    background: linear-gradient(135deg, rgba(52, 211, 153, 0.12) 0%, rgba(245, 158, 11, 0.08) 100%);
+}
+
+.lc-lcc-header-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.lc-lcc-header-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--primary);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.lc-lcc-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 1.12rem;
+    color: var(--primary);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+[data-theme="dark"] .lc-lcc-title {
+    color: #ffffff;
+}
+
+.lc-lcc-count-badge {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: var(--bg);
+    color: var(--primary);
+    border: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+[data-theme="dark"] .lc-lcc-count-badge {
+    color: #34D399;
+}
+
+.lc-church-list {
+    list-style: none;
+    padding: 10px 12px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.lc-church-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: var(--bg);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.lc-church-item:hover,
+.lc-church-item:focus {
+    background: var(--card-bg);
+    border-color: var(--primary);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-sm);
+}
+
+.lc-item-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex: 1;
+}
+
+.lc-item-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.lc-item-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-main);
+    line-height: 1.3;
+}
+
+.lc-church-item:hover .lc-item-name {
+    color: var(--primary);
+}
+
+[data-theme="dark"] .lc-church-item:hover .lc-item-name {
+    color: #34D399;
+}
+
+.lc-item-arrow {
+    color: var(--text-muted);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.lc-church-item:hover .lc-item-arrow {
+    color: var(--primary);
+    transform: translateX(3px);
+}
+
+.lc-church-highlight {
+    background-color: rgba(222, 136, 63, 0.25);
+    color: var(--primary);
+    padding: 1px 3px;
+    border-radius: 3px;
+}
+
 .church-card {
     background-color: var(--bg);
     border: 1.5px solid var(--border-color);

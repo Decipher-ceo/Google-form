@@ -1,93 +1,167 @@
 /**
  * ECWA Umuahia District Church Council - Data Registry
- * Contains the 61 Local Churches and 9 LCC Councils
+ * Contains the 66 Local Churches grouped under 9 LCC Councils (3 rows x 3 columns)
  */
 
-const CHURCH_NAMES = [
-    "Afara",
-    "Akanu",
-    "Akokwa",
-    "Akpahia",
-    "Aladinma",
-    "Amaeke Ibeku",
-    "Amaeke Item",
-    "Amangwu",
-    "Amainyinta",
-    "Amaoba",
-    "Amaokwe",
-    "Amawom Olokoro",
-    "Amakohia Etiti",
-    "Apuanu",
-    "Arochukwu",
-    "Asaga",
-    "Awa Oguta",
-    "ECWA Gospel Igbere",
-    "Eziafor",
-    "Ikenanzizi",
-    "Irete",
-    "Isieke",
-    "Isiadu",
-    "Isiama",
-    "Itaja Olokoro 1",
-    "Nkpa",
-    "Nkporo",
-    "Nkwere",
-    "Nnonuo",
-    "Nzerem",
-    "Obinze",
-    "Ogboko (Ozuitem 3)",
-    "Okaiuga",
-    "Okoko",
-    "Okonaku",
-    "Okwe",
-    "Old Umuahia",
-    "Orodo",
-    "Orieamaenyi",
-    "Orji Owerri",
-    "Otulu",
-    "Ozuitem 1",
-    "Ozuitem 2",
-    "Township 1",
-    "Township 2",
-    "Ubaha",
-    "Ubakala",
-    "Umudike",
-    "Umuduru",
-    "Umuegwu Okpuala",
-    "Umuejere",
-    "Umueze 1",
-    "Umuezeala-Ama Mbano",
-    "Umujiriji (Ehume)",
-    "Umuneke",
-    "Umunnuma",
-    "Umuariam",
-    "Unity Church",
-    "Uzuakoli",
-    "World Bank Owerri",
-    "World Bank Umuahia"
+const LCC_CHURCH_GROUPS = [
+    {
+        id: "bende",
+        name: "Bende LCC",
+        councilName: "Bende Local Church council",
+        churches: [
+            "ECWA 1 Mgbele ozuitem",
+            "ECWA 2 Isiegbu ozuitem",
+            "ECWA 3 Okpoko ozuitem",
+            "ECWA Bende",
+            "ECWA Ozuakoli",
+            "ECWA Igbere",
+            "ECWA Nkpa"
+        ]
+    },
+    {
+        id: "ibeku",
+        name: "Ibeku LCC",
+        councilName: "Ibeku Local Church council",
+        churches: [
+            "ECWA 1 Township",
+            "ECWA 2 Township",
+            "ECWA Afara",
+            "ECWA Ekeneobize",
+            "ECWA Ehume",
+            "ECWA Isiadu",
+            "ECWA Amaeke ibeku",
+            "ECWA Unity church"
+        ]
+    },
+    {
+        id: "item",
+        name: "Item LCC",
+        councilName: "Item Local Church council",
+        churches: [
+            "ECWA Amaeke item",
+            "ECWA Amaokwe item",
+            "ECWA Okoko item",
+            "ECWA Akanu item",
+            "ECWA Apanu item"
+        ]
+    },
+    {
+        id: "etiti",
+        name: "Etiti LCC",
+        councilName: "Etiti Local Church council",
+        churches: [
+            "ECWA Amaigiuta",
+            "ECWA Umuejere",
+            "ECWA Amakohia etiti",
+            "ECWA Umuariam",
+            "ECWA Ekenaziz",
+            "ECWA Umujiriji (Ehume)",
+            "ECWA Isieke"
+        ]
+    },
+    {
+        id: "mbano",
+        name: "Mbano LCC",
+        councilName: "Mbano Local Church council",
+        churches: [
+            "ECWA Umuduru",
+            "ECWA Umuneke",
+            "ECWA Umunuma",
+            "ECWA Umuzealama",
+            "ECWA Akowa",
+            "ECWA Nkwere",
+            "ECWA Umueze",
+            "ECWA Nzerem"
+        ]
+    },
+    {
+        id: "ohafia",
+        name: "Ohafia LCC",
+        councilName: "Ohafia Local Church council",
+        churches: [
+            "ECWA Asaga ohafia",
+            "ECWA Okonu ohafia",
+            "ECWA Isiama ohafia",
+            "ECWA Amangwu",
+            "ECWA Arochukwu",
+            "ECWA Nkporo",
+            "ECWA Akanu ohafia",
+            "ECWA Eziafor ohafia"
+        ]
+    },
+    {
+        id: "ohuhu",
+        name: "Ohuhu LCC",
+        councilName: "Ohuhu Local Church council",
+        churches: [
+            "ECWA Akpahia",
+            "ECWA Umuegwu",
+            "ECWA Okaiuga",
+            "ECWA Ubaha",
+            "ECWA Umuagu",
+            "ECWA Orieanaenyi"
+        ]
+    },
+    {
+        id: "olokoro",
+        name: "Olokoro LCC",
+        councilName: "Olokoro Local Church council",
+        churches: [
+            "ECWA 1 Itaja olokoro",
+            "ECWA 2 Olokoro",
+            "ECWA Ubakala",
+            "ECWA Old umuahia",
+            "ECWA World bank Umuahia",
+            "ECWA Amawom",
+            "ECWA Amaba",
+            "ECWA Okwe",
+            "ECWA Nnanno"
+        ]
+    },
+    {
+        id: "owerri",
+        name: "Owerri LCC",
+        councilName: "Owerri Local Church council",
+        churches: [
+            "ECWA Prefab Aladinma owerri",
+            "ECWA Oriji owerri",
+            "ECWA Amakohia owerri",
+            "ECWA World bank owerri",
+            "ECWA Obinze owerri",
+            "ECWA Orodo",
+            "ECWA Irete",
+            "ECWA Otulu"
+        ]
+    }
 ];
 
-const LCC_COUNCILS = [
-    { id: "bende", name: "Bende", desc: "Bende Local Church council" },
-    { id: "etiti", name: "Etiti", desc: "Etiti Local Church council" },
-    { id: "ibeku", name: "Ibeku", desc: "Ibeku Local Church council" },
-    { id: "item", name: "Item", desc: "Item Local Church council" },
-    { id: "mbano", name: "Mbano", desc: "Mbano Local Church council" },
-    { id: "ohafia", name: "Ohafia", desc: "Ohafia Local Church council" },
-    { id: "ohuhu", name: "Ohuhu", desc: "Ohuhu Local Church council" },
-    { id: "olokoro", name: "Olokoro", desc: "Olokoro Local Church council" },
-    { id: "owerri", name: "Owerri", desc: "Owerri Local Church council" }
-];
+const LCC_COUNCILS = LCC_CHURCH_GROUPS.map(g => ({
+    id: g.id,
+    name: g.name.replace(/ LCC$/i, ''),
+    fullName: g.name,
+    desc: g.councilName
+}));
 
-// Helper mapping for Local Churches
-const CONGREGATIONS = CHURCH_NAMES.map((name, index) => {
-    const id = index + 1;
-    const formattedNum = String(id).padStart(2, '0');
-    return {
-        id: id,
-        numberStr: formattedNum,
-        rawName: name,
-        displayName: `${formattedNum}. ${name}`,
-        searchSlug: name.toLowerCase().replace(/[^a-z0-9]/g, '')
-    };
+// Flattened list of all 66 Local Churches with rich metadata
+let globalChurchIndex = 1;
+const CONGREGATIONS = [];
+
+LCC_CHURCH_GROUPS.forEach(lcc => {
+    lcc.churches.forEach((churchName, idx) => {
+        const id = globalChurchIndex++;
+        const formattedNum = String(id).padStart(2, '0');
+        CONGREGATIONS.push({
+            id: id,
+            numberStr: formattedNum,
+            rawName: churchName,
+            displayName: `${formattedNum}. ${churchName}`,
+            lccId: lcc.id,
+            lccName: lcc.name,
+            lccCouncil: lcc.councilName,
+            localIndex: idx + 1,
+            searchSlug: `${churchName} ${lcc.name}`.toLowerCase().replace(/[^a-z0-9]/g, '')
+        });
+    });
 });
+
+const CHURCH_NAMES = CONGREGATIONS.map(c => c.rawName);

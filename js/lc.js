@@ -1,6 +1,6 @@
 /**
  * Button 1: Local Church Questionnaire Controller (js/lc.js)
- * Manages 61 Local Churches Directory, Search Filter, and Step-by-Step LC Questionnaire Form
+ * Manages 66 Local Churches Grouped Under 9 LCCs (3 rows x 3 columns), Search Filter, and Step-by-Step LC Questionnaire Form
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,59 +27,113 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalSteps = formSteps.length;
     let selectedChurch = null;
 
-    // --- Render 61 Churches Directory Grid ---
-    function renderChurchDirectory(list = CONGREGATIONS) {
+    // --- Render 66 Churches Grouped by 9 LCCs (3 rows x 3 columns) ---
+    function renderChurchDirectory(searchQuery = '') {
         if (!directoryGrid) return;
         directoryGrid.innerHTML = '';
 
-        if (list.length === 0) {
-            if (noResultsCard) noResultsCard.style.display = 'block';
-            return;
-        }
-        if (noResultsCard) noResultsCard.style.display = 'none';
+        const query = searchQuery.trim().toLowerCase();
+        let totalVisibleChurches = 0;
 
-        list.forEach(church => {
+        LCC_CHURCH_GROUPS.forEach(group => {
+            // Find churches belonging to this LCC group
+            const groupChurches = CONGREGATIONS.filter(c => c.lccId === group.id);
+
+            // Filter by search query if any
+            const matchedChurches = query
+                ? groupChurches.filter(c =>
+                    c.rawName.toLowerCase().includes(query) ||
+                    group.name.toLowerCase().includes(query) ||
+                    c.numberStr.includes(query)
+                )
+                : groupChurches;
+
+            if (matchedChurches.length === 0) {
+                return; // Hide this group if no churches match
+            }
+
+            totalVisibleChurches += matchedChurches.length;
+
+            // Construct LCC Section Card
             const card = document.createElement('div');
-            card.className = 'church-card';
-            card.setAttribute('role', 'button');
-            card.setAttribute('tabindex', '0');
-            card.innerHTML = `
-                <div class="church-num-badge">#${church.numberStr}</div>
-                <div class="church-info">
-                    <h4 class="church-name">${church.rawName}</h4>
-                    <span class="church-subtext">ECWA Local Church</span>
-                </div>
-                <div class="card-arrow">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"/>
-                    </svg>
-                </div>
-            `;
+            card.className = 'lc-lcc-section-card';
+            card.setAttribute('data-lcc-id', group.id);
 
-            card.addEventListener('click', () => openChurchSurvey(church));
-            card.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    openChurchSurvey(church);
+            // Card Header
+            const header = document.createElement('div');
+            header.className = 'lc-lcc-section-header';
+            header.innerHTML = `
+                <div class="lc-lcc-header-title-wrap">
+                    <div class="lc-lcc-header-icon">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 21h18M5 21V7l7-4 7 4v14M9 14h6M9 18h6M12 7v3" />
+                        </svg>
+                    </div>
+                    <h3 class="lc-lcc-title">${group.name}</h3>
+                </div>
+                <span class="lc-lcc-count-badge">${matchedChurches.length} ${matchedChurches.length === 1 ? 'Church' : 'Churches'}</span>
+            `;
+            card.appendChild(header);
+
+            // Church List Container
+            const listEl = document.createElement('ul');
+            listEl.className = 'lc-church-list';
+
+            matchedChurches.forEach(church => {
+                const li = document.createElement('li');
+                li.className = 'lc-church-item';
+                li.setAttribute('role', 'button');
+                li.setAttribute('tabindex', '0');
+                li.setAttribute('title', `Click to open questionnaire for ${church.rawName}`);
+
+                // Highlight match if query present
+                let nameHtml = church.rawName;
+                if (query && church.rawName.toLowerCase().includes(query)) {
+                    const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                    nameHtml = church.rawName.replace(regex, '<span class="lc-church-highlight">$1</span>');
                 }
+
+                li.innerHTML = `
+                    <div class="lc-item-left">
+                        <span class="lc-item-num">${church.localIndex}</span>
+                        <span class="lc-item-name">${nameHtml}</span>
+                    </div>
+                    <div class="lc-item-arrow">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"/>
+                        </svg>
+                    </div>
+                `;
+
+                li.addEventListener('click', () => openChurchSurvey(church));
+                li.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openChurchSurvey(church);
+                    }
+                });
+
+                listEl.appendChild(li);
             });
 
+            card.appendChild(listEl);
             directoryGrid.appendChild(card);
         });
+
+        // Toggle No Results State
+        if (totalVisibleChurches === 0) {
+            if (noResultsCard) noResultsCard.style.display = 'block';
+        } else {
+            if (noResultsCard) noResultsCard.style.display = 'none';
+        }
     }
 
     // --- Search Filter Logic ---
     if (churchSearchInput) {
         churchSearchInput.addEventListener('input', (e) => {
-            const query = e.target.value.trim().toLowerCase();
+            const query = e.target.value.trim();
             if (searchClearBtn) searchClearBtn.style.display = query ? 'block' : 'none';
-
-            const filtered = CONGREGATIONS.filter(c => 
-                c.rawName.toLowerCase().includes(query) || 
-                c.numberStr.includes(query) ||
-                c.id.toString() === query
-            );
-            renderChurchDirectory(filtered);
+            renderChurchDirectory(query);
         });
     }
 
@@ -87,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
         searchClearBtn.addEventListener('click', () => {
             churchSearchInput.value = '';
             searchClearBtn.style.display = 'none';
-            renderChurchDirectory(CONGREGATIONS);
+            renderChurchDirectory('');
             churchSearchInput.focus();
         });
     }
@@ -96,16 +150,22 @@ document.addEventListener('DOMContentLoaded', () => {
         searchResetBtn.addEventListener('click', () => {
             churchSearchInput.value = '';
             if (searchClearBtn) searchClearBtn.style.display = 'none';
-            renderChurchDirectory(CONGREGATIONS);
+            renderChurchDirectory('');
         });
     }
 
     // --- Open Survey Form for Selected Church ---
     function openChurchSurvey(church) {
         selectedChurch = church;
-        if (selectedBadge) selectedBadge.textContent = `Church #${church.numberStr}: ${church.rawName}`;
+        if (selectedBadge) selectedBadge.textContent = `${church.rawName} (${church.lccName})`;
         if (surveyTitle) surveyTitle.textContent = `${church.rawName} Congregation Questionnaire`;
         if (formChurchIdInput) formChurchIdInput.value = church.id;
+
+        // Auto-fill Question 3 in Section A (Local Church Council)
+        const lccBelongInput = document.getElementById('q-lcc-belong');
+        if (lccBelongInput) {
+            lccBelongInput.value = church.lccName;
+        }
 
         if (directoryView) directoryView.style.display = 'none';
         if (surveyView) surveyView.style.display = 'block';
@@ -243,6 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(surveyForm);
         const data = Object.fromEntries(formData.entries());
         data.church_name = selectedChurch ? selectedChurch.rawName : 'Unknown Church';
+        data.lcc_name = selectedChurch ? selectedChurch.lccName : '';
         data.submitted_at = new Date().toISOString();
 
         // Webhook URL check
@@ -291,6 +352,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (surveyView) surveyView.style.display = 'none';
     if (directoryView) directoryView.style.display = 'block';
 
-    // Initialize directory
-    renderChurchDirectory(CONGREGATIONS);
+    // Initialize directory with 3x3 grouped LCC sections
+    renderChurchDirectory('');
 });
