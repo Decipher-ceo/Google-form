@@ -140,17 +140,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Submit DCC Assessment ---
-    function submitDCCForm() {
+    async function submitDCCForm() {
         if (!validateAllSteps()) return;
         const formData = new FormData(surveyForm);
         const data = Object.fromEntries(formData.entries());
         data.form_type = 'DCC Strategic Assessment';
         data.submitted_at = new Date().toISOString();
 
-        const endpointUrl = localStorage.getItem('webhookEndpointUrl');
-        showToast('Submitting DCC Assessment response...', 'info');
+        // Prevent double submissions
+        if (nextStepBtn) {
+            nextStepBtn.disabled = true;
+            nextStepBtn.style.opacity = '0.7';
+            nextStepBtn.innerHTML = `Submitting... <span class="spinner" style="display:inline-block;animation:spin 1s linear infinite;">⏳</span>`;
+        }
 
+        // 1. Primary Destination: Supabase Backend
+        if (window.supabaseManager && window.supabaseManager.isReady) {
+            showToast('Submitting DCC Assessment to Supabase database...', 'info');
+            try {
+                const res = await window.supabaseManager.submitDCCAssessment(data);
+                if (res.success) {
+                    showToast('DCC Strategic Assessment recorded successfully in Supabase database!', 'success');
+                    finishSubmission();
+                    return;
+                } else {
+                    console.warn('[DCC Form] Supabase submission failed:', res.error);
+                    showToast('Database write failed. Preserving response in local storage backup...', 'error');
+                    saveLocally(data, true);
+                    return;
+                }
+            } catch (err) {
+                console.error('[DCC Form] Unexpected submission error:', err);
+                showToast('Connection error. Preserving response in local storage backup...', 'error');
+                saveLocally(data, true);
+                return;
+            } finally {
+                if (nextStepBtn) {
+                    nextStepBtn.disabled = false;
+                    nextStepBtn.style.opacity = '1';
+                }
+            }
+        }
+
+        // 2. Secondary Destination: Configured Webhook (if any)
+        const endpointUrl = localStorage.getItem('webhookEndpointUrl');
         if (endpointUrl) {
+            showToast('Submitting to configured Data Collector Webhook...', 'info');
             fetch(endpointUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -158,23 +193,38 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(res => res.json())
             .then(() => {
-                showToast('DCC Strategic Assessment submitted successfully!', 'success');
+                showToast('DCC Assessment submitted to Webhook successfully!', 'success');
                 finishSubmission();
             })
             .catch(err => {
-                console.warn('Endpoint error, saved locally:', err);
-                saveLocally(data);
+                console.warn('Webhook endpoint error, saved locally:', err);
+                saveLocally(data, true);
+            })
+            .finally(() => {
+                if (nextStepBtn) {
+                    nextStepBtn.disabled = false;
+                    nextStepBtn.style.opacity = '1';
+                }
             });
-        } else {
-            saveLocally(data);
+            return;
         }
+
+        // 3. Fallback: Local Storage (when Supabase is unconfigured and no webhook is set)
+        if (nextStepBtn) {
+            nextStepBtn.disabled = false;
+            nextStepBtn.style.opacity = '1';
+        }
+        showToast('Supabase unconfigured. Saved to browser local storage.', 'info');
+        saveLocally(data, false);
     }
 
-    function saveLocally(data) {
+    function saveLocally(data, isFallback = false) {
         const saved = JSON.parse(localStorage.getItem('dcc_questionnaire_submissions') || '[]');
         saved.push(data);
         localStorage.setItem('dcc_questionnaire_submissions', JSON.stringify(saved));
-        showToast('DCC Strategic Assessment saved locally!', 'success');
+        if (isFallback) {
+            showToast('Saved to browser local storage backup (not yet synced to Supabase).', 'warning');
+        }
         finishSubmission();
     }
 
