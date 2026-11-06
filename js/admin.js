@@ -4,10 +4,11 @@
  * 
  * Features:
  * - Supabase Authentication (Login, Session persistence, Logout, Password reset)
- * - Live Dashboard Overview with accurate counts and recent activity
+ * - Live Dashboard Overview with accurate counts, visual analytics, and recent activity
  * - Searchable, sortable, paginated tables for DCC, LC, and LCC submissions
- * - Individual Full-Response Inspector with Section-by-Section Q&A and Print/PDF
- * - CSV Report Exporters for all 3 questionnaires
+ * - Individual Full-Response Inspector preserving original sections, question labels, and unanswered states
+ * - Print-to-PDF and structured text download for individual submissions
+ * - Filter-aware CSV Report Exporters for all 3 questionnaires
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function timeAgo(isoString) {
         if (!isoString) return '';
         try {
-            const diff = (new Date() - new Date(isoString)) / 1000;
+            const diff = (Date.now() - new Date(isoString).getTime()) / 1000;
             if (diff < 60) return 'Just now';
             if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
             if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
@@ -159,22 +160,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 const client = window.supabaseManager.client;
-                const { data, error } = await client.auth.signInWithPassword({ email, password });
+                const { data, error } = await client.auth.signInWithPassword({
+                    email,
+                    password
+                });
 
                 if (error) {
-                    console.error('[Admin Login] Failed:', error);
-                    showLoginAlert(getFriendlyAuthErrorMessage(error.message));
-                    return;
+                    showLoginAlert(formatAuthError(error.message));
+                } else {
+                    showToast('Welcome back! Signed in successfully.', 'success');
+                    handleSessionChange(data.session);
                 }
-
-                showToast('Welcome back! Signed in successfully.', 'success');
-                handleSessionChange(data.session);
             } catch (err) {
                 console.error('[Admin Login] Exception:', err);
-                showLoginAlert('An unexpected connection error occurred. Please try again.');
+                showLoginAlert('Connection failed. Please check your internet connection.');
             } finally {
                 loginSubmitBtn.disabled = false;
-                loginSubmitBtn.innerHTML = `Sign In to Dashboard <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>`;
+                loginSubmitBtn.innerHTML = `
+                    Sign In to Dashboard
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                `;
             }
         });
     }
@@ -198,10 +206,14 @@ document.addEventListener('DOMContentLoaded', () => {
         forgotLink.addEventListener('click', () => {
             resetEmailInput.value = loginEmailInput.value.trim();
             forgotModal.classList.add('active');
+            forgotModal.style.display = 'flex';
         });
     }
 
-    const closeForgot = () => forgotModal.classList.remove('active');
+    const closeForgot = () => {
+        forgotModal.classList.remove('active');
+        forgotModal.style.display = 'none';
+    };
     if (closeForgotBtn) closeForgotBtn.addEventListener('click', closeForgot);
     if (cancelForgotBtn) cancelForgotBtn.addEventListener('click', closeForgot);
 
@@ -242,11 +254,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function clearLoginAlert() {
         if (!loginAlert) return;
-        loginAlert.style.display = 'none';
         loginAlert.textContent = '';
+        loginAlert.style.display = 'none';
     }
 
-    function getFriendlyAuthErrorMessage(rawMsg) {
+    function formatAuthError(rawMsg) {
         if (!rawMsg) return 'Invalid credentials.';
         const lower = rawMsg.toLowerCase();
         if (lower.includes('invalid login credentials')) {
@@ -293,8 +305,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             state.data.lcc = lccRes.data || [];
 
-            // Update UI metrics & tables
+            // Update UI metrics, visual charts & tables
             updateDashboardMetrics();
+            renderVisualAnalytics();
             renderRecentActivity();
             renderDCCTable();
             renderLCTable();
@@ -344,6 +357,76 @@ document.addEventListener('DOMContentLoaded', () => {
         setElText('hub-dcc-last-date', dccCount > 0 ? formatDate(state.data.dcc[0].submitted_at) : 'None yet');
         setElText('hub-lc-last-date', lcCount > 0 ? formatDate(state.data.lc[0].submitted_at) : 'None yet');
         setElText('hub-lcc-last-date', lccCount > 0 ? formatDate(state.data.lcc[0].submitted_at) : 'None yet');
+    }
+
+    // Render Data Visualizations
+    function renderVisualAnalytics() {
+        const lccContainer = document.getElementById('lcc-progress-list');
+        const targetContainer = document.getElementById('target-progress-list');
+
+        const allLCCs = [
+            'Bende LCC', 'Ibeku LCC', 'Item LCC', 'Etiti LCC', 
+            'Mbano LCC', 'Ohafia LCC', 'Ohuhu LCC', 'Olokoro LCC', 'Owerri LCC'
+        ];
+
+        // 1. Calculate LC responses per LCC
+        if (lccContainer) {
+            const lcCountsByLcc = {};
+            allLCCs.forEach(c => lcCountsByLcc[c] = 0);
+
+            state.data.lc.forEach(r => {
+                if (r.lcc_name) {
+                    const match = allLCCs.find(c => c.toLowerCase() === r.lcc_name.toLowerCase()) || r.lcc_name;
+                    lcCountsByLcc[match] = (lcCountsByLcc[match] || 0) + 1;
+                }
+            });
+
+            const maxCount = Math.max(1, ...Object.values(lcCountsByLcc));
+
+            lccContainer.innerHTML = allLCCs.map(lcc => {
+                const count = lcCountsByLcc[lcc] || 0;
+                const pct = Math.min(100, Math.round((count / Math.max(maxCount, 8)) * 100));
+                return `
+                    <div class="chart-bar-row">
+                        <div class="chart-bar-meta">
+                            <span class="chart-bar-label">${escapeHtml(lcc)}</span>
+                            <span class="chart-bar-count">${count} church${count === 1 ? '' : 'es'}</span>
+                        </div>
+                        <div class="chart-bar-track">
+                            <div class="chart-bar-fill fill-emerald" style="width: ${Math.max(count > 0 ? 6 : 0, pct)}%"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // 2. Target Progress & Distribution
+        if (targetContainer) {
+            const dccCount = state.data.dcc.length;
+            const lcCount = state.data.lc.length;
+            const lccCount = state.data.lcc.length;
+
+            const targets = [
+                { label: 'Local Churches (Target: 66)', current: lcCount, target: 66, fillClass: 'fill-emerald' },
+                { label: 'LCC Councils (Target: 9)', current: lccCount, target: 9, fillClass: 'fill-amber' },
+                { label: 'DCC Strategic Assessment (Target: 1)', current: dccCount, target: 1, fillClass: 'fill-rose' }
+            ];
+
+            targetContainer.innerHTML = targets.map(t => {
+                const pct = Math.min(100, Math.round((t.current / t.target) * 100));
+                return `
+                    <div class="chart-bar-row">
+                        <div class="chart-bar-meta">
+                            <span class="chart-bar-label">${t.label}</span>
+                            <span class="chart-bar-count">${t.current} / ${t.target} (${pct}%)</span>
+                        </div>
+                        <div class="chart-bar-track">
+                            <div class="chart-bar-fill ${t.fillClass}" style="width: ${Math.max(t.current > 0 ? 5 : 0, pct)}%"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
     }
 
     function setElText(id, text) {
@@ -400,21 +483,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }).join('');
     }
 
-    // --- 3. QUESTIONNAIRE TABLES (DCC, LC, LCC) ---
+    // --- 3. FILTER & SEARCH ENGINE ---
+    function getFilteredItems(portal) {
+        const filter = state.filters[portal];
+        let items = [...(state.data[portal] || [])];
 
-    // DCC Table Rendering
-    function renderDCCTable() {
-        if (!dccTableBody) return;
-        const filter = state.filters.dcc;
-        let items = [...state.data.dcc];
-
-        // Search Filter
-        if (filter.search) {
+        if (portal === 'dcc' && filter.search) {
             const q = filter.search.toLowerCase();
             items = items.filter(r =>
                 (r.respondent_name && r.respondent_name.toLowerCase().includes(q)) ||
                 (r.respondent_office && r.respondent_office.toLowerCase().includes(q)) ||
-                (r.respondent_phone && r.respondent_phone.toLowerCase().includes(q))
+                (r.respondent_phone && r.respondent_phone.toLowerCase().includes(q)) ||
+                (r.respondent_email && r.respondent_email.toLowerCase().includes(q))
+            );
+        } else if (portal === 'lc') {
+            if (filter.search) {
+                const q = filter.search.toLowerCase();
+                items = items.filter(r =>
+                    (r.church_name && r.church_name.toLowerCase().includes(q)) ||
+                    (r.lcc_name && r.lcc_name.toLowerCase().includes(q)) ||
+                    (r.pastor_name && r.pastor_name.toLowerCase().includes(q)) ||
+                    (r.state && r.state.toLowerCase().includes(q)) ||
+                    (r.community_lga && r.community_lga.toLowerCase().includes(q))
+                );
+            }
+            if (filter.lcc) {
+                items = items.filter(r => r.lcc_name && r.lcc_name.toLowerCase() === filter.lcc.toLowerCase());
+            }
+        } else if (portal === 'lcc' && filter.search) {
+            const q = filter.search.toLowerCase();
+            items = items.filter(r =>
+                (r.lcc_council_name && r.lcc_council_name.toLowerCase().includes(q)) ||
+                (r.constituted_year && r.constituted_year.toLowerCase().includes(q))
             );
         }
 
@@ -425,7 +525,15 @@ document.addEventListener('DOMContentLoaded', () => {
             return filter.sort === 'newest' ? tB - tA : tA - tB;
         });
 
-        // Pagination
+        return items;
+    }
+
+    // DCC Table Rendering
+    function renderDCCTable() {
+        if (!dccTableBody) return;
+        const filter = state.filters.dcc;
+        const items = getFilteredItems('dcc');
+
         const total = items.length;
         const start = (filter.page - 1) * filter.limit;
         const paginated = items.slice(start, start + filter.limit);
@@ -468,31 +576,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderLCTable() {
         if (!lcTableBody) return;
         const filter = state.filters.lc;
-        let items = [...state.data.lc];
+        const items = getFilteredItems('lc');
 
-        // Search Filter
-        if (filter.search) {
-            const q = filter.search.toLowerCase();
-            items = items.filter(r =>
-                (r.church_name && r.church_name.toLowerCase().includes(q)) ||
-                (r.lcc_name && r.lcc_name.toLowerCase().includes(q)) ||
-                (r.pastor_name && r.pastor_name.toLowerCase().includes(q))
-            );
-        }
-
-        // LCC Council Dropdown Filter
-        if (filter.lcc) {
-            items = items.filter(r => r.lcc_name && r.lcc_name.toLowerCase() === filter.lcc.toLowerCase());
-        }
-
-        // Sort
-        items.sort((a, b) => {
-            const tA = new Date(a.submitted_at || 0);
-            const tB = new Date(b.submitted_at || 0);
-            return filter.sort === 'newest' ? tB - tA : tA - tB;
-        });
-
-        // Pagination
         const total = items.length;
         const start = (filter.page - 1) * filter.limit;
         const paginated = items.slice(start, start + filter.limit);
@@ -536,24 +621,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderLCCTable() {
         if (!lccTableBody) return;
         const filter = state.filters.lcc;
-        let items = [...state.data.lcc];
+        const items = getFilteredItems('lcc');
 
-        // Search Filter
-        if (filter.search) {
-            const q = filter.search.toLowerCase();
-            items = items.filter(r =>
-                r.lcc_council_name && r.lcc_council_name.toLowerCase().includes(q)
-            );
-        }
-
-        // Sort
-        items.sort((a, b) => {
-            const tA = new Date(a.submitted_at || 0);
-            const tB = new Date(b.submitted_at || 0);
-            return filter.sort === 'newest' ? tB - tA : tA - tB;
-        });
-
-        // Pagination
         const total = items.length;
         const start = (filter.page - 1) * filter.limit;
         const paginated = items.slice(start, start + filter.limit);
@@ -659,9 +728,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- 4. INDIVIDUAL RESPONSE VIEWER & PRINTABLE REPORT ---
-    function openSubmissionDetail(portal, id) {
-        const item = state.data[portal].find(r => r.id === id);
+    // --- 4. INDIVIDUAL RESPONSE VIEWER & REPORT GENERATOR ---
+    async function openSubmissionDetail(portal, id) {
+        let item = state.data[portal].find(r => r.id === id);
+
+        // Fallback: If not in memory or payload missing, query Supabase directly
+        if (!item || !item.payload || Object.keys(item.payload).length === 0) {
+            try {
+                const tableName = portal === 'dcc' ? 'dcc_submissions' : (portal === 'lc' ? 'lc_submissions' : 'lcc_submissions');
+                const client = window.supabaseManager && window.supabaseManager.client;
+                if (client) {
+                    const { data, error } = await client.from(tableName).select('*').eq('id', id).single();
+                    if (!error && data) {
+                        item = data;
+                    }
+                }
+            } catch (err) {
+                console.warn('[Admin] Single record fetch exception:', err);
+            }
+        }
+
         if (!item) {
             showToast('Unable to find this submission.', 'error');
             return;
@@ -717,21 +803,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Render Grouped Questions & Answers
         detailSectionsContainer.innerHTML = renderFormattedSections(portal, payload, item);
+
+        // Display Modal
         detailModal.classList.add('active');
+        detailModal.style.display = 'flex';
+        document.body.classList.add('modal-open');
     }
 
-    const closeDetail = () => detailModal.classList.remove('active');
+    const closeDetail = () => {
+        detailModal.classList.remove('active');
+        detailModal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+    };
+
     if (closeDetailBtn) closeDetailBtn.addEventListener('click', closeDetail);
     if (dismissDetailBtn) dismissDetailBtn.addEventListener('click', closeDetail);
 
     // Human-friendly Q&A Section Renderer
     function renderFormattedSections(portal, payload, item) {
-        const keys = Object.keys(payload);
-        if (keys.length === 0) {
-            return `<div class="empty-state-box"><h4>No detailed payload found</h4></div>`;
-        }
-
-        // Group keys logically
         const sectionsMap = buildSectionsMap(portal, payload, item);
 
         return sectionsMap.map(sec => `
@@ -750,88 +839,60 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function buildSectionsMap(portal, payload, item) {
-        const sections = [];
-
-        if (portal === 'dcc') {
-            // Section 1: Respondent info
-            sections.push({
-                title: 'Respondent Information',
-                items: [
-                    { label: 'Name of respondent', value: payload.dcc_respondent_name || item.respondent_name },
-                    { label: 'Position / office', value: payload.dcc_respondent_office || item.respondent_office },
-                    { label: 'Phone number', value: payload.dcc_respondent_phone || item.respondent_phone },
-                    { label: 'Email address', value: payload.dcc_respondent_email || item.respondent_email },
-                    { label: 'Source of information', value: payload.dcc_info_source, highlight: true },
-                    { label: 'Source of information (other details)', value: payload.dcc_info_source_other },
-                    { label: 'Name of LC and LCC', value: payload.dcc_name_lc_lcc }
-                ].filter(i => i.value !== undefined && i.value !== '')
-            });
-
-            // Auto-gather remaining DCC keys into organized blocks
-            const gathered = gatherRemainingKeys(payload, [
-                'dcc_respondent_name', 'dcc_respondent_office', 'dcc_respondent_phone',
-                'dcc_respondent_email', 'dcc_info_source', 'dcc_info_source_other', 'dcc_name_lc_lcc',
-                'form_type', 'submitted_at'
-            ]);
-
-            if (gathered.length > 0) {
-                sections.push({
-                    title: 'Strategic Assessment Questions & Responses',
-                    items: gathered
-                });
-            }
-        } else if (portal === 'lc') {
-            sections.push({
-                title: 'General Information & Registration',
-                items: [
-                    { label: 'Church Name', value: item.church_name, highlight: true },
-                    { label: 'Parent LCC Council', value: item.lcc_name },
-                    { label: 'Resident Pastor', value: payload.q_current_pastor || item.pastor_name },
-                    { label: 'Year Founded', value: payload.q_founded_year },
-                    { label: 'Year Constituted', value: payload.q_constituted_year },
-                    { label: 'Mother Church', value: payload.q_mother_church },
-                    { label: 'Church Full Address', value: payload.q_full_address },
-                    { label: 'Community & LGA', value: payload.q_community_lga },
-                    { label: 'State', value: payload.q_state }
-                ].filter(i => i.value !== undefined && i.value !== '')
-            });
-
-            const gathered = gatherRemainingKeys(payload, [
-                'church_name', 'lcc_name', 'church_id', 'q_current_pastor',
-                'q_founded_year', 'q_constituted_year', 'q_mother_church',
-                'q_full_address', 'q_community_lga', 'q_state', 'submitted_at'
-            ]);
-
-            if (gathered.length > 0) {
-                sections.push({
-                    title: 'Detailed Questionnaire Answers',
-                    items: gathered
-                });
-            }
-        } else {
-            // LCC
-            sections.push({
-                title: 'Council Information',
-                items: [
-                    { label: 'LCC Council Name', value: item.lcc_council_name, highlight: true },
-                    { label: 'Year Constituted', value: payload.lcc_q_constituted_year || item.constituted_year },
-                    { label: 'Reported Number of Churches', value: payload.lcc_q_num_churches }
-                ].filter(i => i.value !== undefined && i.value !== '')
-            });
-
-            const gathered = gatherRemainingKeys(payload, [
-                'lcc_council', 'lcc_council_name', 'lcc_council_id', 'lcc_q_constituted_year',
-                'submitted_at', 'form_type'
-            ]);
-
-            if (gathered.length > 0) {
-                sections.push({
-                    title: 'Council Strategy & Profile Responses',
-                    items: gathered
-                });
-            }
+        const schema = window.FORM_SCHEMAS && window.FORM_SCHEMAS[portal];
+        if (!schema || schema.length === 0) {
+            return fallbackSectionsMap(portal, payload, item);
         }
 
+        const coveredKeys = new Set();
+        const sections = [];
+
+        schema.forEach(sec => {
+            const items = [];
+            sec.questions.forEach(q => {
+                coveredKeys.add(q.name);
+                const rawVal = payload[q.name] !== undefined ? payload[q.name] : item[q.name];
+                items.push({
+                    label: q.label,
+                    value: rawVal
+                });
+            });
+
+            sections.push({
+                title: sec.title,
+                items: items
+            });
+        });
+
+        // Append any extra keys submitted in payload
+        const excludeKeys = ['church_id', 'lcc_id', 'form_type', 'submitted_at', 'id', 'created_at', 'payload'];
+        const extraItems = [];
+        Object.keys(payload).forEach(k => {
+            if (!coveredKeys.has(k) && !excludeKeys.includes(k) && payload[k] !== undefined && payload[k] !== '') {
+                extraItems.push({
+                    label: humanizeKey(k),
+                    value: payload[k]
+                });
+            }
+        });
+
+        if (extraItems.length > 0) {
+            sections.push({
+                title: 'Additional Recorded Details',
+                items: extraItems
+            });
+        }
+
+        return sections;
+    }
+
+    function fallbackSectionsMap(portal, payload, item) {
+        const sections = [];
+        const gathered = gatherRemainingKeys(payload, ['church_id', 'lcc_id', 'form_type', 'submitted_at']);
+        sections.push({
+            title: `${portal.toUpperCase()} Questionnaire Responses`,
+            items: gathered
+        });
         return sections;
     }
 
@@ -846,7 +907,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function humanizeKey(key) {
         return key
-            .replace(/^dcc_sec[A-Z]_/i, '')
+            .replace(/^dcc_sec[A-Z0-9]_/i, '')
             .replace(/^dcc_/i, '')
             .replace(/^lcc_q_/i, '')
             .replace(/^q_/i, '')
@@ -855,16 +916,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function formatAnswerValue(val) {
-        if (val === null || val === undefined || val === '') return '—';
-        if (typeof val === 'boolean') return val ? 'Yes' : 'No';
+        if (val === null || val === undefined || val === '' || (Array.isArray(val) && val.length === 0)) {
+            return '<span class="unanswered">Not answered</span>';
+        }
+        if (typeof val === 'boolean') {
+            return val ? '<span class="badge-pill badge-success">Yes</span>' : '<span class="badge-pill">No</span>';
+        }
+        if (Array.isArray(val)) {
+            return `<ul class="answer-list" style="margin:0; padding-left:20px;">${val.map(v => `<li>${escapeHtml(String(v))}</li>`).join('')}</ul>`;
+        }
         if (typeof val === 'object') {
             try {
-                return JSON.stringify(val, null, 2);
+                return `<pre style="margin:0; font-family:monospace; font-size:0.85rem;">${escapeHtml(JSON.stringify(val, null, 2))}</pre>`;
             } catch (e) {
-                return String(val);
+                return escapeHtml(String(val));
             }
         }
-        return escapeHtml(String(val));
+        return escapeHtml(String(val)).replace(/\n/g, '<br>');
     }
 
     function escapeHtml(str) {
@@ -877,15 +945,73 @@ document.addEventListener('DOMContentLoaded', () => {
             .replace(/'/g, '&#039;');
     }
 
-    // --- 5. CSV EXPORT ENGINE ---
+    // --- 5. REPORT DOWNLOAD ENGINE ---
+    function downloadCurrentSubmission() {
+        if (!state.selectedSubmission || !state.selectedSubmission.item) {
+            showToast('No submission is currently open.', 'error');
+            return;
+        }
+
+        const { portal, item } = state.selectedSubmission;
+        const payload = item.payload || {};
+        const sections = buildSectionsMap(portal, payload, item);
+
+        let reportText = `================================================================================\n`;
+        reportText += `ECWA UMUAHIA DISTRICT CHURCH COUNCIL — STRATEGIC PLANNING & RESEARCH UNIT\n`;
+        reportText += `OFFICIAL QUESTIONNAIRE SUBMISSION RECORD\n`;
+        reportText += `================================================================================\n\n`;
+
+        reportText += `Questionnaire Type : ${portal.toUpperCase()} Questionnaire\n`;
+        reportText += `Reference ID       : ${item.id}\n`;
+        reportText += `Submission Date    : ${formatDate(item.submitted_at)}\n`;
+        reportText += `Respondent / Church: ${item.respondent_name || item.church_name || item.lcc_council_name || 'N/A'}\n`;
+        reportText += `Office / Council   : ${item.respondent_office || item.lcc_name || 'N/A'}\n`;
+        if (item.contact_phone || item.respondent_phone) {
+            reportText += `Contact Phone      : ${item.contact_phone || item.respondent_phone}\n`;
+        }
+        if (item.contact_email || item.respondent_email) {
+            reportText += `Contact Email      : ${item.contact_email || item.respondent_email}\n`;
+        }
+        reportText += `\n--------------------------------------------------------------------------------\n`;
+        reportText += `DETAILED RESPONSES GROUPED BY SECTION\n`;
+        reportText += `--------------------------------------------------------------------------------\n\n`;
+
+        sections.forEach((sec) => {
+            reportText += `[${sec.title}]\n`;
+            sec.items.forEach(qa => {
+                const answerStr = (qa.value !== null && qa.value !== undefined && qa.value !== '') ? String(qa.value) : 'Not answered';
+                reportText += `  Q: ${qa.label}\n`;
+                reportText += `  A: ${answerStr}\n\n`;
+            });
+            reportText += `\n`;
+        });
+
+        reportText += `================================================================================\n`;
+        reportText += `End of Submission Record — Generated from Supabase Single Source of Truth\n`;
+        reportText += `================================================================================\n`;
+
+        const safeName = (item.church_name || item.respondent_name || item.lcc_council_name || 'record').replace(/[^a-zA-Z0-9_-]/g, '_');
+        const filename = `${portal.toUpperCase()}_Submission_${safeName}_${new Date(item.submitted_at || Date.now()).toISOString().slice(0, 10)}.txt`;
+
+        const blob = new Blob([reportText], { type: 'text/plain;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        showToast('Submission downloaded successfully!', 'success');
+    }
+
+    // --- 6. CSV EXPORT ENGINE ---
     function exportPortalCSV(portal) {
-        const items = state.data[portal];
+        const items = getFilteredItems(portal);
         if (!items || items.length === 0) {
             showToast('No responses available to export.', 'info');
             return;
         }
 
-        showToast('Preparing CSV report...', 'info');
+        showToast(`Exporting ${items.length} ${portal.toUpperCase()} response(s)...`, 'info');
 
         try {
             // Collect all unique payload keys
@@ -906,7 +1032,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers.push('LCC Council ID', 'LCC Council Name', 'Constituted Year');
             }
 
-            // Append humanized question headers
+            // Append question headers
             payloadKeyList.forEach(k => headers.push(humanizeKey(k)));
 
             // Construct Rows
@@ -974,14 +1100,14 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
 
-            showToast('Report downloaded successfully!', 'success');
+            showToast('CSV Report downloaded successfully!', 'success');
         } catch (err) {
             console.error('[CSV Export] Error:', err);
             showToast('Failed to export CSV report.', 'error');
         }
     }
 
-    // --- 6. TAB SWITCHING ---
+    // --- 7. TAB SWITCHING ---
     function switchTab(targetTab) {
         state.activeTab = targetTab;
 
@@ -1025,6 +1151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         switchTab,
         openDetail: openSubmissionDetail,
         exportCSV: exportPortalCSV,
+        downloadCurrentSubmission,
         clearFilters,
         refresh: loadAllSubmissions
     };

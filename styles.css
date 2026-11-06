@@ -1203,6 +1203,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
 }
 
+.modal-backdrop.active {
+    display: flex !important;
+}
+
 .modal-card {
     background-color: var(--card-bg);
     border-radius: var(--border-radius-lg);

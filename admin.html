@@ -149,7 +149,7 @@
             <div class="dashboard-banner">
                 <div class="banner-content">
                     <span class="portal-tag">Official Management Hub</span>
-                    <h1>Welcome to Google Form Phi</h1>
+                    <h1>Welcome Admin</h1>
                     <p class="banner-subtitle">Your questionnaire responses, organized in one place.</p>
                 </div>
                 <div class="banner-actions">
@@ -352,6 +352,35 @@
                             <button class="btn btn-outline" onclick="window.adminManager.exportCSV('lcc')">
                                 Download Report
                             </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Analytics & Progress Widgets -->
+                <div class="analytics-grid">
+                    <!-- Widget 1: LCC Council Coverage -->
+                    <div class="analytics-card">
+                        <div class="analytics-card-header">
+                            <span class="analytics-card-title">
+                                ⛪ Local Church Responses by LCC
+                            </span>
+                            <span class="analytics-card-badge">9 Councils</span>
+                        </div>
+                        <div id="lcc-progress-list" class="chart-bar-list">
+                            <!-- Populated dynamically with actual database records -->
+                        </div>
+                    </div>
+
+                    <!-- Widget 2: Questionnaire Response Distribution -->
+                    <div class="analytics-card">
+                        <div class="analytics-card-header">
+                            <span class="analytics-card-title">
+                                📊 Response Distribution &amp; Target Progress
+                            </span>
+                            <span class="analytics-card-badge">Target: 76 Units</span>
+                        </div>
+                        <div id="target-progress-list" class="chart-bar-list">
+                            <!-- Populated dynamically with actual database records -->
                         </div>
                     </div>
                 </div>
@@ -619,6 +648,14 @@
                     <h3 id="detail-title">Questionnaire Submission Details</h3>
                 </div>
                 <div class="modal-header-actions">
+                    <button type="button" class="btn btn-sm btn-outline" id="download-detail-btn" onclick="window.adminManager.downloadCurrentSubmission()" title="Download as text/report">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        Download Report
+                    </button>
                     <button type="button" class="btn btn-sm btn-primary" onclick="window.print()">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
                             <polyline points="6 9 6 2 18 2 18 9" />
@@ -657,6 +694,14 @@
 
             <div class="modal-footer no-print">
                 <button type="button" id="dismiss-detail-btn" class="btn btn-outline">&larr; Back to Responses</button>
+                <button type="button" class="btn btn-outline" onclick="window.adminManager.downloadCurrentSubmission()">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Download Report
+                </button>
                 <button type="button" class="btn btn-primary" onclick="window.print()">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="6 9 6 2 18 2 18 9" />
@@ -704,6 +749,7 @@
     <script src="js/data.js"></script>
     <script src="js/common.js"></script>
     <script src="js/supabase-config.js"></script>
+    <script src="js/form-schemas.js"></script>
     <script src="js/admin.js"></script>
 </body>
 
