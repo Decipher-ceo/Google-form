@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="ECWA Umuahia District Church Council - Strategic Planning & Research Response Management Portal for Administrators.">
+    <title>Administrator Response Portal - ECWA Umuahia DCC</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="admin-body">
+    <!-- Top Accent Bar -->
+    <div class="top-accent-bar"></div>
+
+    <!-- App Header -->
+    <header class="app-header">
+        <div class="header-container">
+            <a href="index.html" class="brand-logo" aria-label="Go to Public Portal">
+                <img src="assets/church Logo.jpeg" alt="ECWA Umuahia DCC Logo" class="brand-logo-img">
+                <div class="brand-text">
+                    <span class="brand-title">ECWA Umuahia DCC</span>
+                    <span class="brand-subtitle">Strategic Planning &amp; Research Unit</span>
+                </div>
+            </a>
+
+            <div class="header-actions">
+                <span class="admin-badge">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                    Admin Portal
+                </span>
+
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+
+                <!-- User Session Pill (Shown only when authenticated) -->
+                <div id="admin-user-info" class="admin-user-pill" style="display: none;">
+                    <span id="admin-user-email" class="admin-user-email">admin@ecwa.org</span>
+                    <button id="admin-logout-btn" class="btn btn-sm btn-outline text-danger" title="Sign Out">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                            <polyline points="16 17 21 12 16 7" />
+                            <line x1="21" y1="12" x2="9" y2="12" />
+                        </svg>
+                        Log Out
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content">
+
+        <!-- ==============================================================================
+             VIEW 1: ADMINISTRATOR LOGIN VIEW (When unauthenticated)
+             ============================================================================== -->
+        <section id="admin-login-view" class="admin-login-section">
+            <div class="login-card">
+                <div class="login-header">
+                    <div class="login-icon-wrap">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                    </div>
+                    <h2>Administrator Sign In</h2>
+                    <p>Enter your administrator credentials to access the questionnaire response management dashboard.</p>
+                </div>
+
+                <div id="login-alert" class="alert-box alert-error" style="display: none;"></div>
+
+                <form id="admin-login-form" class="admin-form" novalidate>
+                    <div class="form-group">
+                        <label class="form-label" for="login-email">Administrator Email</label>
+                        <input type="email" id="login-email" class="form-input" placeholder="admin@example.com" required
+                            autocomplete="username">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-label-row">
+                            <label class="form-label" for="login-password">Password</label>
+                            <button type="button" id="forgot-password-link" class="btn-link">Forgot password?</button>
+                        </div>
+                        <input type="password" id="login-password" class="form-input" placeholder="••••••••" required
+                            autocomplete="current-password">
+                    </div>
+
+                    <button type="submit" id="login-submit-btn" class="btn btn-primary btn-block">
+                        Sign In to Dashboard
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                    </button>
+                </form>
+
+                <div class="login-footer">
+                    <p class="login-note">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="16" x2="12" y2="12" />
+                            <line x1="12" y1="8" x2="12.01" y2="8" />
+                        </svg>
+                        Protected administrator zone. Public registration is restricted.
+                    </p>
+                    <a href="index.html" class="back-link">&larr; Return to Public Portal</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================================================
+             VIEW 2: MAIN DASHBOARD VIEW (Shown when authenticated)
+             ============================================================================== -->
+        <section id="admin-dashboard-view" class="admin-dashboard-section" style="display: none;">
+            
+            <!-- Dashboard Welcome Banner -->
+            <div class="dashboard-banner">
+                <div class="banner-content">
+                    <span class="portal-tag">Official Management Hub</span>
+                    <h1>Welcome to Google Form Phi</h1>
+                    <p class="banner-subtitle">Your questionnaire responses, organized in one place.</p>
+                </div>
+                <div class="banner-actions">
+                    <button id="refresh-dashboard-btn" class="btn btn-outline" title="Reload responses from Supabase">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 4 23 10 17 10" />
+                            <polyline points="1 20 1 14 7 14" />
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+                        </svg>
+                        Refresh Data
+                    </button>
+                    <span id="last-updated-time" class="last-updated-text">Updated just now</span>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <nav class="dashboard-tabs" aria-label="Questionnaire Sections">
+                <button class="dash-tab active" data-tab="overview">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" />
+                    </svg>
+                    Overview
+                </button>
+                <button class="dash-tab" data-tab="dcc">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                    DCC Responses
+                    <span id="tab-badge-dcc" class="tab-pill">0</span>
+                </button>
+                <button class="dash-tab" data-tab="lc">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 21h18M5 21V7l7-4 7 4v14M9 14h6M9 18h6M12 7v3" />
+                    </svg>
+                    Local Church (LC)
+                    <span id="tab-badge-lc" class="tab-pill">0</span>
+                </button>
+                <button class="dash-tab" data-tab="lcc">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                    LCC Councils
+                    <span id="tab-badge-lcc" class="tab-pill">0</span>
+                </button>
+            </nav>
+
+            <!-- ================= TAB 1: OVERVIEW ================= -->
+            <div id="tab-content-overview" class="tab-pane active">
+                <!-- Summary Metric Cards -->
+                <div class="metrics-grid">
+                    <div class="metric-card metric-primary">
+                        <div class="metric-icon">📊</div>
+                        <div class="metric-info">
+                            <span class="metric-label">Total Submissions Received</span>
+                            <span id="stat-total-submissions" class="metric-value">0</span>
+                            <span class="metric-subtext">Across all three questionnaires</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">🏛️</div>
+                        <div class="metric-info">
+                            <span class="metric-label">DCC Assessments</span>
+                            <span id="stat-dcc-count" class="metric-value">0</span>
+                            <span class="metric-subtext">Executive district submissions</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">⛪</div>
+                        <div class="metric-info">
+                            <span class="metric-label">Local Church Responses</span>
+                            <span id="stat-lc-count" class="metric-value">0</span>
+                            <span class="metric-subtext">From 66 target churches</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">👥</div>
+                        <div class="metric-info">
+                            <span class="metric-label">LCC Council Responses</span>
+                            <span id="stat-lcc-count" class="metric-value">0</span>
+                            <span class="metric-subtext">From 9 regional councils</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 Large Questionnaire Hub Cards -->
+                <div class="hub-cards-grid">
+                    <!-- DCC Card -->
+                    <div class="hub-card card-rose">
+                        <div class="hub-card-header">
+                            <div class="hub-icon-wrap icon-rose">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                </svg>
+                            </div>
+                            <span class="hub-pill">District Level</span>
+                        </div>
+                        <h3 class="hub-title">DCC Responses</h3>
+                        <p class="hub-desc">District Church Council 22-step strategic baseline assessment responses from
+                            executive leadership.</p>
+
+                        <div class="hub-stats-row">
+                            <div class="hub-stat">
+                                <span class="hub-stat-num" id="hub-dcc-count">0</span>
+                                <span class="hub-stat-lbl">Submissions</span>
+                            </div>
+                            <div class="hub-stat">
+                                <span class="hub-stat-date" id="hub-dcc-last-date">None yet</span>
+                                <span class="hub-stat-lbl">Latest Submission</span>
+                            </div>
+                        </div>
+
+                        <div class="hub-card-actions">
+                            <button class="btn btn-primary" onclick="window.adminManager.switchTab('dcc')">
+                                View DCC Responses &rarr;
+                            </button>
+                            <button class="btn btn-outline" onclick="window.adminManager.exportCSV('dcc')">
+                                Download Report
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LC Card -->
+                    <div class="hub-card card-emerald">
+                        <div class="hub-card-header">
+                            <div class="hub-icon-wrap icon-emerald">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 21h18M5 21V7l7-4 7 4v14M9 14h6M9 18h6M12 7v3" />
+                                </svg>
+                            </div>
+                            <span class="hub-pill">66 Congregations</span>
+                        </div>
+                        <h3 class="hub-title">LC Responses</h3>
+                        <p class="hub-desc">Local Church questionnaire responses from all 66 congregations grouped across 9
+                            Local Church Councils.</p>
+
+                        <div class="hub-stats-row">
+                            <div class="hub-stat">
+                                <span class="hub-stat-num" id="hub-lc-count">0</span>
+                                <span class="hub-stat-lbl">Submissions</span>
+                            </div>
+                            <div class="hub-stat">
+                                <span class="hub-stat-date" id="hub-lc-last-date">None yet</span>
+                                <span class="hub-stat-lbl">Latest Submission</span>
+                            </div>
+                        </div>
+
+                        <div class="hub-card-actions">
+                            <button class="btn btn-primary" onclick="window.adminManager.switchTab('lc')">
+                                View LC Responses &rarr;
+                            </button>
+                            <button class="btn btn-outline" onclick="window.adminManager.exportCSV('lc')">
+                                Download Report
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LCC Card -->
+                    <div class="hub-card card-amber">
+                        <div class="hub-card-header">
+                            <div class="hub-icon-wrap icon-amber">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                </svg>
+                            </div>
+                            <span class="hub-pill">9 Regional Councils</span>
+                        </div>
+                        <h3 class="hub-title">LCC Responses</h3>
+                        <p class="hub-desc">Local Church Council strategic questionnaires from the 9 council secretariats
+                            within the district.</p>
+
+                        <div class="hub-stats-row">
+                            <div class="hub-stat">
+                                <span class="hub-stat-num" id="hub-lcc-count">0</span>
+                                <span class="hub-stat-lbl">Submissions</span>
+                            </div>
+                            <div class="hub-stat">
+                                <span class="hub-stat-date" id="hub-lcc-last-date">None yet</span>
+                                <span class="hub-stat-lbl">Latest Submission</span>
+                            </div>
+                        </div>
+
+                        <div class="hub-card-actions">
+                            <button class="btn btn-primary" onclick="window.adminManager.switchTab('lcc')">
+                                View LCC Responses &rarr;
+                            </button>
+                            <button class="btn btn-outline" onclick="window.adminManager.exportCSV('lcc')">
+                                Download Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Section -->
+                <div class="recent-section">
+                    <div class="section-header-row">
+                        <h3>Recent Submissions</h3>
+                        <span class="subtext">Latest incoming responses from all questionnaires</span>
+                    </div>
+                    <div id="recent-activity-list" class="recent-list">
+                        <div class="empty-state-box">
+                            <div class="empty-icon">📥</div>
+                            <h4>No submissions yet</h4>
+                            <p>As respondents submit questionnaires, their entries will immediately show up here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB 2: DCC RESPONSES ================= -->
+            <div id="tab-content-dcc" class="tab-pane">
+                <div class="portal-panel">
+                    <div class="panel-header">
+                        <div class="panel-title-area">
+                            <h2>District Church Council (DCC) Responses</h2>
+                            <p>Complete strategic assessment submissions for the District Council.</p>
+                        </div>
+                        <div class="panel-actions">
+                            <button class="btn btn-primary" onclick="window.adminManager.exportCSV('dcc')">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg>
+                                Download Report (CSV)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Toolbar Filters -->
+                    <div class="filter-toolbar">
+                        <div class="search-wrap">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            </svg>
+                            <input type="text" id="dcc-search-input" class="filter-input"
+                                placeholder="Search by respondent name, office, or phone...">
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label" for="dcc-sort-select">Sort:</label>
+                            <select id="dcc-sort-select" class="filter-select">
+                                <option value="newest">Newest First</option>
+                                <option value="oldest">Oldest First</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-sm btn-outline" onclick="window.adminManager.clearFilters('dcc')">Clear Filters</button>
+                    </div>
+
+                    <!-- Table Container -->
+                    <div class="table-responsive">
+                        <table class="data-table admin-table" id="dcc-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Respondent Name</th>
+                                    <th>Position / Office</th>
+                                    <th>Contact Phone</th>
+                                    <th>Submission Date</th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dcc-table-body">
+                                <tr>
+                                    <td colspan="6" class="text-center py-4">Loading responses...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination-bar" id="dcc-pagination">
+                        <span class="pagination-info" id="dcc-pagination-info">Showing 0 of 0</span>
+                        <div class="pagination-buttons">
+                            <button class="btn btn-sm btn-outline" id="dcc-prev-btn" disabled>&larr; Previous</button>
+                            <button class="btn btn-sm btn-outline" id="dcc-next-btn" disabled>Next &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB 3: LOCAL CHURCH (LC) RESPONSES ================= -->
+            <div id="tab-content-lc" class="tab-pane">
+                <div class="portal-panel">
+                    <div class="panel-header">
+                        <div class="panel-title-area">
+                            <h2>Local Church (LC) Responses</h2>
+                            <p>Questionnaire responses from the 66 local church congregations across 9 LCCs.</p>
+                        </div>
+                        <div class="panel-actions">
+                            <button class="btn btn-primary" onclick="window.adminManager.exportCSV('lc')">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg>
+                                Download Report (CSV)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Toolbar Filters -->
+                    <div class="filter-toolbar">
+                        <div class="search-wrap">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            </svg>
+                            <input type="text" id="lc-search-input" class="filter-input"
+                                placeholder="Search by church name, pastor, or council...">
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label" for="lc-filter-lcc">LCC Council:</label>
+                            <select id="lc-filter-lcc" class="filter-select">
+                                <option value="">All 9 LCC Councils</option>
+                                <option value="Bende LCC">Bende LCC</option>
+                                <option value="Ibeku LCC">Ibeku LCC</option>
+                                <option value="Item LCC">Item LCC</option>
+                                <option value="Etiti LCC">Etiti LCC</option>
+                                <option value="Mbano LCC">Mbano LCC</option>
+                                <option value="Ohafia LCC">Ohafia LCC</option>
+                                <option value="Ohuhu LCC">Ohuhu LCC</option>
+                                <option value="Olokoro LCC">Olokoro LCC</option>
+                                <option value="Owerri LCC">Owerri LCC</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label" for="lc-sort-select">Sort:</label>
+                            <select id="lc-sort-select" class="filter-select">
+                                <option value="newest">Newest First</option>
+                                <option value="oldest">Oldest First</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-sm btn-outline" onclick="window.adminManager.clearFilters('lc')">Clear Filters</button>
+                    </div>
+
+                    <!-- Table Container -->
+                    <div class="table-responsive">
+                        <table class="data-table admin-table" id="lc-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Local Church Congregation</th>
+                                    <th>Local Council (LCC)</th>
+                                    <th>Resident Pastor</th>
+                                    <th>State</th>
+                                    <th>Submission Date</th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lc-table-body">
+                                <tr>
+                                    <td colspan="7" class="text-center py-4">Loading responses...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination-bar" id="lc-pagination">
+                        <span class="pagination-info" id="lc-pagination-info">Showing 0 of 0</span>
+                        <div class="pagination-buttons">
+                            <button class="btn btn-sm btn-outline" id="lc-prev-btn" disabled>&larr; Previous</button>
+                            <button class="btn btn-sm btn-outline" id="lc-next-btn" disabled>Next &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB 4: LCC COUNCIL RESPONSES ================= -->
+            <div id="tab-content-lcc" class="tab-pane">
+                <div class="portal-panel">
+                    <div class="panel-header">
+                        <div class="panel-title-area">
+                            <h2>Local Church Council (LCC) Responses</h2>
+                            <p>Strategic assessments from the 9 Local Church Councils.</p>
+                        </div>
+                        <div class="panel-actions">
+                            <button class="btn btn-primary" onclick="window.adminManager.exportCSV('lcc')">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg>
+                                Download Report (CSV)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Toolbar Filters -->
+                    <div class="filter-toolbar">
+                        <div class="search-wrap">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            </svg>
+                            <input type="text" id="lcc-search-input" class="filter-input"
+                                placeholder="Search by council name or details...">
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label" for="lcc-sort-select">Sort:</label>
+                            <select id="lcc-sort-select" class="filter-select">
+                                <option value="newest">Newest First</option>
+                                <option value="oldest">Oldest First</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-sm btn-outline" onclick="window.adminManager.clearFilters('lcc')">Clear Filters</button>
+                    </div>
+
+                    <!-- Table Container -->
+                    <div class="table-responsive">
+                        <table class="data-table admin-table" id="lcc-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>LCC Council Name</th>
+                                    <th>Constituted Year</th>
+                                    <th>Total Churches (Reported)</th>
+                                    <th>Submission Date</th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lcc-table-body">
+                                <tr>
+                                    <td colspan="6" class="text-center py-4">Loading responses...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination-bar" id="lcc-pagination">
+                        <span class="pagination-info" id="lcc-pagination-info">Showing 0 of 0</span>
+                        <div class="pagination-buttons">
+                            <button class="btn btn-sm btn-outline" id="lcc-prev-btn" disabled>&larr; Previous</button>
+                            <button class="btn btn-sm btn-outline" id="lcc-next-btn" disabled>Next &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ==============================================================================
+         MODAL 1: INDIVIDUAL RESPONSE DETAIL VIEWER & PRINTABLE REPORT
+         ============================================================================== -->
+    <div id="detail-modal" class="modal-backdrop" aria-hidden="true">
+        <div class="modal-card modal-large print-target">
+            <div class="modal-header no-print">
+                <div class="modal-title-group">
+                    <span id="detail-badge" class="church-badge">Submission</span>
+                    <h3 id="detail-title">Questionnaire Submission Details</h3>
+                </div>
+                <div class="modal-header-actions">
+                    <button type="button" class="btn btn-sm btn-primary" onclick="window.print()">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 6 2 18 2 18 9" />
+                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                            <rect x="6" y="14" width="12" height="8" />
+                        </svg>
+                        Print / Save PDF
+                    </button>
+                    <button type="button" id="close-detail-modal-btn" class="close-btn" aria-label="Close Viewer">&times;</button>
+                </div>
+            </div>
+
+            <!-- Print-Only Header -->
+            <div class="print-only-header">
+                <div class="print-brand-row">
+                    <img src="assets/church Logo.jpeg" alt="Logo" class="print-logo">
+                    <div>
+                        <h2>ECWA UMUAHIA DISTRICT CHURCH COUNCIL</h2>
+                        <p>Strategic Planning &amp; Research Portal &mdash; Official Questionnaire Submission Record</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="modal-body">
+                <!-- Summary Card -->
+                <div id="detail-summary-card" class="detail-summary-card">
+                    <!-- Populated dynamically -->
+                </div>
+
+                <!-- Structured Question & Answer Sections -->
+                <div id="detail-sections-container" class="detail-sections">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <div class="modal-footer no-print">
+                <button type="button" id="dismiss-detail-btn" class="btn btn-outline">&larr; Back to Responses</button>
+                <button type="button" class="btn btn-primary" onclick="window.print()">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9" />
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                        <rect x="6" y="14" width="12" height="8" />
+                    </svg>
+                    Print / Save PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================================================
+         MODAL 2: PASSWORD RESET ASSISTANCE MODAL
+         ============================================================================== -->
+    <div id="forgot-modal" class="modal-backdrop" aria-hidden="true">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Reset Administrator Password</h3>
+                <button type="button" id="close-forgot-modal-btn" class="close-btn" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your administrator email address below. A password reset link will be sent to your inbox.</p>
+                <div class="form-group" style="margin-top: 16px;">
+                    <label class="form-label" for="reset-email">Registered Administrator Email</label>
+                    <input type="email" id="reset-email" class="form-input" placeholder="admin@example.com">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="cancel-forgot-btn" class="btn btn-outline">Cancel</button>
+                <button type="button" id="send-reset-btn" class="btn btn-primary">Send Reset Link</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer no-print">
+        <div class="footer-container">
+            <p>&copy; 2026 ECWA Umuahia District Church Council. Strategic Planning &amp; Research Unit.</p>
+        </div>
+    </footer>
+
+    <!-- Shared Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/data.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
