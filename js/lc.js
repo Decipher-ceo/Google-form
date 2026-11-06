@@ -298,20 +298,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Submit Local Church Questionnaire ---
-    function submitLCForm() {
+    async function submitLCForm() {
         if (!validateAllSteps()) return;
         const formData = new FormData(surveyForm);
         const data = Object.fromEntries(formData.entries());
         data.church_name = selectedChurch ? selectedChurch.rawName : 'Unknown Church';
         data.lcc_name = selectedChurch ? selectedChurch.lccName : '';
+        data.church_id = selectedChurch ? String(selectedChurch.id) : (data.church_id || '');
         data.submitted_at = new Date().toISOString();
 
-        // Webhook URL check
+        // Prevent double submissions
+        if (nextStepBtn) {
+            nextStepBtn.disabled = true;
+            nextStepBtn.style.opacity = '0.7';
+            nextStepBtn.innerHTML = `Submitting... <span class="spinner" style="display:inline-block;animation:spin 1s linear infinite;">⏳</span>`;
+        }
+
+        // 1. Primary Destination: Supabase Backend
+        if (window.supabaseManager && window.supabaseManager.isReady) {
+            showToast('Submitting LC Questionnaire to Supabase database...', 'info');
+            try {
+                const res = await window.supabaseManager.submitLCQuestionnaire(selectedChurch, data);
+                if (res.success) {
+                    showToast('LC Questionnaire recorded successfully in Supabase database!', 'success');
+                    finishSubmission();
+                    return;
+                } else {
+                    console.warn('[LC Form] Supabase submission failed:', res.error);
+                    showToast('Database write failed. Preserving response in local storage backup...', 'error');
+                    saveLocally(data, true);
+                    return;
+                }
+            } catch (err) {
+                console.error('[LC Form] Unexpected submission error:', err);
+                showToast('Connection error. Preserving response in local storage backup...', 'error');
+                saveLocally(data, true);
+                return;
+            } finally {
+                if (nextStepBtn) {
+                    nextStepBtn.disabled = false;
+                    nextStepBtn.style.opacity = '1';
+                }
+            }
+        }
+
+        // 2. Secondary Destination: Configured Webhook (if any)
         const endpointUrl = localStorage.getItem('webhookEndpointUrl');
-
-        showToast('Submitting LC Questionnaire response...', 'info');
-
         if (endpointUrl) {
+            showToast('Submitting to configured Data Collector Webhook...', 'info');
             fetch(endpointUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -319,23 +353,38 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(res => res.json())
             .then(() => {
-                showToast('Submission successful! Sent to Data Collector.', 'success');
+                showToast('LC Questionnaire submitted to Webhook successfully!', 'success');
                 finishSubmission();
             })
             .catch(err => {
                 console.warn('Webhook error, saved locally:', err);
-                saveLocally(data);
+                saveLocally(data, true);
+            })
+            .finally(() => {
+                if (nextStepBtn) {
+                    nextStepBtn.disabled = false;
+                    nextStepBtn.style.opacity = '1';
+                }
             });
-        } else {
-            saveLocally(data);
+            return;
         }
+
+        // 3. Fallback: Local Storage (when Supabase is unconfigured and no webhook is set)
+        if (nextStepBtn) {
+            nextStepBtn.disabled = false;
+            nextStepBtn.style.opacity = '1';
+        }
+        showToast('Supabase unconfigured. Saved to browser local storage.', 'info');
+        saveLocally(data, false);
     }
 
-    function saveLocally(data) {
+    function saveLocally(data, isFallback = false) {
         const saved = JSON.parse(localStorage.getItem('lc_questionnaire_submissions') || '[]');
         saved.push(data);
         localStorage.setItem('lc_questionnaire_submissions', JSON.stringify(saved));
-        showToast('Questionnaire saved locally!', 'success');
+        if (isFallback) {
+            showToast('Saved to browser local storage backup (not yet synced to Supabase).', 'warning');
+        }
         finishSubmission();
     }
 
