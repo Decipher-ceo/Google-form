@@ -237,4 +237,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize UI
     updateStepUI(1);
+
+    // Auto-sync any previously saved responses from local storage to Supabase
+    if (window.supabaseManager && typeof window.supabaseManager.syncPendingSubmissions === 'function') {
+        window.supabaseManager.syncPendingSubmissions().then(res => {
+            if (res && res.synced > 0) {
+                showToast(`${res.synced} previously saved response(s) synced to database!`, 'success');
+            }
+        }).catch(err => console.debug('[Sync Check]', err));
+    }
 });
