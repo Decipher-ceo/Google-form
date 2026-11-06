@@ -9,7 +9,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- 2. Forms Registry Table (Parent definition for DCC, LC, LCC)
 CREATE TABLE IF NOT EXISTS public.forms (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     slug TEXT UNIQUE NOT NULL,
     title TEXT NOT NULL,
     description TEXT,
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS public.forms (
 
 -- 3. DCC Submissions Table (Executive 22-step DCC Strategic Assessment)
 CREATE TABLE IF NOT EXISTS public.dcc_submissions (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     form_id UUID REFERENCES public.forms(id) ON DELETE SET NULL,
     form_type TEXT DEFAULT 'DCC Strategic Assessment' NOT NULL,
     respondent_name TEXT NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS public.dcc_submissions (
 
 -- 4. LC Submissions Table (11-section Local Church Questionnaire for all 66 Churches)
 CREATE TABLE IF NOT EXISTS public.lc_submissions (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     form_id UUID REFERENCES public.forms(id) ON DELETE SET NULL,
     form_type TEXT DEFAULT 'Local Church Questionnaire' NOT NULL,
     church_id TEXT,
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS public.lc_submissions (
 
 -- 5. LCC Submissions Table (10-section LCC Questionnaire for 9 Councils)
 CREATE TABLE IF NOT EXISTS public.lcc_submissions (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     form_id UUID REFERENCES public.forms(id) ON DELETE SET NULL,
     form_type TEXT DEFAULT 'LCC Questionnaire' NOT NULL,
     lcc_council_id TEXT,
